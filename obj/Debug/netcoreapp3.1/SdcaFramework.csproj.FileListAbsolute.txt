@@ -106,6 +106,4 @@ C:\Users\Vika Zinchenko\source\repos\SdcaFramework\obj\Debug\netcoreapp3.1\SdcaF
 C:\Users\Vika Zinchenko\source\repos\SdcaFramework\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Vika Zinchenko\source\repos\SdcaFramework\bin\Debug\netcoreapp3.1\nunit.framework.dll
 C:\Users\Vika Zinchenko\source\repos\SdcaFramework\obj\Debug\netcoreapp3.1\SdcaFramework.csprojAssemblyReference.cache
-C:\Users\Vika Zinchenko\source\repos\SdcaFramework\bin\Debug\netcoreapp3.1\NLog.dll
-C:\Users\Vika Zinchenko\source\repos\SdcaFramework\bin\Debug\netcoreapp3.1\NLog.config
 C:\Users\Vika Zinchenko\source\repos\SdcaFramework\obj\Debug\netcoreapp3.1\SdcaFramework.csproj.CoreCompileInputs.cache

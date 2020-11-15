@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7CqvPezGv/FQ6uxZgoj8p0yXmyhWW2DO/4hPqE04aRl/NNHfu4QBudwgbCy7EQvHy8CILMPQbUKABXo1gZtonw==",
+  "dgSpecHash": "/uBaGSeEcNiAUcjIcJlisifZQ1vAeV8J07IYtIdaX1Derojlg6a9EYocoTgADgfslaOFlJidjLr/Q6/nnx931w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Vika Zinchenko\\source\\repos\\SdcaFramework\\SdcaFramework.csproj",
   "expectedPackageFiles": [
@@ -20,9 +20,6 @@
     "C:\\Users\\Vika Zinchenko\\.nuget\\packages\\mstest.testframework\\2.1.0\\mstest.testframework.2.1.0.nupkg.sha512",
     "C:\\Users\\Vika Zinchenko\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
-    "C:\\Users\\Vika Zinchenko\\.nuget\\packages\\nlog\\4.7.5\\nlog.4.7.5.nupkg.sha512",
-    "C:\\Users\\Vika Zinchenko\\.nuget\\packages\\nlog.config\\4.7.5\\nlog.config.4.7.5.nupkg.sha512",
-    "C:\\Users\\Vika Zinchenko\\.nuget\\packages\\nlog.schema\\4.7.5\\nlog.schema.4.7.5.nupkg.sha512",
     "C:\\Users\\Vika Zinchenko\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
     "C:\\Users\\Vika Zinchenko\\.nuget\\packages\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
     "C:\\Users\\Vika Zinchenko\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512",

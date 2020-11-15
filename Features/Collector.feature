@@ -8,7 +8,7 @@ Scenario: Add collector and check it presence in the list
 	When I get the list of collectors
 	Then I can see the created collector in the list
 
-@Bug.Fail
+@Bug.Fail.4
 Scenario: Modify collector and check the changes
 	Given I have modified the collector with the following parameters
 		| id | nickname    | fearFactor |
@@ -30,6 +30,7 @@ Scenario: Try to delete the removed collector
 	When I delete a collector by last id
 	Then the system did not find the collector data with this id when trying to delete it
 
+	@Bug.Fail.10
 	Scenario: Create collector, student, debt, appointment and check appointment connection with collector
 	Given I have added a collector with the following parameters
 		| nickname | fearFactor |

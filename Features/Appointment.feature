@@ -1,6 +1,7 @@
 ﻿Feature: Appointment
 As a user I want to add appointment data to database, read and modify it
 
+	@Bug.Fail.10
 Scenario: Add appointment and check it presence in the list
 	Given I have added an appointment with the following parameters
 		| collectorIds | debtId | appointmentDate                  |
@@ -8,6 +9,7 @@ Scenario: Add appointment and check it presence in the list
 	When I get the list of appointments
 	Then I can see the created appointment in the list
 
+	@Bug.Fail.10
 Scenario: Get appointment by id
 	Given I have added an appointment with the following parameters
 		| collectorIds | debtId | appointmentDate                  |
@@ -29,6 +31,7 @@ Scenario: Try to delete the removed appointment
 	When I delete an appointment by last id
 	Then the system did not find the appointment data with this id when trying to delete it
 
+	@Bug.Fail.10
 Scenario: Create collector, student, debt, appointment and check created appointment
 	Given I have added a collector with the following parameters
 		| nickname | fearFactor |

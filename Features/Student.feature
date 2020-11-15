@@ -1,7 +1,7 @@
 ﻿Feature: Student
 As a user I want to add student data to database, read and modify it
 
-  @Bug.Fail
+  @Bug.Fail.5
 Scenario: Add student and check it presence in the list
 	Given I have added a student with the following parameters
 	| name     | age | sex  | risk |
@@ -9,7 +9,7 @@ Scenario: Add student and check it presence in the list
   When I get the list of students
   Then I can see the created student in the list
 
-  @Bug.Fail
+  @Bug.Fail.5
   Scenario: Modify student and check the changes
 	Given I have modified the student with the following parameters
 	| id | name | age | sex | risk |
@@ -17,7 +17,6 @@ Scenario: Add student and check it presence in the list
   When I get a student data by 1 id
   Then the student data were modified correctly 
 
-    @Bug.Fail
 Scenario: Delete student and check its absence
 	Given I have added a student with the following parameters
 	| name     | age | sex  | risk |
@@ -25,7 +24,6 @@ Scenario: Delete student and check its absence
 	When I delete a student by last id
 	Then the system did not find the student data with this id
 
-	@Bug.Fail
 Scenario: Try to delete the removed student
 	Given I have added a student with the following parameters
 	| name     | age | sex  | risk |
@@ -33,6 +31,7 @@ Scenario: Try to delete the removed student
 	When I delete a student by last id
 	Then the system did not find the student data with this id when trying to delete it
 
+	  @Bug.Fail.5
 	Scenario: Create collector, student, debt, appointment and check debt connection with student
 	Given I have added a collector with the following parameters
 		| nickname | fearFactor |

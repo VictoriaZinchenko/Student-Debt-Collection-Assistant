@@ -12,17 +12,6 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
-  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <None Include="$(NuGetPackageRoot)nlog.config\4.7.5\contentFiles\any\any\NLog.config" Condition="Exists('$(NuGetPackageRoot)nlog.config\4.7.5\contentFiles\any\any\NLog.config')">
-      <NuGetPackageId>NLog.Config</NuGetPackageId>
-      <NuGetPackageVersion>4.7.5</NuGetPackageVersion>
-      <NuGetItemType>None</NuGetItemType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>NLog.config</TargetPath>
-      <Private>True</Private>
-      <Link>NLog.config</Link>
-    </None>
-  </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)specflow.tools.msbuild.generation\3.4.14\build\SpecFlow.Tools.MsBuild.Generation.props" Condition="Exists('$(NuGetPackageRoot)specflow.tools.msbuild.generation\3.4.14\build\SpecFlow.Tools.MsBuild.Generation.props')" />
     <Import Project="$(NuGetPackageRoot)specflow.mstest\3.4.14\build\SpecFlow.MsTest.props" Condition="Exists('$(NuGetPackageRoot)specflow.mstest\3.4.14\build\SpecFlow.MsTest.props')" />
@@ -34,7 +23,6 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgBoDi Condition=" '$(PkgBoDi)' == '' ">C:\Users\Vika Zinchenko\.nuget\packages\bodi\1.4.1</PkgBoDi>
-    <PkgNLog_Config Condition=" '$(PkgNLog_Config)' == '' ">C:\Users\Vika Zinchenko\.nuget\packages\nlog.config\4.7.5</PkgNLog_Config>
     <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Program Files\dotnet\sdk\NuGetFallbackFolder\newtonsoft.json\9.0.1</PkgNewtonsoft_Json>
   </PropertyGroup>
 </Project>
