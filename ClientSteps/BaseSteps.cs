@@ -33,7 +33,7 @@ namespace SdcaFramework.ClientSteps
             => ExecuteRequest(Method.GET, 0, null, id.ToString()).StatusCode;
 
         protected HttpStatusCode GetStatusCodeForDeleteAction(int id)
-      => ExecuteRequest(Method.DELETE, 0, null, id.ToString()).StatusCode;
+            => ExecuteRequest(Method.DELETE, 0, null, id.ToString()).StatusCode;
 
         private IRestResponse ExecuteRequest(Method method, HttpStatusCode expectedStatusCode, object body = null, string objectId = "")
         {

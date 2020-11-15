@@ -32,3 +32,20 @@ Scenario: Try to delete the removed student
 	| Poor guy | 17  | true | 5    |
 	When I delete a student by last id
 	Then the system did not find the student data with this id when trying to delete it
+
+	Scenario: Create collector, student, debt, appointment and check debt connection with student
+	Given I have added a collector with the following parameters
+		| nickname | fearFactor |
+		| Fear Man | 1          |
+	And I have added a student with the following parameters
+		| name     | age | sex  | risk |
+		| Poor guy | 17  | true | 1    |
+	And I have added a debt with the following parameters
+		| studentId | amount | monthlyPercent |
+		| last      | 170    | 10             |
+	And I have added an appointment with the following parameters
+		| collectorIds | debtId | appointmentDate                  |
+		| last         | last   | 2020-12-09T14:30:00.000000+02:00 |
+	Then the debt data with last id is connected with the following student
+		| name     | age | sex  | risk |
+		| Poor guy | 17  | true | 1    |

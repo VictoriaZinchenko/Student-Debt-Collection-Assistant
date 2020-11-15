@@ -6,7 +6,7 @@ namespace SdcaFramework.Clients
     {
         public int id { get; set; }
         public string name { get; set; }
-        public int age { get; set; }
+        public Int64 age { get; set; }
         public bool sex { get; set; }
         public int risk { get; set; }
 

@@ -16,26 +16,26 @@ namespace SdcaFramework.Steps
             if (part.Equals(SdcaParts.collector))
             {
                 new CollectorSteps().CreateCollector(Transformations.GetCollectorCreator(table));
-                ScenarioContext.Current.Set<Collector>(new CollectorSteps()
-                    .GetCollectorById(new CollectorSteps().LastCollectorId), "expectedObject");
+                ScenarioContext.Current.Set<Collector>(
+                    Transformations.GetCollectorBasedOnCollectorCreator(Transformations.GetCollectorCreator(table)), "expectedObject");
             }
-            else if(part.Equals(SdcaParts.appointment))
+            else if (part.Equals(SdcaParts.appointment))
             {
                 new AppointmentSteps().CreateAppointment(Transformations.GetAppointmentCreator(table));
-                ScenarioContext.Current.Set<Appointment>(new AppointmentSteps()
-                    .GetAppointmentById(new AppointmentSteps().LastAppointmentId), "expectedObject");
+                ScenarioContext.Current.Set<Appointment>(
+                    Transformations.GetAppointmentBasedOnAppointmentCreator(Transformations.GetAppointmentCreator(table)), "expectedObject");
             }
             else if (part.Equals(SdcaParts.debt))
             {
                 new DebtSteps().CreateDebt(Transformations.GetDebtCreator(table));
-                ScenarioContext.Current.Set<Debt>(new DebtSteps()
-                    .GetDebtById(new DebtSteps().LastDebtId), "expectedObject");
+                ScenarioContext.Current.Set<Debt>(
+                    Transformations.GetDebtBasedOnDebtCreator(Transformations.GetDebtCreator(table)), "expectedObject");
             }
             else if (part.Equals(SdcaParts.student))
             {
                 new StudentSteps().CreateStudent(Transformations.GetStudentCreator(table));
-                ScenarioContext.Current.Set<Student>(new StudentSteps()
-                    .GetStudentById(new StudentSteps().LastStudentId), "expectedObject");
+                ScenarioContext.Current.Set<Student>(
+                    Transformations.GetStudentBasedOnStudentCreator(Transformations.GetStudentCreator(table)), "expectedObject");
             }
         }
 
@@ -80,6 +80,5 @@ namespace SdcaFramework.Steps
                 ScenarioContext.Current.Set<Student>(student, "expectedModifiedObject");
             }
         }
-
     }
 }

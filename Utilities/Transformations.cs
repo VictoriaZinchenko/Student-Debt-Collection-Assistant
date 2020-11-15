@@ -1,5 +1,6 @@
 ﻿using SdcaFramework.Clients;
 using SdcaFramework.Clients.Creators;
+using SdcaFramework.ClientSteps;
 using System;
 using System.Linq;
 using TechTalk.SpecFlow;
@@ -40,8 +41,9 @@ namespace SdcaFramework.Utilities
             return table.Rows.Select(row => new AppointmentCreator
             {
                 appointmentDate = row["appointmentDate"],
-                collectorIds = row["collectorIds"].Replace(", ", ",").Split(',').ToList().Select(id => Int32.Parse(id)).ToArray(),
-                debtId = Int32.Parse(row["debtId"])
+                collectorIds = row["collectorIds"] == "last" ? new int[] { new CollectorSteps().LastCollectorId } :
+                row["collectorIds"].Replace(", ", ",").Split(',').ToList().Select(id => Int32.Parse(id)).ToArray(),
+                debtId = row["debtId"] == "last" ? new DebtSteps().LastDebtId : Int32.Parse(row["debtId"]),
             }).FirstOrDefault();
         }
 
@@ -64,7 +66,7 @@ namespace SdcaFramework.Utilities
             {
                 amount = Double.Parse(row["amount"]),
                 monthlyPercent = Double.Parse(row["monthlyPercent"]),
-                studentId = Int32.Parse(row["studentId"])
+                studentId = row["studentId"] == "last" ? new StudentSteps().LastStudentId : Int32.Parse(row["studentId"]),
             }).FirstOrDefault();
         }
 
@@ -85,7 +87,7 @@ namespace SdcaFramework.Utilities
         {
             return table.Rows.Select(row => new StudentCreator
             {
-                age = Int32.Parse(row["age"]),
+                age = Int64.Parse(row["age"]),
                 name = row["name"],
                 risk = Int32.Parse(row["risk"]),
                 sex = Boolean.Parse(row["sex"])
@@ -98,11 +100,59 @@ namespace SdcaFramework.Utilities
             return table.Rows.Select(row => new Student
             {
                 id = Int32.Parse(row["id"]),
-                age = Int32.Parse(row["age"]),
+                age = Int64.Parse(row["age"]),
                 name = row["name"],
                 risk = Int32.Parse(row["risk"]),
                 sex = Boolean.Parse(row["sex"])
             }).FirstOrDefault();
+        }
+
+        internal Collector GetCollectorBasedOnCollectorCreator(CollectorCreator creator, bool IsNewCreatedOne = true)
+        {
+            int lastId = new CollectorSteps().LastCollectorId;
+            return (new Collector
+            {
+                id = IsNewCreatedOne == true ? lastId : lastId + 1,
+                nickname = creator.nickname,
+                fearFactor = creator.fearFactor
+            });
+        }
+
+        internal Appointment GetAppointmentBasedOnAppointmentCreator(AppointmentCreator creator, bool IsNewCreatedOne = true)
+        {
+            int lastId = new AppointmentSteps().LastAppointmentId;
+            return (new Appointment
+            {
+                id = IsNewCreatedOne == true ? lastId : lastId + 1,
+                appointmentDate = creator.appointmentDate,
+                collectorIds = creator.collectorIds,
+                debtId = creator.debtId
+            });
+        }
+
+        internal Debt GetDebtBasedOnDebtCreator(DebtCreator creator, bool IsNewCreatedOne = true)
+        {
+            int lastId = new DebtSteps().LastDebtId;
+            return (new Debt
+            {
+                id = IsNewCreatedOne == true ? lastId : lastId + 1,
+                amount = creator.amount,
+                monthlyPercent = creator.monthlyPercent,
+                studentId = creator.studentId
+            });
+        }
+
+        internal Student GetStudentBasedOnStudentCreator(StudentCreator creator, bool IsNewCreatedOne = true)
+        {
+            int lastId = new StudentSteps().LastStudentId;
+            return (new Student
+            {
+                id = IsNewCreatedOne == true ? lastId : lastId + 1,
+                age = creator.age,
+                name = creator.name,
+                risk = creator.risk,
+                sex = creator.sex
+            });
         }
     }
 }

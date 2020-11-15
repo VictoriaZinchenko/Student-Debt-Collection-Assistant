@@ -48,8 +48,9 @@ namespace SdcaFramework.Features
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Debt", "As a user I want to add debt data to database, read and modify it\r\nI want automat" +
-                    "ically calculate current debt amount based on current date and monthly rate", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Debt", "As a user I want to add debt data to database, read and modify it\r\nI want to get " +
+                    "automatically recalculated current debt amount based on current date and monthly" +
+                    " rate", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -120,16 +121,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                             "studentId",
                             "amount",
                             "monthlyPercent"});
-                table10.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "1",
                             "170",
                             "10"});
 #line 6
- testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table10, "Given ");
+ testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table18, "Given ");
 #line hidden
 #line 9
   testRunner.When("I get the list of debts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -169,16 +170,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
                             "studentId",
                             "amount",
                             "monthlyPercent"});
-                table11.AddRow(new string[] {
+                table19.AddRow(new string[] {
                             "1",
                             "170",
                             "10"});
 #line 13
- testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table11, "Given ");
+ testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table19, "Given ");
 #line hidden
 #line 16
   testRunner.When("I get a debt data by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -218,22 +219,22 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
                             "studentId",
                             "amount",
                             "monthlyPercent"});
-                table12.AddRow(new string[] {
+                table20.AddRow(new string[] {
                             "1",
                             "170",
                             "10"});
 #line 20
- testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table12, "Given ");
+ testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table20, "Given ");
 #line hidden
 #line 23
  testRunner.When("I delete a debt by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 24
- testRunner.Then("the system did not find the debt data with 3 id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the system did not find the debt data with this id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -248,7 +249,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to delete the removed debt", null, tagsOfScenario, argumentsOfScenario);
 #line 26
-   this.ScenarioInitialize(scenarioInfo);
+ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -267,22 +268,152 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
                             "studentId",
                             "amount",
                             "monthlyPercent"});
-                table13.AddRow(new string[] {
+                table21.AddRow(new string[] {
                             "1",
                             "170",
                             "10"});
 #line 27
- testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table13, "Given ");
+ testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table21, "Given ");
 #line hidden
 #line 30
  testRunner.When("I delete a debt by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 31
- testRunner.Then("the system did not find the debt data with 3 id when trying to delete it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the system did not find the debt data with this id when trying to delete it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check recalculated debt amount")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Debt")]
+        public virtual void CheckRecalculatedDebtAmount()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check recalculated debt amount", null, tagsOfScenario, argumentsOfScenario);
+#line 33
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 34
+ testRunner.Given("I have got a debt data by 0 id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 35
+ testRunner.When("I get a debt data by 0 id again", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 36
+ testRunner.Then("the debt amount is recalculated correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create collector, student, debt, appointment and check appointment connection wit" +
+            "h debt")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Debt")]
+        public virtual void CreateCollectorStudentDebtAppointmentAndCheckAppointmentConnectionWithDebt()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create collector, student, debt, appointment and check appointment connection wit" +
+                    "h debt", null, tagsOfScenario, argumentsOfScenario);
+#line 38
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                            "nickname",
+                            "fearFactor"});
+                table22.AddRow(new string[] {
+                            "Fear Man",
+                            "1"});
+#line 39
+ testRunner.Given("I have added a collector with the following parameters", ((string)(null)), table22, "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                            "name",
+                            "age",
+                            "sex",
+                            "risk"});
+                table23.AddRow(new string[] {
+                            "Poor guy",
+                            "17",
+                            "true",
+                            "1"});
+#line 42
+ testRunner.And("I have added a student with the following parameters", ((string)(null)), table23, "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
+                            "studentId",
+                            "amount",
+                            "monthlyPercent"});
+                table24.AddRow(new string[] {
+                            "last",
+                            "170",
+                            "10"});
+#line 45
+ testRunner.And("I have added a debt with the following parameters", ((string)(null)), table24, "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+                            "collectorIds",
+                            "debtId",
+                            "appointmentDate"});
+                table25.AddRow(new string[] {
+                            "last",
+                            "last",
+                            "2020-12-09T14:30:00.000000+02:00"});
+#line 48
+ testRunner.And("I have added an appointment with the following parameters", ((string)(null)), table25, "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
+                            "studentId",
+                            "amount",
+                            "monthlyPercent"});
+                table26.AddRow(new string[] {
+                            "last",
+                            "170",
+                            "10"});
+#line 51
+ testRunner.Then("the appointment data with last id is connected with the following debt", ((string)(null)), table26, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace SdcaFramework.Clients
 {
@@ -11,7 +12,7 @@ namespace SdcaFramework.Clients
 
         protected bool Equals(Appointment other) 
             => id == other.id && debtId == other.debtId
-            && collectorIds.Equals(other.collectorIds)
+            && Enumerable.SequenceEqual(collectorIds, other.collectorIds)
             && appointmentDate.Equals(other.appointmentDate);
 
 

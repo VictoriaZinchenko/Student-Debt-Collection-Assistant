@@ -29,3 +29,20 @@ Scenario: Try to delete the removed collector
 		| Fear Man | 1          |
 	When I delete a collector by last id
 	Then the system did not find the collector data with this id when trying to delete it
+
+	Scenario: Create collector, student, debt, appointment and check appointment connection with collector
+	Given I have added a collector with the following parameters
+		| nickname | fearFactor |
+		| Fear Man | 1          |
+	And I have added a student with the following parameters
+		| name     | age | sex  | risk |
+		| Poor guy | 17  | true | 1    |
+	And I have added a debt with the following parameters
+		| studentId | amount | monthlyPercent |
+		| last      | 170    | 10             |
+	And I have added an appointment with the following parameters
+		| collectorIds | debtId | appointmentDate                  |
+		| last         | last   | 2020-12-09T14:30:00.000000+02:00 |
+    Then the appointment data with last id is connected with the following collector
+		| nickname | fearFactor |
+		| Fear Man | 1          |

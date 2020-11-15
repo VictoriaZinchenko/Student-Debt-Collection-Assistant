@@ -30,27 +30,40 @@ namespace SdcaFramework.Steps
             }
         }
 
-        [Given(@"I have got a(?:n)? (appointment|collector|debt|student) data by (.*) id( again)?")]
-        [When(@"I get a(?:n)? (appointment|collector|debt|student) data by (.*) id( again)?")]
-        public void WhenIGetADataById(SdcaParts part, string id)
+        [Given(@"I have got a(?:n)? (appointment|collector|debt|student) data by (.*) id( again)*")]
+        [When(@"I get a(?:n)? (appointment|collector|debt|student) data by (.*) id( again)*")]
+        public void WhenIGetADataById(SdcaParts part, string id, string repeatedAction)
+        {
+            if(repeatedAction != null && repeatedAction != string.Empty)
+            {
+                GetDataById(part, id, "actualObject№2");
+            }
+            else
+            {
+                GetDataById(part, id);
+            }
+        }
+
+        public void GetDataById(SdcaParts part, string id, string key = "actualObject")
         {
             int neededId = GetNeededId(id, part);
 
             if (part.Equals(SdcaParts.collector))
             {
-                ScenarioContext.Current.Set<Collector>(new CollectorSteps().GetCollectorById(neededId), "actualObject");
+                ScenarioContext.Current.Set<Collector>(new CollectorSteps().GetCollectorById(neededId), key);
             }
             else if (part.Equals(SdcaParts.appointment))
             {
-                ScenarioContext.Current.Set<Appointment>(new AppointmentSteps().GetAppointmentById(neededId), "actualObject");
+                ScenarioContext.Current.Set<Appointment>(new AppointmentSteps().GetAppointmentById(neededId), key);
             }
             else if (part.Equals(SdcaParts.debt))
             {
-                ScenarioContext.Current.Set<Debt>(new DebtSteps().GetDebtById(neededId), "actualObject");
+                ScenarioContext.Current.Set<Debt>(new DebtSteps().GetDebtById(neededId), key);
+                ScenarioContext.Current.Set<DateTime>(DateTime.Now, "lastUpdatedDate");
             }
             else if (part.Equals(SdcaParts.student))
             {
-                ScenarioContext.Current.Set<Student>(new StudentSteps().GetStudentById(neededId), "actualObject");
+                ScenarioContext.Current.Set<Student>(new StudentSteps().GetStudentById(neededId), key);
             }
         }
 
