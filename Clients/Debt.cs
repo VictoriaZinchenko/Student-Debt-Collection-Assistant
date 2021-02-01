@@ -2,7 +2,7 @@
 
 namespace SdcaFramework.Clients
 {
-    public class Debt
+    public sealed class Debt
     {
         public int id { get; set; }
         public int studentId { get; set; }

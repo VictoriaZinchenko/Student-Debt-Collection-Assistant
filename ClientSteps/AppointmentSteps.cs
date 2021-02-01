@@ -8,7 +8,7 @@ namespace SdcaFramework.ClientSteps
     class AppointmentSteps : BaseSteps<Appointment, AppointmentCreator>
     {
 
-        protected override string Resource { get; } = "/api/appointment";
+        protected override string Resource { get; } = "appointment";
 
         public int LastAppointmentId => LastObjectId;
 

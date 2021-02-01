@@ -2,7 +2,7 @@
 
 namespace SdcaFramework.Clients
 {
-     public class Collector
+     public sealed class Collector
     {
         public int id { get; set; }
         public string nickname { get; set; }

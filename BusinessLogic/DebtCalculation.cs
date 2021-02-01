@@ -24,9 +24,9 @@ namespace SdcaFramework.BusinessLogic
             return sexDiscount * ageDiscount;
         }
 
-        public double RecalculateAmount(Debt debt)
+        public double RecalculateAmount(Debt debt, DateTime lastUpdatedDate)
         {
-            TimeSpan passedSinceLastUpdate = GetDebtDate(DateTime.Now) - GetDebtDate(ScenarioContext.Current.Get<DateTime>("lastUpdatedDate"));
+            TimeSpan passedSinceLastUpdate = GetDebtDate(DateTime.Now) - GetDebtDate(lastUpdatedDate);
             double dailyRate = debt.monthlyPercent * CalculateDiscount(debt.studentId) / 30;
             return debt.amount * Math.Pow(1 + dailyRate, passedSinceLastUpdate.TotalDays);
         }

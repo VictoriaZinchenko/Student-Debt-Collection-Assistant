@@ -14,21 +14,22 @@ Scenario: Add debt and check it presence in the list
 	| studentId | amount | monthlyPercent |
 	| 1         | 170    | 10             |
   When I get a debt data by last id
-  Then the debt data were saved correctly 
+  Then the debt data is saved correctly 
 
   Scenario: Delete debt and check its absence
 	Given I have added a debt with the following parameters
 	| studentId | amount | monthlyPercent |
 	| 1         | 170    | 10             |
 	When I delete a debt by last id
-	Then the system did not find the debt data with this id
+	Then the system can't find the debt data
 
  Scenario: Try to delete the removed debt
 	Given I have added a debt with the following parameters
 	| studentId | amount | monthlyPercent |
 	| 1         | 170    | 10             |
 	When I delete a debt by last id
-	Then the system did not find the debt data with this id when trying to delete it 
+	And I try to delete the removed debt by this id
+	Then the system can't find the debt data
 
  Scenario: Check recalculated debt amount
 	Given I have got a debt data by 0 id

@@ -1,5 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using NLog;
 using RestSharp;
+using SdcaFramework.Utilities.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -8,7 +11,8 @@ namespace SdcaFramework.ClientSteps
 {
     class BaseSteps<T, K>
     {
-        private static RestClient RestClient = new RestClient("http://localhost:81/");
+        protected Logger Logger = LogManager.GetCurrentClassLogger();
+         private readonly RestClient RestClient = new RestClient(new Startup().Configuration["BaseUrl"]);
 
         protected virtual string Resource { get;}
 
@@ -37,18 +41,24 @@ namespace SdcaFramework.ClientSteps
 
         private IRestResponse ExecuteRequest(Method method, HttpStatusCode expectedStatusCode, object body = null, string objectId = "")
         {
-            RestRequest restRequest = new RestRequest($"{Resource}/{objectId}", method);
+            //var d = new Startup().Configuration["BaseUrl"];
+            var resourceUrl = $"{Resource}/{objectId}";
+            RestRequest restRequest = new RestRequest(resourceUrl, method);
             restRequest.RequestFormat = DataFormat.Json;
-            if(body != null)
+            if (body != null)
             {
-                restRequest.AddBody(body);
+                restRequest.AddJsonBody(body);
             }
+            Logger.Debug($"Trying send a request for url {RestClient}{resourceUrl}." +
+                $"\nMethod: {method} " +
+                $"\nBody: {body} ");
             IRestResponse response =  RestClient.Execute(restRequest);
             if (expectedStatusCode != 0)
             {
                 CheckHttpStatusCode(response, expectedStatusCode);
             }
-
+            Logger.Debug("Response : " +
+                $"Status code: {response.StatusCode}");
             return response;
         }
 
@@ -57,6 +67,8 @@ namespace SdcaFramework.ClientSteps
             var actualStatusCode = response.StatusCode;
             if (actualStatusCode != expectedStatusCode)
             {
+                Logger.Debug($"Error message: {response.ErrorMessage}");
+                Logger.Error("An incorrect status code. Throw an exception");
                 throw new Exception("The response has an incorrect status code" +
                     $"\nThe expected status code: {expectedStatusCode}" +
                     $"\nThe actual status code: {actualStatusCode}");
@@ -65,22 +77,25 @@ namespace SdcaFramework.ClientSteps
 
         private List<T> GetDeserializedResponseForList(IRestResponse response)
         {
-            var content = response.Content;
-            if (content == string.Empty || content == null)
-            {
-                throw new Exception("Response content is empty");
-            }
+            string content = response.Content;
+            CheckContent(content);
             return JsonConvert.DeserializeObject<List<T>>(content);
         }
 
         private T GetDeserializedResponseForSingleObject(IRestResponse response)
         {
-            var content = response.Content;
-            if (content == string.Empty || content == null)
+            string content = response.Content;
+            CheckContent(content);
+            return JsonConvert.DeserializeObject<T>(content);
+        }
+
+        private void CheckContent(string content)
+        {
+            if (string.IsNullOrEmpty(content))
             {
                 throw new Exception("Response content is empty");
             }
-            return JsonConvert.DeserializeObject<T>(content);
+            Logger.Debug($"Content: {content}");
         }
     }
 }

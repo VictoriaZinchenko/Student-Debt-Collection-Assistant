@@ -7,7 +7,7 @@ namespace SdcaFramework.ClientSteps
 {
     class DebtSteps : BaseSteps<Debt, DebtCreator>
     {
-        protected override string Resource { get; } = "api/debt";
+        protected override string Resource { get; } = "debt";
 
         public int LastDebtId => LastObjectId;
 

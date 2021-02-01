@@ -3,42 +3,40 @@ using System.Reflection;
 
 namespace SdcaFramework.Utilities
 {
-    public class AssertHelper
+    public static class AssertHelper
     {
-        public string GetActualAndExpectedObjectsProperties(object expectedObject, object actualObject)
+        public static string GetActualAndExpectedObjectsProperties(object expectedObject, object actualObject)
         {
-            string result = null;
-            foreach (PropertyInfo property in expectedObject.GetType().GetProperties())
+            string result = "\nExpected object:" + GetObjectProperties(expectedObject);
+            result += "\nActual object:" + GetObjectProperties(actualObject);
+            return result;
+        }
+
+        public static string GetActualObjectsListAndExpectedObjectProperties(object expectedObject, List<object> actualObjects)
+        {
+            string result = "\nExpected object" + GetObjectProperties(expectedObject);
+            result += $"\nActual list of objects:" + GetPropertiesOfObjectsList(actualObjects);
+            return result;
+        }
+
+        private static string GetObjectProperties(object targetObject)
+        {
+            string result = "\nProperties: ";
+            foreach (PropertyInfo property in targetObject.GetType().GetProperties())
             {
-                var expectedProperty = property.GetValue(expectedObject);
-                var actualProperty = actualObject.GetType().GetProperty(property.Name).GetValue(actualObject);
-                result = result + $"\nExpected property: {property.Name} - {expectedProperty}. " +
-                    $"Actual property: {property.Name} - {actualProperty}.";
+                var neededProperty = property.GetValue(targetObject);
+                result += $"\n{property.Name} - {neededProperty}. ";
             }
             return result;
         }
 
-        public string GetActualObjectsListAndExpectedObjectProperties(object expectedObject, List<object> actualObjects)
+        private static string GetPropertiesOfObjectsList(List<object> listOfObjects)
         {
             string result = null;
-            result = result + "\nExpected object";
-            foreach (PropertyInfo property in expectedObject.GetType().GetProperties())
+            for (int i = 0; i < listOfObjects.Count; i++)
             {
-                var expectedProperty = property.GetValue(expectedObject);
-                result = result + $"\n{property.Name} - {expectedProperty}.";
+                result += $"\nObject №{i}" + GetObjectProperties(listOfObjects[i]);
             }
-            result = result + $"\nActual list:";
-
-                for (int i = 0; i < actualObjects.Count; i++)
-                {
-                    result = result + $"\nElement №{i}";
-                    foreach (PropertyInfo property in actualObjects[i].GetType().GetProperties())
-                    {
-                        var actualProperty = actualObjects[i].GetType().GetProperty(property.Name).GetValue(actualObjects[i]);
-                        result = result +
-                            $"\n{property.Name} - {actualProperty}.";
-                    }
-                }
             return result;
         }
     }

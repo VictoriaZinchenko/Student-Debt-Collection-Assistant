@@ -1,0 +1,546 @@
+2021-01-03 18:21:34.9388 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.CollectorCreator
+2021-01-03 18:21:38.4407 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:21:38.4899 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:21:38.5364 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:38.5717 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:21:38.5840 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.StudentCreator
+2021-01-03 18:21:38.6178 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:21:38.6178 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:21:38.6346 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:38.6494 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:21:38.6494 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:21:38.6868 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:38.6868 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:21:38.6868 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.DebtCreator
+2021-01-03 18:21:38.8519 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:21:38.8519 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:21:38.8519 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:38.8670 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:21:38.8670 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:21:40.1330 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:40.1665 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:21:40.1665 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:21:40.1812 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:40.1812 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:21:40.1812 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:21:40.2320 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:40.2320 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:21:40.2320 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.AppointmentCreator
+2021-01-03 18:21:40.3535 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:21:40.3535 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:21:40.3535 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:40.3535 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:21:40.3659 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:21:40.4114 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:40.4133 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:21:40.4133 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: GET
+Body: 
+2021-01-03 18:21:40.4282 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:40.4282 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Appointment]
+2021-01-03 18:21:40.4660 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: GET
+Body: 
+2021-01-03 18:21:40.4660 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:40.4660 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Appointment]
+2021-01-03 18:21:40.4757 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:21:40.4757 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:40.4757 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:21:40.4757 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:21:40.5324 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:40.5324 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:21:40.5324 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/0.
+Method: GET
+Body: 
+2021-01-03 18:21:40.5472 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:40.5472 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForSingleObject | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: SdcaFramework.Clients.Appointment
+2021-01-03 18:21:40.5472 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/3.
+Method: GET
+Body: 
+2021-01-03 18:21:40.6272 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:21:40.6272 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForSingleObject | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: SdcaFramework.Clients.Debt
+2021-01-03 18:31:26.8241 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.CollectorCreator
+2021-01-03 18:31:27.0584 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:31:27.0584 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:31:27.0739 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.0867 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:31:27.0867 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.StudentCreator
+2021-01-03 18:31:27.1089 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:31:27.1089 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:31:27.1174 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.1323 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:31:27.1323 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:31:27.1323 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.1323 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:31:27.1479 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.DebtCreator
+2021-01-03 18:31:27.1479 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:31:27.1479 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:31:27.1675 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.1675 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:31:27.1675 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:31:27.2535 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.2644 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:31:27.2727 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:31:27.2727 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.2727 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:31:27.2727 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:31:27.3614 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.3614 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:31:27.3657 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.AppointmentCreator
+2021-01-03 18:31:27.4180 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:31:27.4180 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:31:27.4298 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.4298 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:31:27.4298 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:31:27.5026 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.5026 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:31:27.5026 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: GET
+Body: 
+2021-01-03 18:31:27.5195 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.5386 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Appointment]
+2021-01-03 18:31:27.5661 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: GET
+Body: 
+2021-01-03 18:31:27.5791 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.5791 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Appointment]
+2021-01-03 18:31:27.5791 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:31:27.5901 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.5901 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:31:27.5901 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:31:27.7167 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.7167 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:31:27.7167 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/3.
+Method: GET
+Body: 
+2021-01-03 18:31:27.7282 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.7282 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForSingleObject | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: SdcaFramework.Clients.Appointment
+2021-01-03 18:31:27.7282 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/6.
+Method: GET
+Body: 
+2021-01-03 18:31:27.7522 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:31:27.7651 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForSingleObject | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: SdcaFramework.Clients.Debt
+2021-01-03 18:37:25.4257 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.CollectorCreator
+2021-01-03 18:37:25.6464 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:37:25.6464 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:37:25.6464 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:25.6732 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:37:25.6823 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.StudentCreator
+2021-01-03 18:37:25.6823 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:37:25.6942 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:37:25.6942 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:25.7149 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:37:25.7149 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:37:25.7256 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:25.7256 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:37:25.7256 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.DebtCreator
+2021-01-03 18:37:25.7256 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:37:25.7256 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:37:25.7465 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:25.7465 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:37:25.7465 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:37:25.8352 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:25.8352 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:37:25.8352 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:37:25.8587 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:25.8587 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:37:25.8587 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:37:25.9417 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:25.9417 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:37:25.9454 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.AppointmentCreator
+2021-01-03 18:37:25.9917 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:37:25.9917 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:37:25.9917 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:25.9917 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:37:25.9917 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:37:26.0828 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:26.0843 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:37:26.0843 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: GET
+Body: 
+2021-01-03 18:37:26.0843 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:26.1057 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Appointment]
+2021-01-03 18:37:26.1057 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: GET
+Body: 
+2021-01-03 18:37:26.1208 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:26.1208 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Appointment]
+2021-01-03 18:37:26.1208 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:37:26.1208 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:26.1319 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:37:26.1319 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:37:26.2180 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:26.2180 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:37:26.2180 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/4.
+Method: GET
+Body: 
+2021-01-03 18:37:26.2314 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:26.2314 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForSingleObject | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: SdcaFramework.Clients.Appointment
+2021-01-03 18:37:26.2314 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/7.
+Method: GET
+Body: 
+2021-01-03 18:37:26.2566 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:37:26.2566 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForSingleObject | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: SdcaFramework.Clients.Debt
+2021-01-03 18:39:52.7041 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.CollectorCreator
+2021-01-03 18:39:52.9008 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:39:52.9008 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:39:52.9229 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:52.9531 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:39:52.9669 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.StudentCreator
+2021-01-03 18:39:52.9826 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:39:52.9826 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:39:52.9917 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.0077 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:39:53.0077 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:39:53.0077 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.0224 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:39:53.0224 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.DebtCreator
+2021-01-03 18:39:53.0383 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:39:53.0383 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:39:53.0383 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.0383 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:39:53.0383 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:39:53.1468 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.1468 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:39:53.1468 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:39:53.1666 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.1666 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:39:53.1666 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:39:53.2595 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.2595 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:39:53.2595 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.AppointmentCreator
+2021-01-03 18:39:53.3147 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:39:53.3147 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:39:53.3255 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.3255 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:39:53.3255 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:39:53.4359 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.4359 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:39:53.4359 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: GET
+Body: 
+2021-01-03 18:39:53.4531 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.4685 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Appointment]
+2021-01-03 18:39:53.4771 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: GET
+Body: 
+2021-01-03 18:39:53.4771 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.4771 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Appointment]
+2021-01-03 18:39:53.4902 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:39:53.4902 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.4902 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:39:53.4902 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:39:53.6374 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.6374 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:39:53.6472 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/5.
+Method: GET
+Body: 
+2021-01-03 18:39:53.6658 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.6658 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForSingleObject | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: SdcaFramework.Clients.Appointment
+2021-01-03 18:39:53.6658 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/8.
+Method: GET
+Body: 
+2021-01-03 18:39:53.6945 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:39:53.6945 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForSingleObject | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: SdcaFramework.Clients.Debt
+2021-01-03 18:46:47.2679 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.CollectorCreator
+2021-01-03 18:46:47.4497 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:46:47.4497 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:46:47.4658 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:47.4800 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:46:47.4800 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.StudentCreator
+2021-01-03 18:46:47.4997 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:46:47.4997 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:46:47.5099 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:47.5221 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:46:47.5221 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:46:47.5221 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:47.5221 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:46:47.5221 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.DebtCreator
+2021-01-03 18:46:47.5436 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:46:47.5436 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:46:47.5436 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:47.5543 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:46:47.5543 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:46:47.6832 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:47.6950 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:46:47.6950 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:46:47.7114 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:47.7114 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:46:47.7114 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:46:47.8171 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:47.8185 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:46:47.8185 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.AppointmentCreator
+2021-01-03 18:46:47.8793 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:46:47.8793 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:46:47.8889 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:47.8889 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:46:47.8889 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:46:48.0013 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:48.0013 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:46:48.0013 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: GET
+Body: 
+2021-01-03 18:46:48.0121 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:48.0252 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Appointment]
+2021-01-03 18:46:48.0252 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: GET
+Body: 
+2021-01-03 18:46:48.0427 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:48.0427 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Appointment]
+2021-01-03 18:46:48.0427 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:46:48.0597 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:48.0597 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:46:48.0597 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:46:48.3026 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:48.3092 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:46:48.3092 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/6.
+Method: GET
+Body: 
+2021-01-03 18:46:48.3296 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:48.3296 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForSingleObject | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: SdcaFramework.Clients.Appointment
+2021-01-03 18:46:48.3357 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/9.
+Method: GET
+Body: 
+2021-01-03 18:46:48.3930 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:46:48.3930 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForSingleObject | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: SdcaFramework.Clients.Debt
+2021-01-03 18:53:09.6977 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.CollectorCreator
+2021-01-03 18:53:09.9184 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:53:09.9184 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:53:09.9352 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:09.9470 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:53:09.9470 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.StudentCreator
+2021-01-03 18:53:09.9657 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:53:09.9657 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:53:09.9757 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:09.9757 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:53:09.9942 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:53:09.9942 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:09.9942 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:53:10.0066 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.DebtCreator
+2021-01-03 18:53:10.0066 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:53:10.0066 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:53:10.0258 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:10.0258 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:53:10.0258 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:53:10.1864 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:10.1953 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:53:10.1953 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:53:10.1953 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:10.2108 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:53:10.2108 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:53:10.3514 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:10.3514 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:53:10.3514 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: POST
+Body: SdcaFramework.Clients.Creators.AppointmentCreator
+2021-01-03 18:53:10.4032 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: Created
+2021-01-03 18:53:10.4032 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/collector/.
+Method: GET
+Body: 
+2021-01-03 18:53:10.4032 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:10.4130 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Collector]
+2021-01-03 18:53:10.4130 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:53:10.5566 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:10.5566 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:53:10.5566 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: GET
+Body: 
+2021-01-03 18:53:10.5761 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:10.5981 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Appointment]
+2021-01-03 18:53:10.6121 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/.
+Method: GET
+Body: 
+2021-01-03 18:53:10.6298 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:10.6321 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Appointment]
+2021-01-03 18:53:10.6321 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/student/.
+Method: GET
+Body: 
+2021-01-03 18:53:10.6321 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:10.6321 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Student]
+2021-01-03 18:53:10.6321 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/.
+Method: GET
+Body: 
+2021-01-03 18:53:10.8048 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:10.8048 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForList | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: System.Collections.Generic.List`1[SdcaFramework.Clients.Debt]
+2021-01-03 18:53:10.8048 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url /api/appointment/10.
+Method: GET
+Body: 
+2021-01-03 18:53:10.8048 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:10.8209 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForSingleObject | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: SdcaFramework.Clients.Appointment
+2021-01-03 18:53:10.8209 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Trying send a request for url api/debt/13.
+Method: GET
+Body: 
+2021-01-03 18:53:10.8412 | SdcaFramework.ClientSteps.BaseSteps`2.ExecuteRequest | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Response : Status code: OK
+2021-01-03 18:53:10.8412 | SdcaFramework.ClientSteps.BaseSteps`2.GetDeserializedResponseForSingleObject | DEBUG | SdcaFramework.ClientSteps.BaseSteps`2 | Content: SdcaFramework.Clients.Debt

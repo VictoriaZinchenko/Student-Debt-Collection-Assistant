@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SdcaFramework.Clients
 {
-    public class Appointment
+    public sealed class Appointment
     {
         public int id { get; set; }
         public int debtId { get; set; }
-        public int[] collectorIds { get; set; }
+        public List<int> collectorIds { get; set; }
         public string appointmentDate { get; set; }
 
         protected bool Equals(Appointment other) 

@@ -15,21 +15,22 @@ Scenario: Get appointment by id
 		| collectorIds | debtId | appointmentDate                  |
 		| 1, 2         | 1      | 2020-12-09T14:30:00.000000+02:00 |
 	When I get an appointment data by last id
-	Then the appointment data were saved correctly
+	Then the appointment data is saved correctly
 
 Scenario:  Delete appointment and check its absence
 	Given I have added an appointment with the following parameters
 		| collectorIds | debtId | appointmentDate                  |
 		| 1, 2         | 1      | 2020-12-09T14:30:00.000000+02:00 |
 	When I delete an appointment by last id
-	Then the system did not find the appointment data with this id
+	Then the system can't find the appointment data
 
 Scenario: Try to delete the removed appointment
 	Given I have added an appointment with the following parameters
 		| collectorIds | debtId | appointmentDate                  |
 		| 1, 2         | 1      | 2020-12-09T14:30:00.000000+02:00 |
 	When I delete an appointment by last id
-	Then the system did not find the appointment data with this id when trying to delete it
+	And I try to delete the removed appointment by this id
+	Then the system can't find the appointment data
 
 	@Bug.Fail.10
 Scenario: Create collector, student, debt, appointment and check created appointment
@@ -46,4 +47,4 @@ Scenario: Create collector, student, debt, appointment and check created appoint
 		| collectorIds | debtId | appointmentDate                  |
 		| last         | last   | 2020-12-09T14:30:00.000000+02:00 |
 	When I get an appointment data by last id
-	Then the appointment data were saved correctly
+	Then the appointment data is saved correctly

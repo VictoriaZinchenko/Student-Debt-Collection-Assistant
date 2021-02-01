@@ -49,9 +49,37 @@
               "target": "Package",
               "version": "[2.1.0, )"
             },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.5.0, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.6, )"
+            },
+            "NLog.Config": {
+              "target": "Package",
+              "version": "[4.7.6, )"
+            },
+            "NLog.Schema": {
+              "target": "Package",
+              "version": "[4.7.6, )"
+            },
+            "NLog.Web": {
+              "target": "Package",
+              "version": "[4.10.0, )"
             },
             "NUnit": {
               "target": "Package",

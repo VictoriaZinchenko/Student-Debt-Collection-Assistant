@@ -2,11 +2,11 @@
 
 namespace SdcaFramework.Clients
 {
-    public class Student
+    public sealed class Student
     {
         public int id { get; set; }
         public string name { get; set; }
-        public Int64 age { get; set; }
+        public long age { get; set; }
         public bool sex { get; set; }
         public int risk { get; set; }
 

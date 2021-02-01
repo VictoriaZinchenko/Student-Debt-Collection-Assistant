@@ -14,21 +14,22 @@ Scenario: Modify collector and check the changes
 		| id | nickname    | fearFactor |
 		| 1  | Fear Man777 | 1          |
 	When I get a collector data by 1 id
-	Then the collector data were modified correctly
+	Then the collector data is modified correctly
 
 Scenario: Delete collector and check its absence
 	Given I have added a collector with the following parameters
 		| nickname | fearFactor |
 		| Fear Man | 1          |
 	When I delete a collector by last id
-	Then the system did not find the collector data with this id
+	Then the system can't find the collector data
 
 Scenario: Try to delete the removed collector
 	Given I have added a collector with the following parameters
 		| nickname | fearFactor |
 		| Fear Man | 1          |
 	When I delete a collector by last id
-	Then the system did not find the collector data with this id when trying to delete it
+	And I try to delete the removed collector by this id
+	Then the system can't find the collector data
 
 	@Bug.Fail.10
 	Scenario: Create collector, student, debt, appointment and check appointment connection with collector

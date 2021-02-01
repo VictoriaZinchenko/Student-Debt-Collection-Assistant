@@ -15,21 +15,22 @@ Scenario: Add student and check it presence in the list
 	| id | name | age | sex | risk |
 	|1 | Poor guy | 17  | true | 5    |
   When I get a student data by 1 id
-  Then the student data were modified correctly 
+  Then the student data is modified correctly 
 
 Scenario: Delete student and check its absence
 	Given I have added a student with the following parameters
 	| name     | age | sex  | risk |
 	| Poor guy | 17  | true | 5    |
 	When I delete a student by last id
-	Then the system did not find the student data with this id
+	Then the system can't find the student data
 
 Scenario: Try to delete the removed student
 	Given I have added a student with the following parameters
 	| name     | age | sex  | risk |
 	| Poor guy | 17  | true | 5    |
 	When I delete a student by last id
-	Then the system did not find the student data with this id when trying to delete it
+	And I try to delete the removed student by this id
+	Then the system can't find the student data 
 
 	  @Bug.Fail.5
 	Scenario: Create collector, student, debt, appointment and check debt connection with student

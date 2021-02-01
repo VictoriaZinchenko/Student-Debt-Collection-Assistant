@@ -7,7 +7,7 @@ namespace SdcaFramework.ClientSteps
 {
     class StudentSteps : BaseSteps<Student, StudentCreator>
     {
-        protected override string Resource { get; } = "api/student";
+        protected override string Resource { get; } = "student";
 
         public int LastStudentId => LastObjectId;
 

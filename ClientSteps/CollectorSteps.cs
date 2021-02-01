@@ -7,7 +7,7 @@ namespace SdcaFramework.ClientSteps
 {
     class CollectorSteps : BaseSteps<Collector, CollectorCreator>
     {
-        protected override string Resource { get; } = "api/collector";
+        protected override string Resource { get; } = "collector";
 
         public int LastCollectorId => LastObjectId;
 
