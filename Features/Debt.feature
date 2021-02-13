@@ -9,6 +9,18 @@ Scenario: Add debt and check it presence in the list
   When I get the list of debts
   Then I can see the created debt in the list
 
+  #BUG?
+Scenario Outline: Add debt with invalid parameter and check it absence in the list
+	When I add a debt with the following invalid parameters
+	| studentId | amount | monthlyPercent |
+	| <studentId> | <amount> | <monthlyPercent> |
+	Then the system can't create the debt data
+	Examples:
+		| studentId | amount | monthlyPercent |
+		| -1         | 170    | 10             |
+		| 1         | -170    | 10             |
+	    | 1         | 170    | -100            |
+
   Scenario: Get debt by id
 	Given I have added a debt with the following parameters
 	| studentId | amount | monthlyPercent |
@@ -31,10 +43,10 @@ Scenario: Add debt and check it presence in the list
 	And I try to delete the removed debt by this id
 	Then the system can't find the debt data
 
+	#Bug?
  Scenario: Check recalculated debt amount
-	Given I have got a debt data by 0 id
-	When I get a debt data by 0 id again
-	Then the debt amount is recalculated correctly
+	When I get a debt data by 0 id
+	Then the current amount is recalculated correctly for debt with 0 id
 
 	Scenario: Create collector, student, debt, appointment and check appointment connection with debt
 	Given I have added a collector with the following parameters

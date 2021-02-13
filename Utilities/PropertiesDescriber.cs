@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace SdcaFramework.Utilities
 {
-    public static class AssertHelper
+    public static class PropertiesDescriber
     {
         public static string GetActualAndExpectedObjectsProperties(object expectedObject, object actualObject)
         {
@@ -19,7 +19,7 @@ namespace SdcaFramework.Utilities
             return result;
         }
 
-        private static string GetObjectProperties(object targetObject)
+        public static string GetObjectProperties(object targetObject)
         {
             string result = "\nProperties: ";
             foreach (PropertyInfo property in targetObject.GetType().GetProperties())

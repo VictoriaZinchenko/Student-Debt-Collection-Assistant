@@ -1,6 +1,7 @@
 ﻿using SdcaFramework.Clients;
 using SdcaFramework.Clients.Creators;
 using SdcaFramework.ClientSteps;
+using SdcaFramework.Utilities.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,18 @@ namespace SdcaFramework.Utilities
             => (SdcaParts)System.Enum.Parse(typeof(SdcaParts), part);
 
         [StepArgumentTransformation]
+        internal List<string> GetList(Table table)
+        {
+            return table.Rows.Select(row => row.Values.First()).ToList();
+        }
+
+        [StepArgumentTransformation]
         internal CollectorCreator GetCollectorCreator(Table table)
         {
             return table.Rows.Select(row => new CollectorCreator
             {
                 nickname = row["nickname"],
-                fearFactor = Int32.Parse(row["fearFactor"])
+                fearFactor = int.Parse(row["fearFactor"])
             }).FirstOrDefault();
         }
 
@@ -30,9 +37,9 @@ namespace SdcaFramework.Utilities
         {
             return table.Rows.Select(row => new Collector
             {
-                id = Int32.Parse(row["id"]),
+                id = int.Parse(row["id"]),
                 nickname = row["nickname"],
-                fearFactor = Int32.Parse(row["fearFactor"])
+                fearFactor = int.Parse(row["fearFactor"])
             }).FirstOrDefault();
         }
 
@@ -53,10 +60,10 @@ namespace SdcaFramework.Utilities
         {
             return table.Rows.Select(row => new Appointment
             {
-                id = Int32.Parse(row["id"]),
+                id = int.Parse(row["id"]),
                 appointmentDate = row["appointmentDate"],
                 collectorIds = GetListOfIds(row["collectorIds"]),
-                debtId = Int32.Parse(row["debtId"])
+                debtId = int.Parse(row["debtId"])
             }).FirstOrDefault();
         }
 
@@ -76,41 +83,59 @@ namespace SdcaFramework.Utilities
         {
             return table.Rows.Select(row => new Debt
             {
-                id = Int32.Parse(row["id"]),
+                id = int.Parse(row["id"]),
                 amount = Double.Parse(row["amount"]),
                 monthlyPercent = Double.Parse(row["monthlyPercent"]),
-                studentId = Int32.Parse(row["studentId"])
+                studentId = int.Parse(row["studentId"])
             }).FirstOrDefault();
         }
 
         [StepArgumentTransformation]
         internal StudentCreator GetStudentCreator(Table table)
         {
-            return table.Rows.Select(row => new StudentCreator
-            {
-                age = long.Parse(row["age"]),
-                name = row["name"],
-                risk = Int32.Parse(row["risk"]),
-                sex = Boolean.Parse(row["sex"])
-            }).FirstOrDefault();
+            //try
+            //{
+                StudentCreator student = table.Rows.Select(row => new StudentCreator
+                {
+                    age = long.Parse(row["age"]),
+                    name = row["name"],
+                    risk = int.Parse(row["risk"]),
+                    sex = Boolean.Parse(row["sex"])
+                }).FirstOrDefault();
+                return student;
+
+            //}
+            //catch (System.FormatException)
+            //{
+            //    //add log
+            //}
         }
 
         [StepArgumentTransformation]
         internal Student GetStudent(Table table)
         {
-            return table.Rows.Select(row => new Student
+            Student student = null;
+            try
             {
-                id = Int32.Parse(row["id"]),
-                age = long.Parse(row["age"]),
-                name = row["name"],
-                risk = Int32.Parse(row["risk"]),
-                sex = Boolean.Parse(row["sex"])
-            }).FirstOrDefault();
+                student = table.Rows.Select(row => new Student
+                {
+                    id = int.Parse(row["id"]),
+                    age = long.Parse(row["age"]),
+                    name = row["name"],
+                    risk = int.Parse(row["risk"]),
+                    sex = Boolean.Parse(row["sex"])
+                }).FirstOrDefault();
+            }
+            catch (System.FormatException)
+            {
+                //add log
+            }
+            return student;
         }
 
         private List<int> GetListOfIds(string row) 
-            => row.Replace(", ", ",").Split(',').ToList().Select(id => Int32.Parse(id)).ToList();
+            => row.Replace(", ", ",").Split(',').ToList().Select(id => int.Parse(id)).ToList();
 
-        private int GetNeededId(string row, int lastId) => row == "last" ? lastId : Int32.Parse(row);
+        private int GetNeededId(string row, int lastId) => row == "last" ? lastId : int.Parse(row);
     }
 }

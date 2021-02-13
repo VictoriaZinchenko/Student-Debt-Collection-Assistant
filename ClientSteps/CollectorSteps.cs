@@ -13,7 +13,7 @@ namespace SdcaFramework.ClientSteps
 
         public List<Collector> GetListOfCollectors(HttpStatusCode expectedStatusCode = HttpStatusCode.OK) => GetListOfObjects(expectedStatusCode);
 
-        public void CreateCollector(CollectorCreator collector, HttpStatusCode expectedStatusCode = 0)
+        public void CreateCollector(CollectorCreator collector, HttpStatusCode expectedStatusCode = HttpStatusCode.Created)
             => CreateNewObject(collector, expectedStatusCode);
 
         public void ModifyCollector(Collector collector, HttpStatusCode expectedStatusCode = HttpStatusCode.OK)
@@ -29,5 +29,8 @@ namespace SdcaFramework.ClientSteps
 
         public HttpStatusCode GetResponseDeleteCollectorAction(int id)
             => GetStatusCodeForDeleteAction(id);
+
+        public HttpStatusCode GetResponseCreateCollectorAction(CollectorCreator collector)
+            => GetStatusCodeForCreateAction(collector);
     }
 }

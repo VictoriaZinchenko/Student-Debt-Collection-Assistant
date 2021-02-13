@@ -7,7 +7,6 @@ namespace SdcaFramework.ClientSteps
 {
     class AppointmentSteps : BaseSteps<Appointment, AppointmentCreator>
     {
-
         protected override string Resource { get; } = "appointment";
 
         public int LastAppointmentId => LastObjectId;
@@ -16,9 +15,6 @@ namespace SdcaFramework.ClientSteps
 
         public void CreateAppointment(AppointmentCreator appointment, HttpStatusCode expectedStatusCode = HttpStatusCode.Created)
             => CreateNewObject(appointment, expectedStatusCode);
-
-        //public void ModifyAppointment(Appointment appointment, HttpStatusCode expectedStatusCode = HttpStatusCode.OK)
-        //    => ModifyExistingObject(appointment, expectedStatusCode);
 
         public Appointment GetAppointmentById(int id, HttpStatusCode expectedStatusCode = HttpStatusCode.OK)
             => GetObjectById(id, expectedStatusCode);
@@ -30,5 +26,8 @@ namespace SdcaFramework.ClientSteps
 
         public HttpStatusCode GetResponseDeleteAppointmentAction(int id)
             => GetStatusCodeForDeleteAction(id);
+
+        public HttpStatusCode GetResponseCreateAppointmentAction(AppointmentCreator appointment)
+            => GetStatusCodeForCreateAction(appointment);
     }
 }

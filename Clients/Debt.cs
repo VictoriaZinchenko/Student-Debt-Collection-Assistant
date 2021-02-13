@@ -1,13 +1,11 @@
-﻿using System;
+﻿using SdcaFramework.Clients.Creators;
+using System;
 
 namespace SdcaFramework.Clients
 {
-    public sealed class Debt
+    public sealed class Debt : DebtCreator
     {
         public int id { get; set; }
-        public int studentId { get; set; }
-        public double amount { get; set; }
-        public double monthlyPercent { get; set; }
 
         protected bool Equals(Debt other)
              => id == other.id

@@ -4,9 +4,16 @@ As a user I want to add collector data to database, read and modify it
 Scenario: Add collector and check it presence in the list
 	Given I have added a collector with the following parameters
 		| nickname | fearFactor |
-		| Fear Man | 1          |
+		| Fear Man46 | 1          |
 	When I get the list of collectors
 	Then I can see the created collector in the list
+
+	#BUG?
+Scenario: Add collector with invalid parameter and check it absence in the list
+When I add a collector with the following invalid parameters
+	| nickname          | fearFactor |
+	| Invalid Collector | -1         |
+Then the system can't create the collector data
 
 @Bug.Fail.4
 Scenario: Modify collector and check the changes

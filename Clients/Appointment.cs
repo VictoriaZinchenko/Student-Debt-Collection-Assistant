@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SdcaFramework.Clients.Creators;
+using System;
 using System.Linq;
 
 namespace SdcaFramework.Clients
 {
-    public sealed class Appointment
+    public sealed class Appointment : AppointmentCreator
     {
         public int id { get; set; }
-        public int debtId { get; set; }
-        public List<int> collectorIds { get; set; }
-        public string appointmentDate { get; set; }
 
         protected bool Equals(Appointment other) 
             => id == other.id && debtId == other.debtId
             && Enumerable.SequenceEqual(collectorIds, other.collectorIds)
             && appointmentDate.Equals(other.appointmentDate);
-
 
         public override bool Equals(object obj)
         {

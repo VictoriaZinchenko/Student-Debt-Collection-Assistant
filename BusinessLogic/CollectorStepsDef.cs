@@ -1,8 +1,11 @@
 ﻿using NUnit.Framework;
 using SdcaFramework.Clients;
+using SdcaFramework.Clients.Creators;
 using SdcaFramework.ClientSteps;
 using SdcaFramework.Utilities;
+using SdcaFramework.Utilities.Enums;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using TechTalk.SpecFlow;
 
@@ -22,35 +25,33 @@ namespace SdcaFramework.BusinessLogic
            ScenarioContext.Set<List<Collector>>(new CollectorSteps().GetListOfCollectors(), "listOfCollectors");
         }
 
-        [Given(@"I have got a collector data by (.*) id( again)*")]
-        [When(@"I get a collector data by (.*) id( again)*")]
-        public void WhenIGetDataById(string id, string repeatedAction)
+        [Given(@"I have got a collector data by (.*) id")]
+        [When(@"I get a collector data by (.*) id")]
+        public void WhenIGetDataById(string id)
         {
-            string key;
             int neededId = GetNeededId(id, SdcaParts.collector);
-            if (!string.IsNullOrEmpty(repeatedAction))
+            ScenarioContext.Set<Collector>(new CollectorSteps().GetCollectorById(neededId), "actualCollector");
+        }
+
+        [Given(@"I have added a collector with the following( invalid)* parameters")]
+        [When(@"I add a collector with the following( invalid)* parameters")]
+        public void AddObjectWithParameters(string invalidParameter, CollectorCreator collector)
+        {
+            if (!string.IsNullOrEmpty(invalidParameter))
             {
-                key = "actualCollector№2";
+                ScenarioContext.Set<HttpStatusCode>(new CollectorSteps().GetResponseCreateCollectorAction(collector), "ActualStatusCode");
             }
             else
             {
-                key = "actualCollector";
-            }
-            ScenarioContext.Set<Collector>(new CollectorSteps().GetCollectorById(neededId), key);
-        }
-
-        [Given(@"I have added a collector with the following parameters")]
-        public void AddObjectWithParameters(Table table)
-        {
-                new CollectorSteps().CreateCollector(StepArgumentTransformations.GetCollectorCreator(table));
+                new CollectorSteps().CreateCollector(collector);
                 ScenarioContext.Set<Collector>(
-                    Transformations.GetCollectorBasedOnCollectorCreator(StepArgumentTransformations.GetCollectorCreator(table)), "expectedCollector");
+                Transformations.GetCollectorBasedOnCollectorCreator(collector), "expectedCollector");
+            }
         }
 
         [Given(@"I have modified the collector with the following parameters")]
-        public void GivenIHaveModifiedTheObjectWithTheFollowingParameters(Table table)
+        public void GivenIHaveModifiedTheObjectWithTheFollowingParameters(Collector collector)
         {
-                Collector collector = StepArgumentTransformations.GetCollector(table);
                 new CollectorSteps().ModifyCollector(collector);
                 ScenarioContext.Set<Collector>(collector, "expectedModifiedCollector");
         }
@@ -65,7 +66,7 @@ namespace SdcaFramework.BusinessLogic
                 ScenarioContext.Get<List<Collector>>("listOfCollectors").ForEach(element => actualObjectsList.Add(element));
             
             Assert.Contains(expectedObject, actualObjectsList,
-                AssertHelper.GetActualObjectsListAndExpectedObjectProperties(expectedObject, actualObjectsList));
+                PropertiesDescriber.GetActualObjectsListAndExpectedObjectProperties(expectedObject, actualObjectsList));
         }
 
         [Then(@"the collector data is saved correctly")]
@@ -77,7 +78,7 @@ namespace SdcaFramework.BusinessLogic
                 expectedObject = ScenarioContext.Get<Collector>("expectedCollector");
                 actualObject = ScenarioContext.Get<Collector>("actualCollector");
 
-            Assert.AreEqual(expectedObject, actualObject, AssertHelper.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
+            Assert.AreEqual(expectedObject, actualObject, PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
         }
 
         [Then(@"the collector data is modified correctly")]
@@ -89,7 +90,7 @@ namespace SdcaFramework.BusinessLogic
                 expectedObject = ScenarioContext.Get<Collector>("expectedModifiedCollector");
                 actualObject = ScenarioContext.Get<Collector>("actualCollector");
 
-            Assert.AreEqual(expectedObject, actualObject, AssertHelper.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
+            Assert.AreEqual(expectedObject, actualObject, PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
         }
 
         [Given(@"I have deleted a collector by (.*) id")]
@@ -113,11 +114,32 @@ namespace SdcaFramework.BusinessLogic
                 "ActualStatusCode");
         }
 
+        //[When(@"I find a collector by the parameters")]
+        //public void GivenITryToGetAnObjectByParameters(CollectorCreator expectedCollector)
+        //{
+        //    int countOfObject = new CollectorSteps().GetListOfCollectors()
+        //        .Count(collector => collector.fearFactor.Equals(expectedCollector.fearFactor) 
+        //        && collector.nickname.Equals(expectedCollector.nickname));
+        //    HttpStatusCode statusCode = countOfObject switch
+        //    {
+        //        0 => HttpStatusCode.NotFound,
+        //        _ => HttpStatusCode.OK
+        //    };
+        //    ScenarioContext.Set<HttpStatusCode>(statusCode,"ActualStatusCode");
+        //}
+
         [Then(@"the system can't find the collector data")]
         public void ThenTheSystemDidNotFindTheData()
         {
             Assert.AreEqual(HttpStatusCode.NotFound,
                 ScenarioContext.Get<HttpStatusCode>("ActualStatusCode"), "Expected status code should be 'Not Found'.");
+        }
+
+        [Then(@"the system can't create the collector data")]
+        public void ThenTheSystemDidNotCreateTheData()
+        {
+            Assert.AreEqual(HttpStatusCode.BadRequest,
+                ScenarioContext.Get<HttpStatusCode>("ActualStatusCode"), "Expected status code should be 'Bad Request'.");
         }
     }
 }

@@ -9,6 +9,18 @@ Scenario: Add student and check it presence in the list
   When I get the list of students
   Then I can see the created student in the list
 
+    #BUG?
+Scenario Outline: Add student with invalid parameter and check it absence in the list
+	When I add a student with the following invalid parameters
+	| name     | age | sex  | risk |
+	| <name>     | <age> | <sex>  | <risk> |
+	Then the system can't create the student data
+	Examples:
+	| name     | age | sex  | risk |
+	| Poor invalid guy 1| -17  | true | 5    |
+	#| Poor invalid guy 2| 17  | man | 5    |
+	| Poor invalid guy 3| 17  | true | -10    |
+
   @Bug.Fail.5
   Scenario: Modify student and check the changes
 	Given I have modified the student with the following parameters

@@ -1,9 +1,7 @@
-﻿using BoDi;
-using SdcaFramework.ClientSteps;
+﻿using SdcaFramework.ClientSteps;
 using SdcaFramework.Utilities;
+using SdcaFramework.Utilities.Enums;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using TechTalk.SpecFlow;
 
 
@@ -47,7 +45,7 @@ namespace SdcaFramework.BusinessLogic
             }
             else
             {
-                neededId = Int32.Parse(id);
+                neededId = int.Parse(id);
             }
             return neededId;
         }

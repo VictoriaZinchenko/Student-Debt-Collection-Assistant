@@ -11,7 +11,7 @@ namespace SdcaFramework.Utilities
             int lastId = new CollectorSteps().LastCollectorId;
             return (new Collector
             {
-                id = IsNewCreatedOne == true ? lastId : lastId + 1,
+                id = IsNewCreatedOne ? lastId : lastId + 1,
                 nickname = creator.nickname,
                 fearFactor = creator.fearFactor
             });
@@ -22,7 +22,7 @@ namespace SdcaFramework.Utilities
             int lastId = new AppointmentSteps().LastAppointmentId;
             return (new Appointment
             {
-                id = IsNewCreatedOne == true ? lastId : lastId + 1,
+                id = IsNewCreatedOne ? lastId : lastId + 1,
                 appointmentDate = creator.appointmentDate,
                 collectorIds = creator.collectorIds,
                 debtId = creator.debtId
@@ -34,7 +34,7 @@ namespace SdcaFramework.Utilities
             int lastId = new DebtSteps().LastDebtId;
             return (new Debt
             {
-                id = IsNewCreatedOne == true ? lastId : lastId + 1,
+                id = IsNewCreatedOne ? lastId : lastId + 1,
                 amount = creator.amount,
                 monthlyPercent = creator.monthlyPercent,
                 studentId = creator.studentId
@@ -46,7 +46,7 @@ namespace SdcaFramework.Utilities
             int lastId = new StudentSteps().LastStudentId;
             return (new Student
             {
-                id = IsNewCreatedOne == true ? lastId : lastId + 1,
+                id = IsNewCreatedOne ? lastId : lastId + 1,
                 age = creator.age,
                 name = creator.name,
                 risk = creator.risk,

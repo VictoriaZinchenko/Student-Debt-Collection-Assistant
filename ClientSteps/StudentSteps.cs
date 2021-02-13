@@ -29,5 +29,8 @@ namespace SdcaFramework.ClientSteps
 
         public HttpStatusCode GetResponseDeleteStudentAction(int id)
             => GetStatusCodeForDeleteAction(id);
+
+        public HttpStatusCode GetResponseCreateStudentAction(StudentCreator student)
+            => GetStatusCodeForCreateAction(student);
     }
 }

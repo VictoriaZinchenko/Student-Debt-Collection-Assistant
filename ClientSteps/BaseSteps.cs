@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using NLog;
 using RestSharp;
+using SdcaFramework.Utilities;
 using SdcaFramework.Utilities.Configuration;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace SdcaFramework.ClientSteps
     class BaseSteps<T, K>
     {
         protected Logger Logger = LogManager.GetCurrentClassLogger();
-         private readonly RestClient RestClient = new RestClient(new Startup().Configuration["BaseUrl"]);
+        private readonly RestClient RestClient = new RestClient(new Startup().Configuration["BaseUrl"]);
 
         protected virtual string Resource { get;}
 
@@ -39,26 +39,27 @@ namespace SdcaFramework.ClientSteps
         protected HttpStatusCode GetStatusCodeForDeleteAction(int id)
             => ExecuteRequest(Method.DELETE, 0, null, id.ToString()).StatusCode;
 
+        protected HttpStatusCode GetStatusCodeForCreateAction(K objectData)
+           => ExecuteRequest(Method.POST, 0, objectData).StatusCode;
+
         private IRestResponse ExecuteRequest(Method method, HttpStatusCode expectedStatusCode, object body = null, string objectId = "")
         {
-            //var d = new Startup().Configuration["BaseUrl"];
             var resourceUrl = $"{Resource}/{objectId}";
             RestRequest restRequest = new RestRequest(resourceUrl, method);
             restRequest.RequestFormat = DataFormat.Json;
+            Logger.Debug($"Trying send a request for url {RestClient}{resourceUrl}." +
+                $"\nMethod: {method}");
             if (body != null)
             {
                 restRequest.AddJsonBody(body);
+                Logger.Debug($"\nBody: {PropertiesDescriber.GetObjectProperties(body)}");
             }
-            Logger.Debug($"Trying send a request for url {RestClient}{resourceUrl}." +
-                $"\nMethod: {method} " +
-                $"\nBody: {body} ");
             IRestResponse response =  RestClient.Execute(restRequest);
             if (expectedStatusCode != 0)
             {
                 CheckHttpStatusCode(response, expectedStatusCode);
             }
-            Logger.Debug("Response : " +
-                $"Status code: {response.StatusCode}");
+            Logger.Debug($"Response status code: {response.StatusCode}");
             return response;
         }
 

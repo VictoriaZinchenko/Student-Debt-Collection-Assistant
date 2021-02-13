@@ -1,7 +1,9 @@
 ﻿using NUnit.Framework;
 using SdcaFramework.Clients;
+using SdcaFramework.Clients.Creators;
 using SdcaFramework.ClientSteps;
 using SdcaFramework.Utilities;
+using SdcaFramework.Utilities.Enums;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -24,41 +26,36 @@ namespace SdcaFramework.BusinessLogic
             ScenarioContext.Set<List<Student>>(new StudentSteps().GetListOfStudents(), "listOfStudents");
         }
 
-        [Given(@"I have got a student data by (.*) id( again)*")]
-        [When(@"I get a student data by (.*) id( again)*")]
-        public void WhenIGetDataById(string id, string repeatedAction)
+        [Given(@"I have got a student data by (.*) id")]
+        [When(@"I get a student data by (.*) id")]
+        public void WhenIGetDataById(string id)
         {
-            string key;
             int neededId = GetNeededId(id, SdcaParts.student);
-            if (!string.IsNullOrEmpty(repeatedAction))
-            {
-                key = "actualStudent№2";
-            }
-            else
-            {
-                key = "actualStudent№1";
-            }
-            ScenarioContext.Set<Student>(new StudentSteps().GetStudentById(neededId), key);
+            ScenarioContext.Set<Student>(new StudentSteps().GetStudentById(neededId), "actualStudent");
         }
 
-        [Given(@"I have added a student with the following parameters")]
-        public void AddObjectWithParameters(Table table)
+        [Given(@"I have added a student with the following( invalid)* parameters")]
+        [When(@"I add a student with the following( invalid)* parameters")]
+        public void AddObjectWithParameters(string invalidParameter, StudentCreator student)
         {
-                new StudentSteps().CreateStudent(StepArgumentTransformations.GetStudentCreator(table));
+            if (!string.IsNullOrEmpty(invalidParameter))
+            {
+                ScenarioContext.Set<HttpStatusCode>(new StudentSteps().GetResponseCreateStudentAction(student), "ActualStatusCode");
+            }
+            new StudentSteps().CreateStudent(student);
                 ScenarioContext.Set<Student>(
-                    Transformations.GetStudentBasedOnStudentCreator(StepArgumentTransformations.GetStudentCreator(table)), "expectedStudent");
+                Transformations.GetStudentBasedOnStudentCreator(student), "expectedStudent");
         }
 
         [Given(@"I have modified the student with the following parameters")]
-        public void GivenIHaveModifiedTheObjectWithTheFollowingParameters(Table table)
+        public void GivenIHaveModifiedTheObjectWithTheFollowingParameters(Student student)
         {
-                Student student = StepArgumentTransformations.GetStudent(table);
                 new StudentSteps().ModifyStudent(student);
                 ScenarioContext.Set<Student>(student, "expectedModifiedStudent");
         }
 
         [Then(@"I can see the created student in the list")]
-        public void ThenICanSeeThisObject(SdcaParts part)
+        public void ThenICanSeeThisObject()
         {
             object expectedObject = null;
             var actualObjectsList = new List<object>();
@@ -67,7 +64,7 @@ namespace SdcaFramework.BusinessLogic
                 ScenarioContext.Get<List<Student>>("listOfStudents").ForEach(element => actualObjectsList.Add(element));
             
             Assert.Contains(expectedObject, actualObjectsList,
-                AssertHelper.GetActualObjectsListAndExpectedObjectProperties(expectedObject, actualObjectsList));
+                PropertiesDescriber.GetActualObjectsListAndExpectedObjectProperties(expectedObject, actualObjectsList));
         }
 
         [Then(@"the student data is saved correctly")]
@@ -79,7 +76,7 @@ namespace SdcaFramework.BusinessLogic
                 expectedObject = ScenarioContext.Get<Student>("expectedStudent");
                 actualObject = ScenarioContext.Get<Student>("actualStudent");
             
-            Assert.AreEqual(expectedObject, actualObject, AssertHelper.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
+            Assert.AreEqual(expectedObject, actualObject, PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
         }
 
         [Then(@"the student data is modified correctly")]
@@ -91,7 +88,7 @@ namespace SdcaFramework.BusinessLogic
                 expectedObject = ScenarioContext.Get<Student>("expectedModifiedStudent");
                 actualObject = ScenarioContext.Get<Student>("actualStudent");
             
-            Assert.AreEqual(expectedObject, actualObject, AssertHelper.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
+            Assert.AreEqual(expectedObject, actualObject, PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
         }
 
         [Given(@"I have deleted a student by (.*) id")]
@@ -120,6 +117,13 @@ namespace SdcaFramework.BusinessLogic
         {
             Assert.AreEqual(HttpStatusCode.NotFound,
                 ScenarioContext.Get<HttpStatusCode>("ActualStatusCode"), "Expected status code should be 'Not Found'.");
+        }
+
+        [Then(@"the system can't create the student data")]
+        public void ThenTheSystemDidNotCreateTheData()
+        {
+            Assert.AreEqual(HttpStatusCode.BadRequest,
+                ScenarioContext.Get<HttpStatusCode>("ActualStatusCode"), "Expected status code should be 'Bad Request'.");
         }
     }
 }

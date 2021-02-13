@@ -16,9 +16,6 @@ namespace SdcaFramework.ClientSteps
         public void CreateDebt(DebtCreator debt, HttpStatusCode expectedStatusCode = HttpStatusCode.Created)
             => CreateNewObject(debt, expectedStatusCode);
 
-        //public void ModifyDebt(Debt debt, HttpStatusCode expectedStatusCode = HttpStatusCode.OK)
-        //    => ModifyExistingObject(debt, expectedStatusCode);
-
         public Debt GetDebtById(int id, HttpStatusCode expectedStatusCode = HttpStatusCode.OK)
             => GetObjectById(id, expectedStatusCode);
 
@@ -29,5 +26,8 @@ namespace SdcaFramework.ClientSteps
 
         public HttpStatusCode GetResponseDeleteDebtAction(int id)
             => GetStatusCodeForDeleteAction(id);
+
+        public HttpStatusCode GetResponseCreateDebtAction(DebtCreator debt)
+            => GetStatusCodeForCreateAction(debt);
     }
 }

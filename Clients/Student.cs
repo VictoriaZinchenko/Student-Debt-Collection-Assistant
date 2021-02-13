@@ -1,14 +1,11 @@
-﻿using System;
+﻿using SdcaFramework.Clients.Creators;
+using System;
 
 namespace SdcaFramework.Clients
 {
-    public sealed class Student
+    public sealed class Student : StudentCreator
     {
         public int id { get; set; }
-        public string name { get; set; }
-        public long age { get; set; }
-        public bool sex { get; set; }
-        public int risk { get; set; }
 
         protected bool Equals(Student other)
             => id == other.id

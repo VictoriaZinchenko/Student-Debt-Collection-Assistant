@@ -1,38 +1,55 @@
 ﻿using SdcaFramework.Clients;
 using SdcaFramework.ClientSteps;
 using System;
-using TechTalk.SpecFlow;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SdcaFramework.BusinessLogic
 {
     public class DebtCalculation
     {
+        public double RecalculateAmount(Debt debt, double originalAmount, DateTime dateOfLastUpdate, DateTime targetDate)
+        {
+            double result = originalAmount;
+            double dailyRate;
+            double monthlyPercent = debt.monthlyPercent / 100; //convert interest
+            List<DateTime> notUpdatedPeriodOfTime = GetListOfDates(dateOfLastUpdate, targetDate);
+            double discount = CalculateDiscount(debt.studentId);
+            foreach (DateTime date in notUpdatedPeriodOfTime)
+            {
+                dailyRate = (monthlyPercent / DaysCountOfNeededMonth(date)) * discount;
+                result += dailyRate;
+            }
+            return result;
+        }
+
         private double CalculateDiscount(int studentId)
         {
             Student student = new StudentSteps().GetStudentById(studentId);
-            double sexDiscount = student.sex == false ? 0.9 : 1;
-            double ageDiscount = 1;
-            //TimeSpan targetStudentAge = DateTime.Now - student.BirthDate;
-            if (student.age < 21)
+            double sexDiscount = student.sex ? 1 : 0.9;
+            double ageDiscount = student.age switch
             {
-                ageDiscount = 0.9;
-            }
-            if (student.age < 18)
-            {
-                ageDiscount = 0.8;
-            }
+                long age when age < 21 => 0.9,
+                long age when age < 18 => 0.8,
+                _ => 1
+            };
             return sexDiscount * ageDiscount;
         }
 
-        public double RecalculateAmount(Debt debt, DateTime lastUpdatedDate)
+        private List<DateTime> GetListOfDates(DateTime dateOfLastUpdate, DateTime targetDate)
         {
-            TimeSpan passedSinceLastUpdate = GetDebtDate(DateTime.Now) - GetDebtDate(lastUpdatedDate);
-            double dailyRate = debt.monthlyPercent * CalculateDiscount(debt.studentId) / 30;
-            return debt.amount * Math.Pow(1 + dailyRate, passedSinceLastUpdate.TotalDays);
+            var periodOfTime = Enumerable.Range(0, (int)(targetDate - dateOfLastUpdate).TotalDays + 1)
+                        .Select(number => dateOfLastUpdate.AddDays(number))
+                        .ToList();
+            periodOfTime.Remove(periodOfTime.Last()); //exclude today
+            return periodOfTime;
         }
-        public static DateTime GetDebtDate(DateTime realDate)
+
+        private int DaysCountOfNeededMonth(DateTime date) => date.Month switch
         {
-            return realDate.Date + new TimeSpan(5, 5, 5);
-        }
+            2 => 28,
+            int month when (month == 4) || (month == 6) || (month == 9) || (month == 11) => 30,
+            _ => 31
+        };
     }
 }
