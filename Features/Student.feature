@@ -10,24 +10,33 @@ Scenario: Add student and check it presence in the list
   Then I can see the created student in the list
 
     #BUG?
-Scenario Outline: Add student with invalid parameter and check it absence in the list
-	When I add a student with the following invalid parameters
-	| name     | age | sex  | risk |
-	| <name>     | <age> | <sex>  | <risk> |
-	Then the system can't create the student data
-	Examples:
-	| name     | age | sex  | risk |
-	| Poor invalid guy 1| -17  | true | 5    |
-	#| Poor invalid guy 2| 17  | man | 5    |
-	| Poor invalid guy 3| 17  | true | -10    |
+Scenario Outline: Try to add student with invalid parameter
+When I try to add a student with invalid parameter
+	| Parameter  | Value        |
+	| name   | <name>   |
+	| age | <age> |
+		| sex | <sex> |
+	| risk | <risk> |
+Then the system can't create the collector data
+
+Examples: 
+| name | age | sex  | risk |
+| 123  | 17  | true | 5    |
+| Cutie  | age  | true | 5    |
+| Cutie  | 17  | sex | 5    |
+| Cutie  | 17  | true | risk  |
+| Cutie  | -17  | true | 5  |
+|   | 17  | true | 5  |
+| Cutie  |   | true | 5  |
+| Cutie  | 17  |  | 5  |
+| Cutie  | 17  | true |   |
 
   @Bug.Fail.5
   Scenario: Modify student and check the changes
-	Given I have modified the student with the following parameters
+  When I modify the student with the following parameters
 	| id | name | age | sex | risk |
 	|1 | Poor guy | 17  | true | 5    |
-  When I get a student data by 1 id
-  Then the student data is modified correctly 
+  Then the student data with 1 id is modified correctly 
 
 Scenario: Delete student and check its absence
 	Given I have added a student with the following parameters
@@ -55,7 +64,7 @@ Scenario: Try to delete the removed student
 	And I have added a debt with the following parameters
 		| studentId | amount | monthlyPercent |
 		| last      | 170    | 10             |
-	And I have added an appointment with the following parameters
+	When I add an appointment with the following parameters
 		| collectorIds | debtId | appointmentDate                  |
 		| last         | last   | 2020-12-09T14:30:00.000000+02:00 |
 	Then the debt data with last id is connected with the following student

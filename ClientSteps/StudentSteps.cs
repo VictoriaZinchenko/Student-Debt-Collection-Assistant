@@ -31,6 +31,9 @@ namespace SdcaFramework.ClientSteps
             => GetStatusCodeForDeleteAction(id);
 
         public HttpStatusCode GetResponseCreateStudentAction(StudentCreator student)
-            => GetStatusCodeForCreateAction(student);
+            => GetStatusCodeForPostAction(student);
+
+        public HttpStatusCode GetStatusCodeForInvalidPostAction(Dictionary<string, object> parameters)
+            => GetHttpStatusCodeForInvalidPostAction(parameters);
     }
 }

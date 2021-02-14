@@ -144,7 +144,7 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        public virtual void AddStudentWithInvalidParameterAndCheckItAbsenceInTheList(string name, string age, string sex, string risk, string[] exampleTags)
+        public virtual void TryToAddStudentWithInvalidParameter(string name, string age, string sex, string risk, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -152,7 +152,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("age", age);
             argumentsOfScenario.Add("sex", sex);
             argumentsOfScenario.Add("risk", risk);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add student with invalid parameter and check it absence in the list", null, tagsOfScenario, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to add student with invalid parameter", null, tagsOfScenario, argumentsOfScenario);
 #line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -174,54 +174,162 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
                 TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
-                            "name",
-                            "age",
-                            "sex",
-                            "risk"});
+                            "Parameter",
+                            "Value"});
                 table31.AddRow(new string[] {
-                            string.Format("{0}", name),
-                            string.Format("{0}", age),
-                            string.Format("{0}", sex),
+                            "name",
+                            string.Format("{0}", name)});
+                table31.AddRow(new string[] {
+                            "age",
+                            string.Format("{0}", age)});
+                table31.AddRow(new string[] {
+                            "sex",
+                            string.Format("{0}", sex)});
+                table31.AddRow(new string[] {
+                            "risk",
                             string.Format("{0}", risk)});
 #line 14
- testRunner.When("I add a student with the following invalid parameters", ((string)(null)), table31, "When ");
+testRunner.When("I try to add a student with invalid parameter", ((string)(null)), table31, "When ");
 #line hidden
-#line 17
- testRunner.Then("the system can\'t create the student data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 20
+testRunner.Then("the system can\'t create the collector data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add student with invalid parameter and check it absence in the list: Poor invalid" +
-            " guy 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add student with invalid parameter: Variant 0")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Student")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Poor invalid guy 1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Poor invalid guy 1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:age", "-17")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "123")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:age", "17")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:sex", "true")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
-        public virtual void AddStudentWithInvalidParameterAndCheckItAbsenceInTheList_PoorInvalidGuy1()
+        public virtual void TryToAddStudentWithInvalidParameter_Variant0()
         {
 #line 13
-this.AddStudentWithInvalidParameterAndCheckItAbsenceInTheList("Poor invalid guy 1", "-17", "true", "5", ((string[])(null)));
+this.TryToAddStudentWithInvalidParameter("123", "17", "true", "5", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add student with invalid parameter and check it absence in the list: Poor invalid" +
-            " guy 3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add student with invalid parameter: Variant 1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Student")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Poor invalid guy 3")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Poor invalid guy 3")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:age", "17")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Cutie")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:age", "age")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:sex", "true")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "-10")]
-        public virtual void AddStudentWithInvalidParameterAndCheckItAbsenceInTheList_PoorInvalidGuy3()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
+        public virtual void TryToAddStudentWithInvalidParameter_Variant1()
         {
 #line 13
-this.AddStudentWithInvalidParameterAndCheckItAbsenceInTheList("Poor invalid guy 3", "17", "true", "-10", ((string[])(null)));
+this.TryToAddStudentWithInvalidParameter("Cutie", "age", "true", "5", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add student with invalid parameter: Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Student")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Cutie")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:age", "17")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:sex", "sex")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
+        public virtual void TryToAddStudentWithInvalidParameter_Variant2()
+        {
+#line 13
+this.TryToAddStudentWithInvalidParameter("Cutie", "17", "sex", "5", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add student with invalid parameter: Variant 3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Student")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Cutie")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:age", "17")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:sex", "true")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "risk")]
+        public virtual void TryToAddStudentWithInvalidParameter_Variant3()
+        {
+#line 13
+this.TryToAddStudentWithInvalidParameter("Cutie", "17", "true", "risk", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add student with invalid parameter: Variant 4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Student")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Cutie")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:age", "-17")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:sex", "true")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
+        public virtual void TryToAddStudentWithInvalidParameter_Variant4()
+        {
+#line 13
+this.TryToAddStudentWithInvalidParameter("Cutie", "-17", "true", "5", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add student with invalid parameter: Variant 5")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Student")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 5")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:age", "17")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:sex", "true")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
+        public virtual void TryToAddStudentWithInvalidParameter_Variant5()
+        {
+#line 13
+this.TryToAddStudentWithInvalidParameter("", "17", "true", "5", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add student with invalid parameter: Variant 6")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Student")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 6")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Cutie")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:age", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:sex", "true")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
+        public virtual void TryToAddStudentWithInvalidParameter_Variant6()
+        {
+#line 13
+this.TryToAddStudentWithInvalidParameter("Cutie", "", "true", "5", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add student with invalid parameter: Variant 7")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Student")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 7")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Cutie")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:age", "17")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:sex", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
+        public virtual void TryToAddStudentWithInvalidParameter_Variant7()
+        {
+#line 13
+this.TryToAddStudentWithInvalidParameter("Cutie", "17", "", "5", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add student with invalid parameter: Variant 8")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Student")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 8")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Cutie")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:age", "17")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:sex", "true")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "")]
+        public virtual void TryToAddStudentWithInvalidParameter_Variant8()
+        {
+#line 13
+this.TryToAddStudentWithInvalidParameter("Cutie", "17", "true", "", ((string[])(null)));
 #line hidden
         }
         
@@ -235,7 +343,7 @@ this.AddStudentWithInvalidParameterAndCheckItAbsenceInTheList("Poor invalid guy 
                     "Bug.Fail.5"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modify student and check the changes", null, tagsOfScenario, argumentsOfScenario);
-#line 25
+#line 35
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -267,14 +375,11 @@ this.AddStudentWithInvalidParameterAndCheckItAbsenceInTheList("Poor invalid guy 
                             "17",
                             "true",
                             "5"});
-#line 26
- testRunner.Given("I have modified the student with the following parameters", ((string)(null)), table32, "Given ");
+#line 36
+  testRunner.When("I modify the student with the following parameters", ((string)(null)), table32, "When ");
 #line hidden
-#line 29
-  testRunner.When("I get a student data by 1 id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 30
-  testRunner.Then("the student data is modified correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 39
+  testRunner.Then("the student data with 1 id is modified correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -288,7 +393,7 @@ this.AddStudentWithInvalidParameterAndCheckItAbsenceInTheList("Poor invalid guy 
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete student and check its absence", null, tagsOfScenario, argumentsOfScenario);
-#line 32
+#line 41
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -318,13 +423,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "17",
                             "true",
                             "5"});
-#line 33
+#line 42
  testRunner.Given("I have added a student with the following parameters", ((string)(null)), table33, "Given ");
 #line hidden
-#line 36
+#line 45
  testRunner.When("I delete a student by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 37
+#line 46
  testRunner.Then("the system can\'t find the student data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -339,7 +444,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to delete the removed student", null, tagsOfScenario, argumentsOfScenario);
-#line 39
+#line 48
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -369,16 +474,16 @@ this.ScenarioInitialize(scenarioInfo);
                             "17",
                             "true",
                             "5"});
-#line 40
+#line 49
  testRunner.Given("I have added a student with the following parameters", ((string)(null)), table34, "Given ");
 #line hidden
-#line 43
+#line 52
  testRunner.When("I delete a student by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 44
+#line 53
  testRunner.And("I try to delete the removed student by this id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 45
+#line 54
  testRunner.Then("the system can\'t find the student data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -397,7 +502,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create collector, student, debt, appointment and check debt connection with stude" +
                     "nt", null, tagsOfScenario, argumentsOfScenario);
-#line 48
+#line 57
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -423,7 +528,7 @@ this.ScenarioInitialize(scenarioInfo);
                 table35.AddRow(new string[] {
                             "Fear Man",
                             "1"});
-#line 49
+#line 58
  testRunner.Given("I have added a collector with the following parameters", ((string)(null)), table35, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
@@ -436,7 +541,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "17",
                             "true",
                             "1"});
-#line 52
+#line 61
  testRunner.And("I have added a student with the following parameters", ((string)(null)), table36, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
@@ -447,7 +552,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "last",
                             "170",
                             "10"});
-#line 55
+#line 64
  testRunner.And("I have added a debt with the following parameters", ((string)(null)), table37, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
@@ -458,8 +563,8 @@ this.ScenarioInitialize(scenarioInfo);
                             "last",
                             "last",
                             "2020-12-09T14:30:00.000000+02:00"});
-#line 58
- testRunner.And("I have added an appointment with the following parameters", ((string)(null)), table38, "And ");
+#line 67
+ testRunner.When("I add an appointment with the following parameters", ((string)(null)), table38, "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
                             "name",
@@ -471,7 +576,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "17",
                             "true",
                             "1"});
-#line 61
+#line 70
  testRunner.Then("the debt data with last id is connected with the following student", ((string)(null)), table39, "Then ");
 #line hidden
             }

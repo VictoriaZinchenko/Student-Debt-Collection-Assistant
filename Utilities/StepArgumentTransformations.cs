@@ -4,6 +4,7 @@ using SdcaFramework.ClientSteps;
 using SdcaFramework.Utilities.Enums;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using TechTalk.SpecFlow;
 
@@ -18,9 +19,11 @@ namespace SdcaFramework.Utilities
 
         [StepArgumentTransformation]
         internal List<string> GetList(Table table)
-        {
-            return table.Rows.Select(row => row.Values.First()).ToList();
-        }
+            => table.Rows.Select(row => row.Values.First()).ToList();
+
+        [StepArgumentTransformation]
+        internal Dictionary<string, object> GetDictionary(Table table)
+            => table.Rows.ToDictionary(row => row[0].ToString(), row => TryParseStringContent(row[1]));
 
         [StepArgumentTransformation]
         internal CollectorCreator GetCollectorCreator(Table table)
@@ -93,8 +96,6 @@ namespace SdcaFramework.Utilities
         [StepArgumentTransformation]
         internal StudentCreator GetStudentCreator(Table table)
         {
-            //try
-            //{
                 StudentCreator student = table.Rows.Select(row => new StudentCreator
                 {
                     age = long.Parse(row["age"]),
@@ -103,21 +104,12 @@ namespace SdcaFramework.Utilities
                     sex = Boolean.Parse(row["sex"])
                 }).FirstOrDefault();
                 return student;
-
-            //}
-            //catch (System.FormatException)
-            //{
-            //    //add log
-            //}
         }
 
         [StepArgumentTransformation]
         internal Student GetStudent(Table table)
         {
-            Student student = null;
-            try
-            {
-                student = table.Rows.Select(row => new Student
+                return table.Rows.Select(row => new Student
                 {
                     id = int.Parse(row["id"]),
                     age = long.Parse(row["age"]),
@@ -125,17 +117,27 @@ namespace SdcaFramework.Utilities
                     risk = int.Parse(row["risk"]),
                     sex = Boolean.Parse(row["sex"])
                 }).FirstOrDefault();
-            }
-            catch (System.FormatException)
-            {
-                //add log
-            }
-            return student;
+            
         }
 
         private List<int> GetListOfIds(string row) 
             => row.Replace(", ", ",").Split(',').ToList().Select(id => int.Parse(id)).ToList();
 
         private int GetNeededId(string row, int lastId) => row == "last" ? lastId : int.Parse(row);
+
+        private object TryParseStringContent(string value)
+        {
+            int intValue;
+            double doubleValue;
+            DateTime dateTimeValue;
+            return value switch
+            {
+                string stringValue when string.IsNullOrEmpty(value) => string.Empty,
+                string stringValue when int.TryParse(value, out intValue).Equals(true) => intValue,
+                string stringValue when double.TryParse(value, out doubleValue).Equals(true) => doubleValue,
+                string stringValue when DateTime.TryParse(value, out dateTimeValue).Equals(true) => dateTimeValue,
+                _ => value
+            };
+        }
     }
 }

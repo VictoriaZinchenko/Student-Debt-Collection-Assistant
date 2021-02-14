@@ -25,31 +25,17 @@ namespace SdcaFramework.BusinessLogic
            ScenarioContext.Set<List<Collector>>(new CollectorSteps().GetListOfCollectors(), "listOfCollectors");
         }
 
-        [Given(@"I have got a collector data by (.*) id")]
-        [When(@"I get a collector data by (.*) id")]
-        public void WhenIGetDataById(string id)
+        [Given(@"I have added a collector with the following parameters")]
+        [When(@"I add a collector with the following parameters")]
+        public void AddObjectWithParameters(CollectorCreator collector)
         {
-            int neededId = GetNeededId(id, SdcaParts.collector);
-            ScenarioContext.Set<Collector>(new CollectorSteps().GetCollectorById(neededId), "actualCollector");
-        }
-
-        [Given(@"I have added a collector with the following( invalid)* parameters")]
-        [When(@"I add a collector with the following( invalid)* parameters")]
-        public void AddObjectWithParameters(string invalidParameter, CollectorCreator collector)
-        {
-            if (!string.IsNullOrEmpty(invalidParameter))
-            {
-                ScenarioContext.Set<HttpStatusCode>(new CollectorSteps().GetResponseCreateCollectorAction(collector), "ActualStatusCode");
-            }
-            else
-            {
                 new CollectorSteps().CreateCollector(collector);
                 ScenarioContext.Set<Collector>(
                 Transformations.GetCollectorBasedOnCollectorCreator(collector), "expectedCollector");
-            }
         }
 
         [Given(@"I have modified the collector with the following parameters")]
+        [When(@"I modify the collector with the following parameters")]
         public void GivenIHaveModifiedTheObjectWithTheFollowingParameters(Collector collector)
         {
                 new CollectorSteps().ModifyCollector(collector);
@@ -69,28 +55,25 @@ namespace SdcaFramework.BusinessLogic
                 PropertiesDescriber.GetActualObjectsListAndExpectedObjectProperties(expectedObject, actualObjectsList));
         }
 
-        [Then(@"the collector data is saved correctly")]
-        public void ThenTheDataIsSavedCorrectly()
+        //[Then(@"the collector data is saved correctly")]
+        //public void ThenTheDataIsSavedCorrectly()
+        //{
+        //    object expectedObject = null;
+        //    object actualObject = null;
+
+        //        expectedObject = ScenarioContext.Get<Collector>("expectedCollector");
+        //        actualObject = ScenarioContext.Get<Collector>("actualCollector");
+
+        //    Assert.AreEqual(expectedObject, actualObject, PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
+        //}
+
+        [Then(@"the collector data with (.*) id is modified correctly")]
+        public void ThenTheDataIsModifiedCorrectly(string id)
         {
-            object expectedObject = null;
-            object actualObject = null;
-
-                expectedObject = ScenarioContext.Get<Collector>("expectedCollector");
-                actualObject = ScenarioContext.Get<Collector>("actualCollector");
-
-            Assert.AreEqual(expectedObject, actualObject, PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
-        }
-
-        [Then(@"the collector data is modified correctly")]
-        public void ThenTheDataIsModifiedCorrectly()
-        {
-            object expectedObject = null;
-            object actualObject = null;
-
-                expectedObject = ScenarioContext.Get<Collector>("expectedModifiedCollector");
-                actualObject = ScenarioContext.Get<Collector>("actualCollector");
-
-            Assert.AreEqual(expectedObject, actualObject, PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
+            Collector expectedObject = ScenarioContext.Get<Collector>("expectedModifiedCollector");
+            Collector actualObject = GetCollectorDataById(id);
+            Assert.AreEqual(expectedObject, actualObject, 
+                PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
         }
 
         [Given(@"I have deleted a collector by (.*) id")]
@@ -140,6 +123,19 @@ namespace SdcaFramework.BusinessLogic
         {
             Assert.AreEqual(HttpStatusCode.BadRequest,
                 ScenarioContext.Get<HttpStatusCode>("ActualStatusCode"), "Expected status code should be 'Bad Request'.");
+        }
+
+        [When(@"I try to add a collector with invalid parameter")]
+        public void WhenITryToAddACollectorWithInvalidParameter(Dictionary<string, object> parameters)
+        {
+            ScenarioContext.Set<HttpStatusCode>(new CollectorSteps().GetStatusCodeForInvalidPostAction(parameters),
+                "ActualStatusCode");
+        }
+
+        public Collector GetCollectorDataById(string id)
+        {
+            int neededId = GetNeededId(id, SdcaParts.collector);
+            return new CollectorSteps().GetCollectorById(neededId);
         }
     }
 }

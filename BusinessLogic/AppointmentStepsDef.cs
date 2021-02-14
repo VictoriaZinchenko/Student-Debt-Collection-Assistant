@@ -22,31 +22,15 @@ namespace SdcaFramework.BusinessLogic
         public void SetListOfAppointmentsToContext()
         {
             ScenarioContext.Set<List<Appointment>>(new AppointmentSteps().GetListOfAppointments(), "listOfAppointments");
-            
         }
 
-        [Given(@"I have got an appointment data by (.*) id")]
-        [When(@"I get an appointment data by (.*) id")]
-        public void WhenIGetDataById(string id)
+        [Given(@"I have added an appointment with the following parameters")]
+        [When(@"I add an appointment with the following parameters")]
+        public void AddObjectWithParameters(AppointmentCreator appointment)
         {
-            int neededId = GetNeededId(id, SdcaParts.appointment);
-            ScenarioContext.Set<Appointment>(new AppointmentSteps().GetAppointmentById(neededId), "actualAppointment");
-        }
-
-        [Given(@"I have added an appointment with the following( invalid)* parameters")]
-        [When(@"I add an appointment with the following( invalid)* parameters")]
-        public void AddObjectWithParameters(string invalidParameter, AppointmentCreator appointment)
-        {
-            if (!string.IsNullOrEmpty(invalidParameter))
-            {
-                ScenarioContext.Set<HttpStatusCode>(new AppointmentSteps().GetResponseCreateAppointmentAction(appointment), "ActualStatusCode");
-            }
-            else
-            {
                 new AppointmentSteps().CreateAppointment(appointment);
                 ScenarioContext.Set<Appointment>(
                 Transformations.GetAppointmentBasedOnAppointmentCreator(appointment), "expectedAppointment");
-            }
         }
 
         [Given(@"I have deleted an appointment by (.*) id")]
@@ -100,13 +84,10 @@ namespace SdcaFramework.BusinessLogic
         [Then(@"the appointment data is saved correctly")]
         public void ThenTheDataIsSavedCorrectly()
         {
-            object expectedObject = null;
-            object actualObject = null;
-
-                expectedObject = ScenarioContext.Get<Appointment>("expectedAppointment");
-                actualObject = ScenarioContext.Get<Appointment>("actualAppointment");
-
-            Assert.AreEqual(expectedObject, actualObject, PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
+            Appointment actualObject = GetAppointmentDataById("last");
+            Appointment expectedObject = ScenarioContext.Get<Appointment>("expectedAppointment");
+            Assert.AreEqual(expectedObject, actualObject, 
+                PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
         }
 
         [Then(@"the appointment data with (.*) id is connected with the following (debt|student|collector)")]
@@ -131,6 +112,21 @@ namespace SdcaFramework.BusinessLogic
             
             Assert.AreEqual(expectedObject, actualObject, 
                 PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
+        }
+
+        [When(@"I try to add an appointment with invalid parameter")]
+        public void WhenITryToAddAnAppointmentWithInvalidParameter(Dictionary<string, object> parameters)
+        {
+            ScenarioContext.Set<HttpStatusCode>(new AppointmentSteps().GetStatusCodeForInvalidPostAction(parameters),
+                "ActualStatusCode");
+        }
+
+        private Appointment GetAppointmentDataById(string id)
+        {
+            int neededId = GetNeededId(id, SdcaParts.appointment);
+            Appointment appointment = new AppointmentSteps().GetAppointmentById(neededId);
+            ScenarioContext.Set<Appointment>(appointment, "actualAppointment");
+            return appointment;
         }
     }
 }

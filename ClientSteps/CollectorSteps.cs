@@ -31,6 +31,9 @@ namespace SdcaFramework.ClientSteps
             => GetStatusCodeForDeleteAction(id);
 
         public HttpStatusCode GetResponseCreateCollectorAction(CollectorCreator collector)
-            => GetStatusCodeForCreateAction(collector);
+            => GetStatusCodeForPostAction(collector);
+
+        public HttpStatusCode GetStatusCodeForInvalidPostAction(Dictionary<string, object> parameters)
+            => GetHttpStatusCodeForInvalidPostAction(parameters);
     }
 }

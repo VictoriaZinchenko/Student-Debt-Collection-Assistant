@@ -29,18 +29,13 @@ namespace SdcaFramework.BusinessLogic
         [When(@"I get a debt data by (.*) id")]
         public void WhenIGetDataById(string id)
         {
-            int neededId = GetNeededId(id, SdcaParts.debt);
-            ScenarioContext.Set<Debt>(new DebtSteps().GetDebtById(neededId), "actualDebt");
+            GetDebtDataById(id);
         }
 
-        [Given(@"I have added a debt with the following( invalid)* parameters")]
-        [When(@"I add a debt with the following( invalid)* parameters")]
-        public void AddObjectWithParameters(string invalidParameter, DebtCreator debt)
+        [Given(@"I have added a debt with the following parameters")]
+        [When(@"I add a debt with the following parameters")]
+        public void AddObjectWithParameters(DebtCreator debt)
         {
-            if (!string.IsNullOrEmpty(invalidParameter))
-            {
-                ScenarioContext.Set<HttpStatusCode>(new DebtSteps().GetResponseCreateDebtAction(debt), "ActualStatusCode");
-            }
             new DebtSteps().CreateDebt(debt);
                 ScenarioContext.Set<Debt>(
                 Transformations.GetDebtBasedOnDebtCreator(debt), "expectedDebt");
@@ -62,13 +57,10 @@ namespace SdcaFramework.BusinessLogic
         [Then(@"the debt data is saved correctly")]
         public void ThenTheDataIsSavedCorrectly()
         {
-            object expectedObject = null;
-            object actualObject = null;
-
-                expectedObject = ScenarioContext.Get<Debt>("expectedDebt");
-                actualObject = ScenarioContext.Get<Debt>("actualDebt");
-
-            Assert.AreEqual(expectedObject, actualObject, PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
+            Debt expectedObject = ScenarioContext.Get<Debt>("expectedDebt");
+            Debt actualObject = GetDebtDataById("last");
+            Assert.AreEqual(expectedObject, actualObject, 
+                PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
         }
 
         [Given(@"I have deleted a debt by (.*) id")]
@@ -132,6 +124,21 @@ namespace SdcaFramework.BusinessLogic
                     _ => null
                 };
             Assert.AreEqual(expectedObject, actualObject, PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
+        }
+
+        [When(@"I try to add a debt with invalid parameter")]
+        public void WhenITryToAddADebtWithInvalidParameter(Dictionary<string, object> parameters)
+        {
+            ScenarioContext.Set<HttpStatusCode>(new DebtSteps().GetStatusCodeForInvalidPostAction(parameters),
+                "ActualStatusCode");
+        }
+
+        private Debt GetDebtDataById(string id)
+        {
+            int neededId = GetNeededId(id, SdcaParts.debt);
+            Debt debt = new DebtSteps().GetDebtById(neededId);
+            ScenarioContext.Set<Debt>(debt, "actualDebt");
+            return debt;
         }
     }
 }

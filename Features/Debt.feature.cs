@@ -142,14 +142,14 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        public virtual void AddDebtWithInvalidParameterAndCheckItAbsenceInTheList(string studentId, string amount, string monthlyPercent, string[] exampleTags)
+        public virtual void TryToAddDebtWithInvalidParameter(string studentId, string amount, string monthlyPercent, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("studentId", studentId);
             argumentsOfScenario.Add("amount", amount);
             argumentsOfScenario.Add("monthlyPercent", monthlyPercent);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add debt with invalid parameter and check it absence in the list", null, tagsOfScenario, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to add debt with invalid parameter", null, tagsOfScenario, argumentsOfScenario);
 #line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -171,62 +171,150 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
                 TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
-                            "studentId",
-                            "amount",
-                            "monthlyPercent"});
+                            "Parameter",
+                            "Value"});
                 table21.AddRow(new string[] {
-                            string.Format("{0}", studentId),
-                            string.Format("{0}", amount),
+                            "studentId",
+                            string.Format("{0}", studentId)});
+                table21.AddRow(new string[] {
+                            "amount",
+                            string.Format("{0}", amount)});
+                table21.AddRow(new string[] {
+                            "monthlyPercent",
                             string.Format("{0}", monthlyPercent)});
 #line 14
- testRunner.When("I add a debt with the following invalid parameters", ((string)(null)), table21, "When ");
+testRunner.When("I try to add a debt with invalid parameter", ((string)(null)), table21, "When ");
 #line hidden
-#line 17
- testRunner.Then("the system can\'t create the debt data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 19
+testRunner.Then("the system can\'t create the collector data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add debt with invalid parameter and check it absence in the list: Variant 0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add debt with invalid parameter: Variant 0")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Debt")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 0")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:studentId", "-1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:amount", "170")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:monthlyPercent", "10")]
-        public virtual void AddDebtWithInvalidParameterAndCheckItAbsenceInTheList_Variant0()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:studentId", "0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:amount", "amount")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:monthlyPercent", "5")]
+        public virtual void TryToAddDebtWithInvalidParameter_Variant0()
         {
 #line 13
-this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("-1", "170", "10", ((string[])(null)));
+this.TryToAddDebtWithInvalidParameter("0", "amount", "5", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add debt with invalid parameter and check it absence in the list: Variant 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add debt with invalid parameter: Variant 1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Debt")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:studentId", "1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:amount", "-170")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:monthlyPercent", "10")]
-        public virtual void AddDebtWithInvalidParameterAndCheckItAbsenceInTheList_Variant1()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:studentId", "studentId")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:amount", "100")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:monthlyPercent", "5")]
+        public virtual void TryToAddDebtWithInvalidParameter_Variant1()
         {
 #line 13
-this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "-170", "10", ((string[])(null)));
+this.TryToAddDebtWithInvalidParameter("studentId", "100", "5", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add debt with invalid parameter and check it absence in the list: Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add debt with invalid parameter: Variant 2")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Debt")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 2")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:studentId", "1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:amount", "170")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:monthlyPercent", "-100")]
-        public virtual void AddDebtWithInvalidParameterAndCheckItAbsenceInTheList_Variant2()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:studentId", "0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:amount", "100")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:monthlyPercent", "monthlyPercent")]
+        public virtual void TryToAddDebtWithInvalidParameter_Variant2()
         {
 #line 13
-this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", ((string[])(null)));
+this.TryToAddDebtWithInvalidParameter("0", "100", "monthlyPercent", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add debt with invalid parameter: Variant 3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Debt")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:studentId", "-2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:amount", "100")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:monthlyPercent", "5")]
+        public virtual void TryToAddDebtWithInvalidParameter_Variant3()
+        {
+#line 13
+this.TryToAddDebtWithInvalidParameter("-2", "100", "5", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add debt with invalid parameter: Variant 4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Debt")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:studentId", "0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:amount", "-100")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:monthlyPercent", "5")]
+        public virtual void TryToAddDebtWithInvalidParameter_Variant4()
+        {
+#line 13
+this.TryToAddDebtWithInvalidParameter("0", "-100", "5", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add debt with invalid parameter: Variant 5")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Debt")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 5")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:studentId", "0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:amount", "100")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:monthlyPercent", "-5")]
+        public virtual void TryToAddDebtWithInvalidParameter_Variant5()
+        {
+#line 13
+this.TryToAddDebtWithInvalidParameter("0", "100", "-5", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add debt with invalid parameter: Variant 6")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Debt")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 6")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:studentId", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:amount", "100")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:monthlyPercent", "5")]
+        public virtual void TryToAddDebtWithInvalidParameter_Variant6()
+        {
+#line 13
+this.TryToAddDebtWithInvalidParameter("", "100", "5", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add debt with invalid parameter: Variant 7")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Debt")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 7")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:studentId", "0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:amount", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:monthlyPercent", "5")]
+        public virtual void TryToAddDebtWithInvalidParameter_Variant7()
+        {
+#line 13
+this.TryToAddDebtWithInvalidParameter("0", "", "5", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Try to add debt with invalid parameter: Variant 8")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Debt")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 8")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:studentId", "0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:amount", "100")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:monthlyPercent", "")]
+        public virtual void TryToAddDebtWithInvalidParameter_Variant8()
+        {
+#line 13
+this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
 #line hidden
         }
         
@@ -238,7 +326,7 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get debt by id", null, tagsOfScenario, argumentsOfScenario);
-#line 24
+#line 33
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -266,13 +354,10 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
                             "1",
                             "170",
                             "10"});
-#line 25
- testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table22, "Given ");
+#line 34
+ testRunner.When("I add a debt with the following parameters", ((string)(null)), table22, "When ");
 #line hidden
-#line 28
-  testRunner.When("I get a debt data by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 29
+#line 37
   testRunner.Then("the debt data is saved correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -287,7 +372,7 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete debt and check its absence", null, tagsOfScenario, argumentsOfScenario);
-#line 31
+#line 39
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -315,13 +400,13 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
                             "1",
                             "170",
                             "10"});
-#line 32
+#line 40
  testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table23, "Given ");
 #line hidden
-#line 35
+#line 43
  testRunner.When("I delete a debt by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 36
+#line 44
  testRunner.Then("the system can\'t find the debt data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -336,7 +421,7 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to delete the removed debt", null, tagsOfScenario, argumentsOfScenario);
-#line 38
+#line 46
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -364,16 +449,16 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
                             "1",
                             "170",
                             "10"});
-#line 39
+#line 47
  testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table24, "Given ");
 #line hidden
-#line 42
+#line 50
  testRunner.When("I delete a debt by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 43
+#line 51
  testRunner.And("I try to delete the removed debt by this id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 44
+#line 52
  testRunner.Then("the system can\'t find the debt data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -388,7 +473,7 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check recalculated debt amount", null, tagsOfScenario, argumentsOfScenario);
-#line 46
+#line 55
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -408,10 +493,10 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
             else
             {
                 this.ScenarioStart();
-#line 47
+#line 56
  testRunner.When("I get a debt data by 0 id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 48
+#line 57
  testRunner.Then("the current amount is recalculated correctly for debt with 0 id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -428,7 +513,7 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create collector, student, debt, appointment and check appointment connection wit" +
                     "h debt", null, tagsOfScenario, argumentsOfScenario);
-#line 50
+#line 59
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -454,7 +539,7 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
                 table25.AddRow(new string[] {
                             "Fear Man",
                             "1"});
-#line 51
+#line 60
  testRunner.Given("I have added a collector with the following parameters", ((string)(null)), table25, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
@@ -467,7 +552,7 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
                             "17",
                             "true",
                             "1"});
-#line 54
+#line 63
  testRunner.And("I have added a student with the following parameters", ((string)(null)), table26, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
@@ -478,7 +563,7 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
                             "last",
                             "170",
                             "10"});
-#line 57
+#line 66
  testRunner.And("I have added a debt with the following parameters", ((string)(null)), table27, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
@@ -489,8 +574,8 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
                             "last",
                             "last",
                             "2020-12-09T14:30:00.000000+02:00"});
-#line 60
- testRunner.And("I have added an appointment with the following parameters", ((string)(null)), table28, "And ");
+#line 69
+ testRunner.When("I add an appointment with the following parameters", ((string)(null)), table28, "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
                             "studentId",
@@ -500,7 +585,7 @@ this.AddDebtWithInvalidParameterAndCheckItAbsenceInTheList("1", "170", "-100", (
                             "last",
                             "170",
                             "10"});
-#line 63
+#line 72
  testRunner.Then("the appointment data with last id is connected with the following debt", ((string)(null)), table29, "Then ");
 #line hidden
             }

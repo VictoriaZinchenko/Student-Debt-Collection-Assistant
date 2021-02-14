@@ -39,8 +39,11 @@ namespace SdcaFramework.ClientSteps
         protected HttpStatusCode GetStatusCodeForDeleteAction(int id)
             => ExecuteRequest(Method.DELETE, 0, null, id.ToString()).StatusCode;
 
-        protected HttpStatusCode GetStatusCodeForCreateAction(K objectData)
+        protected HttpStatusCode GetStatusCodeForPostAction(K objectData)
            => ExecuteRequest(Method.POST, 0, objectData).StatusCode;
+
+        protected HttpStatusCode GetHttpStatusCodeForInvalidPostAction(Dictionary<string, object> parameters)
+            => ExecuteRequest(Method.POST, 0, DynamicMethods.DictionaryToObject(parameters)).StatusCode;
 
         private IRestResponse ExecuteRequest(Method method, HttpStatusCode expectedStatusCode, object body = null, string objectId = "")
         {
