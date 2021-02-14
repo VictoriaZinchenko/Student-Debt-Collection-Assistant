@@ -3,11 +3,17 @@ As a user I want to add student data to database, read and modify it
 
   @Bug.Fail.5
 Scenario: Add student and check it presence in the list
-	Given I have added a student with the following parameters
+	When I add a student with the following parameters
 	| name     | age | sex  | risk |
 	| Poor guy | 17  | true | 5    |
-  When I get the list of students
   Then I can see the created student in the list
+
+   Scenario: Get student by id
+ When I add a student with the following parameters
+	| name     | age | sex  | risk |
+	| Poor girl | 17  | false | 5   |
+  Then the student data is saved correctly 
+  And I check again that the student data is saved correctly 
 
     #BUG?
 Scenario Outline: Try to add student with invalid parameter
@@ -37,6 +43,17 @@ Examples:
 	| id | name | age | sex | risk |
 	|1 | Poor guy | 17  | true | 5    |
   Then the student data with 1 id is modified correctly 
+
+  Scenario: Modify student multiple times and check the result
+Given I have modified the student with the following parameters
+	| id | name | age | sex | risk |
+	|5 | Modified guy | 17  | true | 2    |
+When I modify the student with the following parameters again
+	| id | name | age | sex | risk |
+	|5 | Modified guy | 17  | true | 2    |
+Then I find only one student with the following parameters
+	| name | age | sex | risk |
+	| Modified guy | 17  | true | 2    |
 
 Scenario: Delete student and check its absence
 	Given I have added a student with the following parameters

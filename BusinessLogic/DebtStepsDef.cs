@@ -18,12 +18,6 @@ namespace SdcaFramework.BusinessLogic
     {
 
     }
-    
-        [When(@"I get the list of debts")]
-        public void SetListOfDebtsToContext()
-        {
-            ScenarioContext.Set<List<Debt>>(new DebtSteps().GetListOfDebts(), "listOfDebts");
-        }
 
         [Given(@"I have got a debt data by (.*) id")]
         [When(@"I get a debt data by (.*) id")]
@@ -44,17 +38,14 @@ namespace SdcaFramework.BusinessLogic
         [Then(@"I can see the created debt in the list")]
         public void ThenICanSeeThisObject()
         {
-            object expectedObject = null;
             var actualObjectsList = new List<object>();
-
-                expectedObject = ScenarioContext.Get<Debt>("expectedDebt");
-                ScenarioContext.Get<List<Debt>>("listOfDebts").ForEach(element => actualObjectsList.Add(element));
-
+            Debt expectedObject = ScenarioContext.Get<Debt>("expectedDebt");
+            new DebtSteps().GetListOfDebts().ForEach(element => actualObjectsList.Add(element));
             Assert.Contains(expectedObject, actualObjectsList,
                 PropertiesDescriber.GetActualObjectsListAndExpectedObjectProperties(expectedObject, actualObjectsList));
         }
 
-        [Then(@"the debt data is saved correctly")]
+        [Then(@"(?:I check again that )?the debt data is saved correctly")]
         public void ThenTheDataIsSavedCorrectly()
         {
             Debt expectedObject = ScenarioContext.Get<Debt>("expectedDebt");
@@ -70,7 +61,7 @@ namespace SdcaFramework.BusinessLogic
             int neededId = GetNeededId(id, SdcaParts.debt);
             new DebtSteps().DeleteDebtById(neededId);
             ScenarioContext.Set<int>(neededId, "NeededId");
-            ScenarioContext.Set<HttpStatusCode>(new DebtSteps().GetResponseGetDebtByIdAction(neededId),
+            ScenarioContext.Set<HttpStatusCode>(new DebtSteps().GetStatusCodeGetDebtByIdAction(neededId),
                 "ActualStatusCode");
         }
 
@@ -80,7 +71,7 @@ namespace SdcaFramework.BusinessLogic
         {
             int neededId = GetNeededId(id, SdcaParts.debt);
             ScenarioContext.Set<int>(neededId, "NeededId");
-            ScenarioContext.Set<HttpStatusCode>(new DebtSteps().GetResponseDeleteDebtAction(neededId),
+            ScenarioContext.Set<HttpStatusCode>(new DebtSteps().GetStatusCodeDeleteDebtAction(neededId),
                 "ActualStatusCode");
         }
 

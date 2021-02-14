@@ -3,10 +3,9 @@ As a user I want to add debt data to database, read and modify it
 I want to get automatically recalculated current debt amount based on current date and monthly rate
 
 Scenario: Add debt and check it presence in the list
-	Given I have added a debt with the following parameters
+	When I add a debt with the following parameters
 	| studentId | amount | monthlyPercent |
 	| 1         | 170    | 10             |
-  When I get the list of debts
   Then I can see the created debt in the list
 
   #BUG?
@@ -35,6 +34,7 @@ Examples:
 	| studentId | amount | monthlyPercent |
 	| 1         | 170    | 10             |
   Then the debt data is saved correctly 
+  And I check again that the debt data is saved correctly 
 
   Scenario: Delete debt and check its absence
 	Given I have added a debt with the following parameters

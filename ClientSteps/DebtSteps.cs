@@ -21,14 +21,14 @@ namespace SdcaFramework.ClientSteps
 
         public void DeleteDebtById(int id, HttpStatusCode expectedStatusCode = HttpStatusCode.OK) => DeleteObjectById(id, expectedStatusCode);
 
-        public HttpStatusCode GetResponseGetDebtByIdAction(int id)
-            => GetStatusCodeForGetByIdAction(id);
+        public HttpStatusCode GetStatusCodeGetDebtByIdAction(int id)
+            => GetHttpStatusCodeForGetByIdAction(id);
 
-        public HttpStatusCode GetResponseDeleteDebtAction(int id)
-            => GetStatusCodeForDeleteAction(id);
+        public HttpStatusCode GetStatusCodeDeleteDebtAction(int id)
+            => GetHttpStatusCodeForDeleteAction(id);
 
-        public HttpStatusCode GetResponseCreateDebtAction(DebtCreator debt)
-            => GetStatusCodeForPostAction(debt);
+        public HttpStatusCode GetStatusCodeCreateDebtAction(DebtCreator debt)
+            => GetHttpStatusCodeForPostAction(debt);
 
         public HttpStatusCode GetStatusCodeForInvalidPostAction(Dictionary<string, object> parameters)
             => GetHttpStatusCodeForInvalidPostAction(parameters);

@@ -24,14 +24,14 @@ namespace SdcaFramework.ClientSteps
 
         public void DeleteStudentById(int id, HttpStatusCode expectedStatusCode = HttpStatusCode.OK) => DeleteObjectById(id, expectedStatusCode);
 
-        public HttpStatusCode GetResponseGetStudentByIdAction(int id)
-            => GetStatusCodeForGetByIdAction(id);
+        public HttpStatusCode GetStatusCodeGetStudentByIdAction(int id)
+            => GetHttpStatusCodeForGetByIdAction(id);
 
-        public HttpStatusCode GetResponseDeleteStudentAction(int id)
-            => GetStatusCodeForDeleteAction(id);
+        public HttpStatusCode GetStatusCodeDeleteStudentAction(int id)
+            => GetHttpStatusCodeForDeleteAction(id);
 
-        public HttpStatusCode GetResponseCreateStudentAction(StudentCreator student)
-            => GetStatusCodeForPostAction(student);
+        public HttpStatusCode GetStatusCodeCreateStudentAction(StudentCreator student)
+            => GetHttpStatusCodeForPostAction(student);
 
         public HttpStatusCode GetStatusCodeForInvalidPostAction(Dictionary<string, object> parameters)
             => GetHttpStatusCodeForInvalidPostAction(parameters);

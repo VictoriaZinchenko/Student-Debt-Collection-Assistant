@@ -2,12 +2,17 @@
 As a user I want to add collector data to database, read and modify it
 
 Scenario: Add collector and check it presence in the list
-	Given I have added a collector with the following parameters
+	When I add a collector with the following parameters
 		| nickname | fearFactor |
 		| Fear Man46 | 1          |
-	When I get the list of collectors 
-	#?????
 	Then I can see the created collector in the list
+
+	  Scenario: Get collector by id
+ When I add a collector with the following parameters
+		| nickname | fearFactor |
+		| Fear Man4 | 1          |
+  Then the collector data is saved correctly 
+  And I check again that the collector data is saved correctly 
 
 	#BUG?
 Scenario Outline: Try to add collector with invalid parameter
@@ -26,13 +31,23 @@ Examples:
 | Angry guy |  |
 |       | 5            |
 
-
 @Bug.Fail.4
 Scenario: Modify collector and check the changes
-	When I modify the collector with the following parameters
+When I modify the collector with the following parameters
 		| id | nickname    | fearFactor |
 		| 1  | Fear Man777 | 1          |
-	Then the collector data with 1 id is modified correctly
+Then the collector data with 1 id is modified correctly
+
+Scenario: Modify collector multiple times and check the result
+Given I have modified the collector with the following parameters
+		| id | nickname    | fearFactor |
+		| 5  | Modified Man | 1          |
+When I modify the collector with the following parameters again
+		| id | nickname    | fearFactor |
+		| 5  | Modified Man | 1          |
+Then I find only one collector with the following parameters
+		| nickname | fearFactor |
+		| Modified Man | 1          |
 
 Scenario: Delete collector and check its absence
 	Given I have added a collector with the following parameters

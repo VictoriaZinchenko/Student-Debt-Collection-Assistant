@@ -24,14 +24,14 @@ namespace SdcaFramework.ClientSteps
 
         public void DeleteCllectorById(int id, HttpStatusCode expectedStatusCode = HttpStatusCode.OK) => DeleteObjectById(id, expectedStatusCode);
 
-        public HttpStatusCode GetResponseGetCollectorByIdAction(int id)
-            => GetStatusCodeForGetByIdAction(id);
+        public HttpStatusCode GetStatusCodeGetCollectorByIdAction(int id)
+            => GetHttpStatusCodeForGetByIdAction(id);
 
-        public HttpStatusCode GetResponseDeleteCollectorAction(int id)
-            => GetStatusCodeForDeleteAction(id);
+        public HttpStatusCode GetStatusCodeDeleteCollectorAction(int id)
+            => GetHttpStatusCodeForDeleteAction(id);
 
-        public HttpStatusCode GetResponseCreateCollectorAction(CollectorCreator collector)
-            => GetStatusCodeForPostAction(collector);
+        public HttpStatusCode GetStatusCodeCreateCollectorAction(CollectorCreator collector)
+            => GetHttpStatusCodeForPostAction(collector);
 
         public HttpStatusCode GetStatusCodeForInvalidPostAction(Dictionary<string, object> parameters)
             => GetHttpStatusCodeForInvalidPostAction(parameters);

@@ -33,13 +33,13 @@ namespace SdcaFramework.ClientSteps
         protected T GetObjectById(int id, HttpStatusCode expectedStatusCode)
             => GetDeserializedResponseForSingleObject(ExecuteRequest(Method.GET, expectedStatusCode, null, id.ToString()));
 
-        protected HttpStatusCode GetStatusCodeForGetByIdAction(int id)
+        protected HttpStatusCode GetHttpStatusCodeForGetByIdAction(int id)
             => ExecuteRequest(Method.GET, 0, null, id.ToString()).StatusCode;
 
-        protected HttpStatusCode GetStatusCodeForDeleteAction(int id)
+        protected HttpStatusCode GetHttpStatusCodeForDeleteAction(int id)
             => ExecuteRequest(Method.DELETE, 0, null, id.ToString()).StatusCode;
 
-        protected HttpStatusCode GetStatusCodeForPostAction(K objectData)
+        protected HttpStatusCode GetHttpStatusCodeForPostAction(K objectData)
            => ExecuteRequest(Method.POST, 0, objectData).StatusCode;
 
         protected HttpStatusCode GetHttpStatusCodeForInvalidPostAction(Dictionary<string, object> parameters)

@@ -6,6 +6,7 @@ using SdcaFramework.Utilities;
 using SdcaFramework.Utilities.Enums;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Text;
 using TechTalk.SpecFlow;
@@ -20,12 +21,6 @@ namespace SdcaFramework.BusinessLogic
 
         }
 
-        [When(@"I get the list of students")]
-        public void SetListOfStudentsToContext()
-        {
-            ScenarioContext.Set<List<Student>>(new StudentSteps().GetListOfStudents(), "listOfStudents");
-        }
-
         [Given(@"I have added a student with the following parameters")]
         [When(@"I add a student with the following parameters")]
         public void AddObjectWithParameters(StudentCreator student)
@@ -35,8 +30,8 @@ namespace SdcaFramework.BusinessLogic
                 Transformations.GetStudentBasedOnStudentCreator(student), "expectedStudent");
         }
 
-        [Given(@"I have modified the student with the following parameters")]
-        [When(@"I modify the student with the following parameters")]
+        [Given(@"I have modified the student with the following parameters(?: again)?")]
+        [When(@"I modify the student with the following parameters(?: again)?")]
         public void GivenIHaveModifiedTheObjectWithTheFollowingParameters(Student student)
         {
                 new StudentSteps().ModifyStudent(student);
@@ -46,27 +41,21 @@ namespace SdcaFramework.BusinessLogic
         [Then(@"I can see the created student in the list")]
         public void ThenICanSeeThisObject()
         {
-            object expectedObject = null;
             var actualObjectsList = new List<object>();
-
-                expectedObject = ScenarioContext.Get<Student>("expectedStudent");
-                ScenarioContext.Get<List<Student>>("listOfStudents").ForEach(element => actualObjectsList.Add(element));
-            
+            Student expectedObject = ScenarioContext.Get<Student>("expectedStudent");
+            new StudentSteps().GetListOfStudents().ForEach(element => actualObjectsList.Add(element));
             Assert.Contains(expectedObject, actualObjectsList,
                 PropertiesDescriber.GetActualObjectsListAndExpectedObjectProperties(expectedObject, actualObjectsList));
         }
 
-        //[Then(@"the student data is saved correctly")]
-        //public void ThenTheDataIsSavedCorrectly()
-        //{
-        //    object expectedObject = null;
-        //    object actualObject = null;
-
-        //        expectedObject = ScenarioContext.Get<Student>("expectedStudent");
-        //        actualObject = ScenarioContext.Get<Student>("actualStudent");
-            
-        //    Assert.AreEqual(expectedObject, actualObject, PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
-        //}
+        [Then(@"(?:I check again that )?the student data is saved correctly")]
+        public void ThenTheDataIsSavedCorrectly()
+        {
+            Student expectedObject = ScenarioContext.Get<Student>("expectedStudent");
+            Student actualObject = GetStudentDataById("last");
+            Assert.AreEqual(expectedObject, actualObject, 
+                PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
+        }
 
         [Then(@"the student data with (.*) id is modified correctly")]
         public void ThenTheDataIsModifiedCorrectly(string id)
@@ -83,7 +72,7 @@ namespace SdcaFramework.BusinessLogic
             int neededId = GetNeededId(id, SdcaParts.student);
             new StudentSteps().DeleteStudentById(neededId);
             ScenarioContext.Set<int>(neededId, "NeededId");
-            ScenarioContext.Set<HttpStatusCode>(new StudentSteps().GetResponseGetStudentByIdAction(neededId),
+            ScenarioContext.Set<HttpStatusCode>(new StudentSteps().GetStatusCodeGetStudentByIdAction(neededId),
                 "ActualStatusCode");
         }
 
@@ -93,7 +82,7 @@ namespace SdcaFramework.BusinessLogic
         {
             int neededId = GetNeededId(id, SdcaParts.student);
             ScenarioContext.Set<int>(neededId, "NeededId");
-            ScenarioContext.Set<HttpStatusCode>(new StudentSteps().GetResponseDeleteStudentAction(neededId),
+            ScenarioContext.Set<HttpStatusCode>(new StudentSteps().GetStatusCodeDeleteStudentAction(neededId),
                 "ActualStatusCode");
         }
 
@@ -116,6 +105,19 @@ namespace SdcaFramework.BusinessLogic
         {
             ScenarioContext.Set<HttpStatusCode>(new StudentSteps().GetStatusCodeForInvalidPostAction(parameters),
                 "ActualStatusCode");
+        }
+
+        [Then(@"I find only one student with the following parameters")]
+        public void TryToGetAnObjectByParameters(StudentCreator expectedStudent)
+        {
+            int countOfObjects = new StudentSteps().GetListOfStudents()
+                .Count(student => student.name.Equals(expectedStudent.name)
+                && student.age.Equals(expectedStudent.age) 
+                && student.sex.Equals(expectedStudent.sex) 
+                && student.risk.Equals(expectedStudent.risk));
+            Assert.AreEqual(1, countOfObjects,
+                $"There should be only one student with the following properties. Actual count of such students is {countOfObjects}." +
+                $"{PropertiesDescriber.GetObjectProperties(expectedStudent)}");
         }
 
         private Student GetStudentDataById(string id)

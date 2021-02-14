@@ -18,12 +18,6 @@ namespace SdcaFramework.BusinessLogic
 
         }
 
-        [When(@"I get the list of appointments")]
-        public void SetListOfAppointmentsToContext()
-        {
-            ScenarioContext.Set<List<Appointment>>(new AppointmentSteps().GetListOfAppointments(), "listOfAppointments");
-        }
-
         [Given(@"I have added an appointment with the following parameters")]
         [When(@"I add an appointment with the following parameters")]
         public void AddObjectWithParameters(AppointmentCreator appointment)
@@ -40,7 +34,7 @@ namespace SdcaFramework.BusinessLogic
             int neededId = GetNeededId(id, SdcaParts.appointment);
             new AppointmentSteps().DeleteAppointmentById(neededId);
             ScenarioContext.Set<int>(neededId, "NeededId");
-            ScenarioContext.Set<HttpStatusCode>(new AppointmentSteps().GetResponseGetAppointmentByIdAction(neededId), 
+            ScenarioContext.Set<HttpStatusCode>(new AppointmentSteps().GetStatusCodeGetAppointmentByIdAction(neededId), 
                 "ActualStatusCode");
         }
 
@@ -50,7 +44,7 @@ namespace SdcaFramework.BusinessLogic
         {
             int neededId = GetNeededId(id, SdcaParts.appointment);
             ScenarioContext.Set<int>(neededId, "NeededId");
-            ScenarioContext.Set<HttpStatusCode>(new AppointmentSteps().GetResponseDeleteAppointmentAction(neededId),
+            ScenarioContext.Set<HttpStatusCode>(new AppointmentSteps().GetStatusCodeDeleteAppointmentAction(neededId),
                 "ActualStatusCode");
         }
 
@@ -71,17 +65,14 @@ namespace SdcaFramework.BusinessLogic
         [Then(@"I can see the created appointment in the list")]
         public void ThenICanSeeThisObject()
         {
-            object expectedObject = null;
             var actualObjectsList = new List<object>();
-
-                expectedObject = ScenarioContext.Get<Appointment>("expectedAppointment");
-                ScenarioContext.Get<List<Appointment>>("listOfAppointments").ForEach(element => actualObjectsList.Add(element));
-
+            Appointment expectedObject = ScenarioContext.Get<Appointment>("expectedAppointment");
+            new AppointmentSteps().GetListOfAppointments().ForEach(element => actualObjectsList.Add(element));
             Assert.Contains(expectedObject, actualObjectsList,
                 PropertiesDescriber.GetActualObjectsListAndExpectedObjectProperties(expectedObject, actualObjectsList));
         }
 
-        [Then(@"the appointment data is saved correctly")]
+        [Then(@"(?:I check again that )?the appointment data is saved correctly")]
         public void ThenTheDataIsSavedCorrectly()
         {
             Appointment actualObject = GetAppointmentDataById("last");

@@ -121,16 +121,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
                             "studentId",
                             "amount",
                             "monthlyPercent"});
-                table20.AddRow(new string[] {
+                table24.AddRow(new string[] {
                             "1",
                             "170",
                             "10"});
 #line 6
- testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table20, "Given ");
+ testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table24, "Given ");
 #line hidden
 #line 9
   testRunner.When("I get the list of debts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -170,20 +170,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
                             "Parameter",
                             "Value"});
-                table21.AddRow(new string[] {
+                table25.AddRow(new string[] {
                             "studentId",
                             string.Format("{0}", studentId)});
-                table21.AddRow(new string[] {
+                table25.AddRow(new string[] {
                             "amount",
                             string.Format("{0}", amount)});
-                table21.AddRow(new string[] {
+                table25.AddRow(new string[] {
                             "monthlyPercent",
                             string.Format("{0}", monthlyPercent)});
 #line 14
-testRunner.When("I try to add a debt with invalid parameter", ((string)(null)), table21, "When ");
+testRunner.When("I try to add a debt with invalid parameter", ((string)(null)), table25, "When ");
 #line hidden
 #line 19
 testRunner.Then("the system can\'t create the collector data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -346,19 +346,22 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
                             "studentId",
                             "amount",
                             "monthlyPercent"});
-                table22.AddRow(new string[] {
+                table26.AddRow(new string[] {
                             "1",
                             "170",
                             "10"});
 #line 34
- testRunner.When("I add a debt with the following parameters", ((string)(null)), table22, "When ");
+ testRunner.When("I add a debt with the following parameters", ((string)(null)), table26, "When ");
 #line hidden
 #line 37
   testRunner.Then("the debt data is saved correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 38
+  testRunner.And("I check again that the debt data is saved correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -372,7 +375,7 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete debt and check its absence", null, tagsOfScenario, argumentsOfScenario);
-#line 39
+#line 40
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -392,21 +395,21 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
                             "studentId",
                             "amount",
                             "monthlyPercent"});
-                table23.AddRow(new string[] {
+                table27.AddRow(new string[] {
                             "1",
                             "170",
                             "10"});
-#line 40
- testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table23, "Given ");
-#line hidden
-#line 43
- testRunner.When("I delete a debt by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 41
+ testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table27, "Given ");
 #line hidden
 #line 44
+ testRunner.When("I delete a debt by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 45
  testRunner.Then("the system can\'t find the debt data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -421,7 +424,7 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to delete the removed debt", null, tagsOfScenario, argumentsOfScenario);
-#line 46
+#line 47
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -441,24 +444,24 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
                             "studentId",
                             "amount",
                             "monthlyPercent"});
-                table24.AddRow(new string[] {
+                table28.AddRow(new string[] {
                             "1",
                             "170",
                             "10"});
-#line 47
- testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table24, "Given ");
-#line hidden
-#line 50
- testRunner.When("I delete a debt by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 48
+ testRunner.Given("I have added a debt with the following parameters", ((string)(null)), table28, "Given ");
 #line hidden
 #line 51
- testRunner.And("I try to delete the removed debt by this id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I delete a debt by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 52
+ testRunner.And("I try to delete the removed debt by this id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 53
  testRunner.Then("the system can\'t find the debt data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -473,7 +476,7 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check recalculated debt amount", null, tagsOfScenario, argumentsOfScenario);
-#line 55
+#line 56
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -493,10 +496,10 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             else
             {
                 this.ScenarioStart();
-#line 56
+#line 57
  testRunner.When("I get a debt data by 0 id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 57
+#line 58
  testRunner.Then("the current amount is recalculated correctly for debt with 0 id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -513,7 +516,7 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create collector, student, debt, appointment and check appointment connection wit" +
                     "h debt", null, tagsOfScenario, argumentsOfScenario);
-#line 59
+#line 60
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -533,60 +536,60 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
                             "nickname",
                             "fearFactor"});
-                table25.AddRow(new string[] {
+                table29.AddRow(new string[] {
                             "Fear Man",
                             "1"});
-#line 60
- testRunner.Given("I have added a collector with the following parameters", ((string)(null)), table25, "Given ");
+#line 61
+ testRunner.Given("I have added a collector with the following parameters", ((string)(null)), table29, "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
                             "name",
                             "age",
                             "sex",
                             "risk"});
-                table26.AddRow(new string[] {
+                table30.AddRow(new string[] {
                             "Poor guy",
                             "17",
                             "true",
                             "1"});
-#line 63
- testRunner.And("I have added a student with the following parameters", ((string)(null)), table26, "And ");
+#line 64
+ testRunner.And("I have added a student with the following parameters", ((string)(null)), table30, "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
                             "studentId",
                             "amount",
                             "monthlyPercent"});
-                table27.AddRow(new string[] {
+                table31.AddRow(new string[] {
                             "last",
                             "170",
                             "10"});
-#line 66
- testRunner.And("I have added a debt with the following parameters", ((string)(null)), table27, "And ");
+#line 67
+ testRunner.And("I have added a debt with the following parameters", ((string)(null)), table31, "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
                             "collectorIds",
                             "debtId",
                             "appointmentDate"});
-                table28.AddRow(new string[] {
+                table32.AddRow(new string[] {
                             "last",
                             "last",
                             "2020-12-09T14:30:00.000000+02:00"});
-#line 69
- testRunner.When("I add an appointment with the following parameters", ((string)(null)), table28, "When ");
+#line 70
+ testRunner.When("I add an appointment with the following parameters", ((string)(null)), table32, "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
                             "studentId",
                             "amount",
                             "monthlyPercent"});
-                table29.AddRow(new string[] {
+                table33.AddRow(new string[] {
                             "last",
                             "170",
                             "10"});
-#line 72
- testRunner.Then("the appointment data with last id is connected with the following debt", ((string)(null)), table29, "Then ");
+#line 73
+ testRunner.Then("the appointment data with last id is connected with the following debt", ((string)(null)), table33, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
