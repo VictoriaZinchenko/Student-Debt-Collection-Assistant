@@ -12,7 +12,8 @@ namespace SdcaFramework.ClientSteps
     class BaseSteps<T, K>
     {
         protected Logger Logger = LogManager.GetCurrentClassLogger();
-        private readonly RestClient RestClient = new RestClient(new Startup().Configuration["BaseUrl"]);
+        private static string BaseUrl = new Startup().Configuration["BaseUrl"];
+        private readonly RestClient RestClient = new RestClient(BaseUrl);
 
         protected virtual string Resource { get;}
 
@@ -50,7 +51,7 @@ namespace SdcaFramework.ClientSteps
             var resourceUrl = $"{Resource}/{objectId}";
             RestRequest restRequest = new RestRequest(resourceUrl, method);
             restRequest.RequestFormat = DataFormat.Json;
-            Logger.Debug($"Trying send a request for url {RestClient}{resourceUrl}." +
+            Logger.Debug($"\nTrying send a request for url {BaseUrl}{resourceUrl}." +
                 $"\nMethod: {method}");
             if (body != null)
             {
@@ -62,7 +63,7 @@ namespace SdcaFramework.ClientSteps
             {
                 CheckHttpStatusCode(response, expectedStatusCode);
             }
-            Logger.Debug($"Response status code: {response.StatusCode}");
+            Logger.Debug($"\nResponse status code: {response.StatusCode}");
             return response;
         }
 
@@ -99,7 +100,7 @@ namespace SdcaFramework.ClientSteps
             {
                 throw new Exception("Response content is empty");
             }
-            Logger.Debug($"Content: {content}");
+            Logger.Debug($"\nContent: {content}");
         }
     }
 }

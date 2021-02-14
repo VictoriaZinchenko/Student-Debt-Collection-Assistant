@@ -23,8 +23,10 @@ namespace SdcaFramework.BusinessLogic
         public void AddObjectWithParameters(AppointmentCreator appointment)
         {
                 new AppointmentSteps().CreateAppointment(appointment);
-                ScenarioContext.Set<Appointment>(
-                Transformations.GetAppointmentBasedOnAppointmentCreator(appointment), "expectedAppointment");
+            Appointment expectedAppointment = Transformations.GetAppointmentBasedOnAppointmentCreator(appointment);
+                ScenarioContext.Set<Appointment>(expectedAppointment, "expectedAppointment");
+            Logger.Info($"\nAppointment created with the following properties. " +
+                $"{PropertiesDescriber.GetObjectProperties(expectedAppointment)}");
         }
 
         [Given(@"I have deleted an appointment by (.*) id")]
@@ -36,6 +38,7 @@ namespace SdcaFramework.BusinessLogic
             ScenarioContext.Set<int>(neededId, "NeededId");
             ScenarioContext.Set<HttpStatusCode>(new AppointmentSteps().GetStatusCodeGetAppointmentByIdAction(neededId), 
                 "ActualStatusCode");
+            Logger.Info($"\nAppointment with {neededId} id deleted");
         }
 
         [Given(@"I have tried to delete the removed appointment by (.*) id")]
@@ -43,6 +46,7 @@ namespace SdcaFramework.BusinessLogic
         public void GivenIHaveDeletedAnObjectByIdmmmmmmmmmmmmmmmmmmmmmmm(string id)
         {
             int neededId = GetNeededId(id, SdcaParts.appointment);
+            Logger.Info($"\nTry to delete the removed appointment by {neededId} id");
             ScenarioContext.Set<int>(neededId, "NeededId");
             ScenarioContext.Set<HttpStatusCode>(new AppointmentSteps().GetStatusCodeDeleteAppointmentAction(neededId),
                 "ActualStatusCode");
@@ -108,6 +112,7 @@ namespace SdcaFramework.BusinessLogic
         [When(@"I try to add an appointment with invalid parameter")]
         public void WhenITryToAddAnAppointmentWithInvalidParameter(Dictionary<string, object> parameters)
         {
+            Logger.Info($"\nTry to add an appointment with invalid parameter");
             ScenarioContext.Set<HttpStatusCode>(new AppointmentSteps().GetStatusCodeForInvalidPostAction(parameters),
                 "ActualStatusCode");
         }

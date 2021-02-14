@@ -132,12 +132,9 @@ this.ScenarioInitialize(scenarioInfo);
                             "true",
                             "5"});
 #line 6
- testRunner.Given("I have added a student with the following parameters", ((string)(null)), table34, "Given ");
+ testRunner.When("I add a student with the following parameters", ((string)(null)), table34, "When ");
 #line hidden
 #line 9
-  testRunner.When("I get the list of students", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 10
   testRunner.Then("I can see the created student in the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -152,7 +149,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get student by id", null, tagsOfScenario, argumentsOfScenario);
-#line 12
+#line 11
    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -182,13 +179,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "17",
                             "false",
                             "5"});
-#line 13
+#line 12
  testRunner.When("I add a student with the following parameters", ((string)(null)), table35, "When ");
 #line hidden
-#line 16
+#line 15
   testRunner.Then("the student data is saved correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 17
+#line 16
   testRunner.And("I check again that the student data is saved correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -204,7 +201,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("sex", sex);
             argumentsOfScenario.Add("risk", risk);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to add student with invalid parameter", null, tagsOfScenario, argumentsOfScenario);
-#line 20
+#line 19
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -239,10 +236,10 @@ this.ScenarioInitialize(scenarioInfo);
                 table36.AddRow(new string[] {
                             "risk",
                             string.Format("{0}", risk)});
-#line 21
+#line 20
 testRunner.When("I try to add a student with invalid parameter", ((string)(null)), table36, "When ");
 #line hidden
-#line 27
+#line 26
 testRunner.Then("the system can\'t create the collector data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -259,7 +256,7 @@ testRunner.Then("the system can\'t create the collector data", ((string)(null)),
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
         public virtual void TryToAddStudentWithInvalidParameter_Variant0()
         {
-#line 20
+#line 19
 this.TryToAddStudentWithInvalidParameter("123", "17", "true", "5", ((string[])(null)));
 #line hidden
         }
@@ -274,7 +271,7 @@ this.TryToAddStudentWithInvalidParameter("123", "17", "true", "5", ((string[])(n
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
         public virtual void TryToAddStudentWithInvalidParameter_Variant1()
         {
-#line 20
+#line 19
 this.TryToAddStudentWithInvalidParameter("Cutie", "age", "true", "5", ((string[])(null)));
 #line hidden
         }
@@ -289,7 +286,7 @@ this.TryToAddStudentWithInvalidParameter("Cutie", "age", "true", "5", ((string[]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
         public virtual void TryToAddStudentWithInvalidParameter_Variant2()
         {
-#line 20
+#line 19
 this.TryToAddStudentWithInvalidParameter("Cutie", "17", "sex", "5", ((string[])(null)));
 #line hidden
         }
@@ -304,7 +301,7 @@ this.TryToAddStudentWithInvalidParameter("Cutie", "17", "sex", "5", ((string[])(
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "risk")]
         public virtual void TryToAddStudentWithInvalidParameter_Variant3()
         {
-#line 20
+#line 19
 this.TryToAddStudentWithInvalidParameter("Cutie", "17", "true", "risk", ((string[])(null)));
 #line hidden
         }
@@ -319,7 +316,7 @@ this.TryToAddStudentWithInvalidParameter("Cutie", "17", "true", "risk", ((string
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
         public virtual void TryToAddStudentWithInvalidParameter_Variant4()
         {
-#line 20
+#line 19
 this.TryToAddStudentWithInvalidParameter("Cutie", "-17", "true", "5", ((string[])(null)));
 #line hidden
         }
@@ -334,7 +331,7 @@ this.TryToAddStudentWithInvalidParameter("Cutie", "-17", "true", "5", ((string[]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
         public virtual void TryToAddStudentWithInvalidParameter_Variant5()
         {
-#line 20
+#line 19
 this.TryToAddStudentWithInvalidParameter("", "17", "true", "5", ((string[])(null)));
 #line hidden
         }
@@ -349,7 +346,7 @@ this.TryToAddStudentWithInvalidParameter("", "17", "true", "5", ((string[])(null
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
         public virtual void TryToAddStudentWithInvalidParameter_Variant6()
         {
-#line 20
+#line 19
 this.TryToAddStudentWithInvalidParameter("Cutie", "", "true", "5", ((string[])(null)));
 #line hidden
         }
@@ -364,7 +361,7 @@ this.TryToAddStudentWithInvalidParameter("Cutie", "", "true", "5", ((string[])(n
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "5")]
         public virtual void TryToAddStudentWithInvalidParameter_Variant7()
         {
-#line 20
+#line 19
 this.TryToAddStudentWithInvalidParameter("Cutie", "17", "", "5", ((string[])(null)));
 #line hidden
         }
@@ -379,7 +376,7 @@ this.TryToAddStudentWithInvalidParameter("Cutie", "17", "", "5", ((string[])(nul
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:risk", "")]
         public virtual void TryToAddStudentWithInvalidParameter_Variant8()
         {
-#line 20
+#line 19
 this.TryToAddStudentWithInvalidParameter("Cutie", "17", "true", "", ((string[])(null)));
 #line hidden
         }
@@ -394,7 +391,7 @@ this.TryToAddStudentWithInvalidParameter("Cutie", "17", "true", "", ((string[])(
                     "Bug.Fail.5"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modify student and check the changes", null, tagsOfScenario, argumentsOfScenario);
-#line 42
+#line 41
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -426,10 +423,10 @@ this.TryToAddStudentWithInvalidParameter("Cutie", "17", "true", "", ((string[])(
                             "17",
                             "true",
                             "5"});
-#line 43
+#line 42
   testRunner.When("I modify the student with the following parameters", ((string)(null)), table37, "When ");
 #line hidden
-#line 46
+#line 45
   testRunner.Then("the student data with 1 id is modified correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -444,7 +441,7 @@ this.TryToAddStudentWithInvalidParameter("Cutie", "17", "true", "", ((string[])(
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Modify student multiple times and check the result", null, tagsOfScenario, argumentsOfScenario);
-#line 48
+#line 47
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -476,7 +473,7 @@ this.TryToAddStudentWithInvalidParameter("Cutie", "17", "true", "", ((string[])(
                             "17",
                             "true",
                             "2"});
-#line 49
+#line 48
 testRunner.Given("I have modified the student with the following parameters", ((string)(null)), table38, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
@@ -491,7 +488,7 @@ testRunner.Given("I have modified the student with the following parameters", ((
                             "17",
                             "true",
                             "2"});
-#line 52
+#line 51
 testRunner.When("I modify the student with the following parameters again", ((string)(null)), table39, "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table40 = new TechTalk.SpecFlow.Table(new string[] {
@@ -504,7 +501,7 @@ testRunner.When("I modify the student with the following parameters again", ((st
                             "17",
                             "true",
                             "2"});
-#line 55
+#line 54
 testRunner.Then("I find only one student with the following parameters", ((string)(null)), table40, "Then ");
 #line hidden
             }
@@ -519,7 +516,7 @@ testRunner.Then("I find only one student with the following parameters", ((strin
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete student and check its absence", null, tagsOfScenario, argumentsOfScenario);
-#line 59
+#line 58
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -549,13 +546,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "17",
                             "true",
                             "5"});
-#line 60
+#line 59
  testRunner.Given("I have added a student with the following parameters", ((string)(null)), table41, "Given ");
 #line hidden
-#line 63
+#line 62
  testRunner.When("I delete a student by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 64
+#line 63
  testRunner.Then("the system can\'t find the student data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -570,7 +567,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to delete the removed student", null, tagsOfScenario, argumentsOfScenario);
-#line 66
+#line 65
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -600,16 +597,16 @@ this.ScenarioInitialize(scenarioInfo);
                             "17",
                             "true",
                             "5"});
-#line 67
+#line 66
  testRunner.Given("I have added a student with the following parameters", ((string)(null)), table42, "Given ");
 #line hidden
-#line 70
+#line 69
  testRunner.When("I delete a student by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 71
+#line 70
  testRunner.And("I try to delete the removed student by this id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 72
+#line 71
  testRunner.Then("the system can\'t find the student data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -628,7 +625,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create collector, student, debt, appointment and check debt connection with stude" +
                     "nt", null, tagsOfScenario, argumentsOfScenario);
-#line 75
+#line 74
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -654,7 +651,7 @@ this.ScenarioInitialize(scenarioInfo);
                 table43.AddRow(new string[] {
                             "Fear Man",
                             "1"});
-#line 76
+#line 75
  testRunner.Given("I have added a collector with the following parameters", ((string)(null)), table43, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table44 = new TechTalk.SpecFlow.Table(new string[] {
@@ -667,7 +664,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "17",
                             "true",
                             "1"});
-#line 79
+#line 78
  testRunner.And("I have added a student with the following parameters", ((string)(null)), table44, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table45 = new TechTalk.SpecFlow.Table(new string[] {
@@ -678,7 +675,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "last",
                             "170",
                             "10"});
-#line 82
+#line 81
  testRunner.And("I have added a debt with the following parameters", ((string)(null)), table45, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table46 = new TechTalk.SpecFlow.Table(new string[] {
@@ -689,7 +686,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "last",
                             "last",
                             "2020-12-09T14:30:00.000000+02:00"});
-#line 85
+#line 84
  testRunner.When("I add an appointment with the following parameters", ((string)(null)), table46, "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table47 = new TechTalk.SpecFlow.Table(new string[] {
@@ -702,7 +699,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "17",
                             "true",
                             "1"});
-#line 88
+#line 87
  testRunner.Then("the debt data with last id is connected with the following student", ((string)(null)), table47, "Then ");
 #line hidden
             }

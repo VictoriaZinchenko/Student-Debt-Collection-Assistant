@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+
 namespace SdcaFramework.Clients.Creators
 {
     public class AppointmentCreator

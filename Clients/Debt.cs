@@ -3,7 +3,7 @@ using System;
 
 namespace SdcaFramework.Clients
 {
-    public class Debt : DebtCreator
+    public sealed class Debt : DebtCreator
     {
         public int id { get; set; }
 

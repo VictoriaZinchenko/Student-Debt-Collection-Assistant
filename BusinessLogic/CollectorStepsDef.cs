@@ -24,15 +24,18 @@ namespace SdcaFramework.BusinessLogic
         public void AddObjectWithParameters(CollectorCreator collector)
         {
                 new CollectorSteps().CreateCollector(collector);
-                ScenarioContext.Set<Collector>(
-                Transformations.GetCollectorBasedOnCollectorCreator(collector), "expectedCollector");
+            Collector expectedCollector = Transformations.GetCollectorBasedOnCollectorCreator(collector);
+                ScenarioContext.Set<Collector>(expectedCollector, "expectedCollector");
+            Logger.Info($"\nCollector created with the following properties. " +
+    $"{PropertiesDescriber.GetObjectProperties(expectedCollector)}");
         }
 
         [Given(@"I have modified the collector with the following parameters(?: again)?")]
         [When(@"I modify the collector with the following parameters(?: again)?")]
         public void GivenIHaveModifiedTheObjectWithTheFollowingParameters(Collector collector)
         {
-                new CollectorSteps().ModifyCollector(collector);
+            Logger.Info($"\nTry to modify the collector with {collector.id} id");
+            new CollectorSteps().ModifyCollector(collector);
                 ScenarioContext.Set<Collector>(collector, "expectedModifiedCollector");
         }
 
@@ -72,6 +75,7 @@ namespace SdcaFramework.BusinessLogic
             ScenarioContext.Set<int>(neededId, "NeededId");
             ScenarioContext.Set<HttpStatusCode>(new CollectorSteps().GetStatusCodeGetCollectorByIdAction(neededId),
                 "ActualStatusCode");
+            Logger.Info($"\nCollector with {neededId} id deleted");
         }
 
         [Given(@"I have tried to delete the removed collector by (.*) id")]
@@ -79,6 +83,7 @@ namespace SdcaFramework.BusinessLogic
         public void GivenIHaveDeletedAnObjectByIdmmmmmmmmmmmmmmmmmmmmmmm(string id)
         {
             int neededId = GetNeededId(id, SdcaParts.collector);
+            Logger.Info($"\nTry to delete the removed collector by {neededId} id");
             ScenarioContext.Set<int>(neededId, "NeededId");
             ScenarioContext.Set<HttpStatusCode>(new CollectorSteps().GetStatusCodeDeleteCollectorAction(neededId),
                 "ActualStatusCode");
@@ -112,6 +117,7 @@ namespace SdcaFramework.BusinessLogic
         [When(@"I try to add a collector with invalid parameter")]
         public void WhenITryToAddACollectorWithInvalidParameter(Dictionary<string, object> parameters)
         {
+            Logger.Info($"\nTry to add a collector with invalid parameter");
             ScenarioContext.Set<HttpStatusCode>(new CollectorSteps().GetStatusCodeForInvalidPostAction(parameters),
                 "ActualStatusCode");
         }

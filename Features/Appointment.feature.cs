@@ -130,12 +130,9 @@ this.ScenarioInitialize(scenarioInfo);
                             "1",
                             "2020-12-09T14:30:00.000000+02:00"});
 #line 6
- testRunner.Given("I have added an appointment with the following parameters", ((string)(null)), table1, "Given ");
+ testRunner.When("I add an appointment with the following parameters", ((string)(null)), table1, "When ");
 #line hidden
 #line 9
- testRunner.When("I get the list of appointments", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 10
  testRunner.Then("I can see the created appointment in the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -150,7 +147,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("debtId", debtId);
             argumentsOfScenario.Add("appointmentDate", appointmentDate);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to add appointment with invalid parameter", null, tagsOfScenario, argumentsOfScenario);
-#line 13
+#line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -182,10 +179,10 @@ this.ScenarioInitialize(scenarioInfo);
                 table2.AddRow(new string[] {
                             "appointmentDate",
                             string.Format("{0}", appointmentDate)});
-#line 14
+#line 13
 testRunner.When("I try to add an appointment with invalid parameter", ((string)(null)), table2, "When ");
 #line hidden
-#line 19
+#line 18
 testRunner.Then("the system can\'t create the collector data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -201,7 +198,7 @@ testRunner.Then("the system can\'t create the collector data", ((string)(null)),
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:appointmentDate", "appointmentDate")]
         public virtual void TryToAddAppointmentWithInvalidParameter_Variant0()
         {
-#line 13
+#line 12
 this.TryToAddAppointmentWithInvalidParameter("1", "1", "appointmentDate", ((string[])(null)));
 #line hidden
         }
@@ -215,7 +212,7 @@ this.TryToAddAppointmentWithInvalidParameter("1", "1", "appointmentDate", ((stri
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:appointmentDate", "2020-12-09T14:30:00.000000+02:00")]
         public virtual void TryToAddAppointmentWithInvalidParameter_Variant1()
         {
-#line 13
+#line 12
 this.TryToAddAppointmentWithInvalidParameter("1", "debtId", "2020-12-09T14:30:00.000000+02:00", ((string[])(null)));
 #line hidden
         }
@@ -229,7 +226,7 @@ this.TryToAddAppointmentWithInvalidParameter("1", "debtId", "2020-12-09T14:30:00
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:appointmentDate", "2020-12-09T14:30:00.000000+02:00")]
         public virtual void TryToAddAppointmentWithInvalidParameter_Variant2()
         {
-#line 13
+#line 12
 this.TryToAddAppointmentWithInvalidParameter("collectorIds", "1", "2020-12-09T14:30:00.000000+02:00", ((string[])(null)));
 #line hidden
         }
@@ -243,7 +240,7 @@ this.TryToAddAppointmentWithInvalidParameter("collectorIds", "1", "2020-12-09T14
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:appointmentDate", "2020-12-09T14:30:00.000000+02:00")]
         public virtual void TryToAddAppointmentWithInvalidParameter_Variant3()
         {
-#line 13
+#line 12
 this.TryToAddAppointmentWithInvalidParameter("-1", "1", "2020-12-09T14:30:00.000000+02:00", ((string[])(null)));
 #line hidden
         }
@@ -257,7 +254,7 @@ this.TryToAddAppointmentWithInvalidParameter("-1", "1", "2020-12-09T14:30:00.000
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:appointmentDate", "2020-12-09T14:30:00.000000+02:00")]
         public virtual void TryToAddAppointmentWithInvalidParameter_Variant4()
         {
-#line 13
+#line 12
 this.TryToAddAppointmentWithInvalidParameter("1", "-1", "2020-12-09T14:30:00.000000+02:00", ((string[])(null)));
 #line hidden
         }
@@ -271,7 +268,7 @@ this.TryToAddAppointmentWithInvalidParameter("1", "-1", "2020-12-09T14:30:00.000
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:appointmentDate", "2020-12-09T14:30:00.000000+02:00")]
         public virtual void TryToAddAppointmentWithInvalidParameter_Variant5()
         {
-#line 13
+#line 12
 this.TryToAddAppointmentWithInvalidParameter("", "1", "2020-12-09T14:30:00.000000+02:00", ((string[])(null)));
 #line hidden
         }
@@ -285,7 +282,7 @@ this.TryToAddAppointmentWithInvalidParameter("", "1", "2020-12-09T14:30:00.00000
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:appointmentDate", "2020-12-09T14:30:00.000000+02:00")]
         public virtual void TryToAddAppointmentWithInvalidParameter_Variant6()
         {
-#line 13
+#line 12
 this.TryToAddAppointmentWithInvalidParameter("1", "", "2020-12-09T14:30:00.000000+02:00", ((string[])(null)));
 #line hidden
         }
@@ -299,7 +296,7 @@ this.TryToAddAppointmentWithInvalidParameter("1", "", "2020-12-09T14:30:00.00000
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:appointmentDate", "")]
         public virtual void TryToAddAppointmentWithInvalidParameter_Variant7()
         {
-#line 13
+#line 12
 this.TryToAddAppointmentWithInvalidParameter("1", "1", "", ((string[])(null)));
 #line hidden
         }
@@ -314,7 +311,7 @@ this.TryToAddAppointmentWithInvalidParameter("1", "1", "", ((string[])(null)));
                     "Bug.Fail.10"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get appointment by id", null, tagsOfScenario, argumentsOfScenario);
-#line 33
+#line 32
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -342,13 +339,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "1, 2",
                             "1",
                             "2020-12-09T14:30:00.000000+02:00"});
-#line 34
+#line 33
  testRunner.When("I add an appointment with the following parameters", ((string)(null)), table3, "When ");
 #line hidden
-#line 37
+#line 36
  testRunner.Then("the appointment data is saved correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 38
+#line 37
  testRunner.And("I check again that the appointment data is saved correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -363,7 +360,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete appointment and check its absence", null, tagsOfScenario, argumentsOfScenario);
-#line 40
+#line 39
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -391,13 +388,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "1, 2",
                             "1",
                             "2020-12-09T14:30:00.000000+02:00"});
-#line 41
+#line 40
  testRunner.Given("I have added an appointment with the following parameters", ((string)(null)), table4, "Given ");
 #line hidden
-#line 44
+#line 43
  testRunner.When("I delete an appointment by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 45
+#line 44
  testRunner.Then("the system can\'t find the appointment data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -412,7 +409,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to delete the removed appointment", null, tagsOfScenario, argumentsOfScenario);
-#line 47
+#line 46
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -440,16 +437,16 @@ this.ScenarioInitialize(scenarioInfo);
                             "1, 2",
                             "1",
                             "2020-12-09T14:30:00.000000+02:00"});
-#line 48
+#line 47
  testRunner.Given("I have added an appointment with the following parameters", ((string)(null)), table5, "Given ");
 #line hidden
-#line 51
+#line 50
  testRunner.When("I delete an appointment by last id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 52
+#line 51
  testRunner.And("I try to delete the removed appointment by this id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 53
+#line 52
  testRunner.Then("the system can\'t find the appointment data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -466,7 +463,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "Bug.Fail.10"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create collector, student, debt, appointment and check created appointment", null, tagsOfScenario, argumentsOfScenario);
-#line 56
+#line 55
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -492,7 +489,7 @@ this.ScenarioInitialize(scenarioInfo);
                 table6.AddRow(new string[] {
                             "Fear Man",
                             "1"});
-#line 57
+#line 56
  testRunner.Given("I have added a collector with the following parameters", ((string)(null)), table6, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
@@ -505,7 +502,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "17",
                             "true",
                             "1"});
-#line 60
+#line 59
  testRunner.And("I have added a student with the following parameters", ((string)(null)), table7, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
@@ -516,7 +513,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "last",
                             "170",
                             "10"});
-#line 63
+#line 62
  testRunner.And("I have added a debt with the following parameters", ((string)(null)), table8, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
@@ -527,10 +524,10 @@ this.ScenarioInitialize(scenarioInfo);
                             "last",
                             "last",
                             "2020-12-09T14:30:00.000000+02:00"});
-#line 66
+#line 65
  testRunner.When("I add an appointment with the following parameters", ((string)(null)), table9, "When ");
 #line hidden
-#line 69
+#line 68
  testRunner.Then("the appointment data is saved correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

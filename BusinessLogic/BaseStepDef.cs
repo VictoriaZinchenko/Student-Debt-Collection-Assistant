@@ -1,4 +1,5 @@
-﻿using SdcaFramework.ClientSteps;
+﻿using NLog;
+using SdcaFramework.ClientSteps;
 using SdcaFramework.Utilities;
 using SdcaFramework.Utilities.Enums;
 using System;
@@ -10,6 +11,7 @@ namespace SdcaFramework.BusinessLogic
     [Binding]
     public class BaseStepDef
     {
+        protected Logger Logger = LogManager.GetCurrentClassLogger();
         protected readonly ScenarioContext ScenarioContext;
         protected readonly Transformations Transformations = new Transformations();
         protected readonly StepArgumentTransformations StepArgumentTransformations = new StepArgumentTransformations();
@@ -18,12 +20,6 @@ namespace SdcaFramework.BusinessLogic
         {
             this.ScenarioContext = scenarioContext;
         }
-
-        //[BeforeScenario]
-        //public void BeforeTest()
-        //{
-        //    ScenarioContext = new ScenarioContext();
-        //}
 
         protected int GetNeededId(string id, SdcaParts part)
         {

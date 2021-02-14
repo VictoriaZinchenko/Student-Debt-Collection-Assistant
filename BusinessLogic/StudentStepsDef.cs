@@ -4,11 +4,9 @@ using SdcaFramework.Clients.Creators;
 using SdcaFramework.ClientSteps;
 using SdcaFramework.Utilities;
 using SdcaFramework.Utilities.Enums;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
 using TechTalk.SpecFlow;
 
 namespace SdcaFramework.BusinessLogic
@@ -26,15 +24,18 @@ namespace SdcaFramework.BusinessLogic
         public void AddObjectWithParameters(StudentCreator student)
         {
             new StudentSteps().CreateStudent(student);
-                ScenarioContext.Set<Student>(
-                Transformations.GetStudentBasedOnStudentCreator(student), "expectedStudent");
+            Student expectedStudent = Transformations.GetStudentBasedOnStudentCreator(student);
+               ScenarioContext.Set<Student>(expectedStudent, "expectedStudent");
+            Logger.Info($"\nStudent created with the following properties. " +
+    $"{PropertiesDescriber.GetObjectProperties(expectedStudent)}");
         }
 
         [Given(@"I have modified the student with the following parameters(?: again)?")]
         [When(@"I modify the student with the following parameters(?: again)?")]
         public void GivenIHaveModifiedTheObjectWithTheFollowingParameters(Student student)
         {
-                new StudentSteps().ModifyStudent(student);
+            Logger.Info($"\nTry to modify the student with {student.id} id");
+            new StudentSteps().ModifyStudent(student);
                 ScenarioContext.Set<Student>(student, "expectedModifiedStudent");
         }
 
@@ -74,6 +75,7 @@ namespace SdcaFramework.BusinessLogic
             ScenarioContext.Set<int>(neededId, "NeededId");
             ScenarioContext.Set<HttpStatusCode>(new StudentSteps().GetStatusCodeGetStudentByIdAction(neededId),
                 "ActualStatusCode");
+            Logger.Info($"\nStudent with {neededId} id deleted");
         }
 
         [Given(@"I have tried to delete the removed student by (.*) id")]
@@ -81,6 +83,7 @@ namespace SdcaFramework.BusinessLogic
         public void GivenIHaveDeletedAnObjectByIdmmmmmmmmmmmmmmmmmmmmmmm(string id)
         {
             int neededId = GetNeededId(id, SdcaParts.student);
+            Logger.Info($"\nTry to delete the removed student by {neededId} id");
             ScenarioContext.Set<int>(neededId, "NeededId");
             ScenarioContext.Set<HttpStatusCode>(new StudentSteps().GetStatusCodeDeleteStudentAction(neededId),
                 "ActualStatusCode");
@@ -103,6 +106,7 @@ namespace SdcaFramework.BusinessLogic
         [When(@"I try to add a student with invalid parameter")]
         public void WhenITryToAddAStudentWithInvalidParameter(Dictionary<string, object> parameters)
         {
+            Logger.Info($"\nTry to add a student with invalid parameter");
             ScenarioContext.Set<HttpStatusCode>(new StudentSteps().GetStatusCodeForInvalidPostAction(parameters),
                 "ActualStatusCode");
         }

@@ -31,8 +31,10 @@ namespace SdcaFramework.BusinessLogic
         public void AddObjectWithParameters(DebtCreator debt)
         {
             new DebtSteps().CreateDebt(debt);
-                ScenarioContext.Set<Debt>(
-                Transformations.GetDebtBasedOnDebtCreator(debt), "expectedDebt");
+            Debt expectedDebt = Transformations.GetDebtBasedOnDebtCreator(debt);
+                ScenarioContext.Set<Debt>(expectedDebt, "expectedDebt");
+            Logger.Info($"\nDebt created with the following properties. " +
+$"{PropertiesDescriber.GetObjectProperties(expectedDebt)}");
         }
 
         [Then(@"I can see the created debt in the list")]
@@ -63,6 +65,7 @@ namespace SdcaFramework.BusinessLogic
             ScenarioContext.Set<int>(neededId, "NeededId");
             ScenarioContext.Set<HttpStatusCode>(new DebtSteps().GetStatusCodeGetDebtByIdAction(neededId),
                 "ActualStatusCode");
+            Logger.Info($"\nDebt with {neededId} id deleted");
         }
 
         [Given(@"I have tried to delete the removed debt by (.*) id")]
@@ -70,6 +73,7 @@ namespace SdcaFramework.BusinessLogic
         public void GivenIHaveDeletedAnObjectByIdmmmmmmmmmmmmmmmmmmmmmmm(string id)
         {
             int neededId = GetNeededId(id, SdcaParts.debt);
+            Logger.Info($"\nTry to delete the removed debt by {neededId} id");
             ScenarioContext.Set<int>(neededId, "NeededId");
             ScenarioContext.Set<HttpStatusCode>(new DebtSteps().GetStatusCodeDeleteDebtAction(neededId),
                 "ActualStatusCode");
@@ -120,6 +124,7 @@ namespace SdcaFramework.BusinessLogic
         [When(@"I try to add a debt with invalid parameter")]
         public void WhenITryToAddADebtWithInvalidParameter(Dictionary<string, object> parameters)
         {
+            Logger.Info($"\nTry to add a debt with invalid parameter");
             ScenarioContext.Set<HttpStatusCode>(new DebtSteps().GetStatusCodeForInvalidPostAction(parameters),
                 "ActualStatusCode");
         }
