@@ -13,32 +13,33 @@ namespace SdcaFramework.BusinessLogic
 {
     [Binding]
     public sealed class DebtStepsDef : BaseStepDef
-    { 
-    public DebtStepsDef(ScenarioContext scenarioContext) : base(scenarioContext)
     {
+        public DebtStepsDef(ScenarioContext scenarioContext) : base(scenarioContext)
+        {
 
-    }
+        }
 
         [Given(@"I have got a debt data by (.*) id")]
         [When(@"I get a debt data by (.*) id")]
-        public void WhenIGetDataById(string id)
+        public void GetDebtById(string id)
         {
+            Logger.Info($"\nTry to get debt by {id} id");
             GetDebtDataById(id);
         }
 
         [Given(@"I have added a debt with the following parameters")]
         [When(@"I add a debt with the following parameters")]
-        public void AddObjectWithParameters(DebtCreator debt)
+        public void AddDebtWithParameters(DebtCreator debt)
         {
             new DebtSteps().CreateDebt(debt);
             Debt expectedDebt = Transformations.GetDebtBasedOnDebtCreator(debt);
-                ScenarioContext.Set<Debt>(expectedDebt, "expectedDebt");
+            ScenarioContext.Set<Debt>(expectedDebt, "expectedDebt");
             Logger.Info($"\nDebt created with the following properties. " +
 $"{PropertiesDescriber.GetObjectProperties(expectedDebt)}");
         }
 
         [Then(@"I can see the created debt in the list")]
-        public void ThenICanSeeThisObject()
+        public void CheckDebtPresenceInList()
         {
             var actualObjectsList = new List<object>();
             Debt expectedObject = ScenarioContext.Get<Debt>("expectedDebt");
@@ -48,17 +49,17 @@ $"{PropertiesDescriber.GetObjectProperties(expectedDebt)}");
         }
 
         [Then(@"(?:I check again that )?the debt data is saved correctly")]
-        public void ThenTheDataIsSavedCorrectly()
+        public void ThenDebtIsSavedCorrectly()
         {
             Debt expectedObject = ScenarioContext.Get<Debt>("expectedDebt");
             Debt actualObject = GetDebtDataById("last");
-            Assert.AreEqual(expectedObject, actualObject, 
+            Assert.AreEqual(expectedObject, actualObject,
                 PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
         }
 
         [Given(@"I have deleted a debt by (.*) id")]
         [When(@"I delete a debt by (.*) id")]
-        public void GivenIHaveDeletedAnObjectById(string id)
+        public void DeleteDebtById(string id)
         {
             int neededId = GetNeededId(id, SdcaParts.debt);
             new DebtSteps().DeleteDebtById(neededId);
@@ -70,7 +71,7 @@ $"{PropertiesDescriber.GetObjectProperties(expectedDebt)}");
 
         [Given(@"I have tried to delete the removed debt by (.*) id")]
         [When(@"I try to delete the removed debt by (.*) id")]
-        public void GivenIHaveDeletedAnObjectByIdmmmmmmmmmmmmmmmmmmmmmmm(string id)
+        public void TryToDeleteRemovedDebtById(string id)
         {
             int neededId = GetNeededId(id, SdcaParts.debt);
             Logger.Info($"\nTry to delete the removed debt by {neededId} id");
@@ -80,21 +81,21 @@ $"{PropertiesDescriber.GetObjectProperties(expectedDebt)}");
         }
 
         [Then(@"the system can't find the debt data")]
-        public void ThenTheSystemDidNotFindTheData()
+        public void ThenSystemDidNotFindDebt()
         {
             Assert.AreEqual(HttpStatusCode.NotFound,
                 ScenarioContext.Get<HttpStatusCode>("ActualStatusCode"), "Expected status code should be 'Not Found'.");
         }
 
         [Then(@"the system can't create the debt data")]
-        public void ThenTheSystemDidNotCreateTheData()
+        public void ThenSystemDidNotCreateDebt()
         {
             Assert.AreEqual(HttpStatusCode.BadRequest,
                 ScenarioContext.Get<HttpStatusCode>("ActualStatusCode"), "Expected status code should be 'Bad Request'.");
         }
 
         [Then(@"the current amount is recalculated correctly for debt with 0 id")]
-        public void ThenTheDebtAmountIsRecalculatedCorrectly()
+        public void ThenDebtAmountIsRecalculatedCorrectly()
         {
             var dateOfCreationDebtWith0Id = new DateTime(2020, 5, 30); //taken from the TeztApi framework as the database is missing
             double originalAmountDebtWith0Id = 1000;
@@ -105,24 +106,24 @@ $"{PropertiesDescriber.GetObjectProperties(expectedDebt)}");
         }
 
         [Then(@"the debt data with (.*) id is connected with the following (debt|student|collector)")]
-        public void ThenDataWithIdIsConnectedWithTheFollowingObject(string id, SdcaParts sdcaPart, Table table)
+        public void ThenDebtWithIdIsConnectedWithFollowingObject(string id, SdcaParts sdcaPart, Table table)
         {
             int neededId = GetNeededId(id, SdcaParts.debt);
             object expectedObject = sdcaPart switch
-                {
-                    SdcaParts.student => Transformations.GetStudentBasedOnStudentCreator(StepArgumentTransformations.GetStudentCreator(table)),
-                    _ => null
-                };
+            {
+                SdcaParts.student => Transformations.GetStudentBasedOnStudentCreator(StepArgumentTransformations.GetStudentCreator(table)),
+                _ => null
+            };
             object actualObject = sdcaPart switch
-                {
-                    SdcaParts.student => new StudentSteps().GetStudentById(new DebtSteps().GetDebtById(neededId).studentId),
-                    _ => null
-                };
+            {
+                SdcaParts.student => new StudentSteps().GetStudentById(new DebtSteps().GetDebtById(neededId).studentId),
+                _ => null
+            };
             Assert.AreEqual(expectedObject, actualObject, PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
         }
 
         [When(@"I try to add a debt with invalid parameter")]
-        public void WhenITryToAddADebtWithInvalidParameter(Dictionary<string, object> parameters)
+        public void TryToAddADebtWithInvalidParameter(Dictionary<string, object> parameters)
         {
             Logger.Info($"\nTry to add a debt with invalid parameter");
             ScenarioContext.Set<HttpStatusCode>(new DebtSteps().GetStatusCodeForInvalidPostAction(parameters),

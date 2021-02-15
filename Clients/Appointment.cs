@@ -8,7 +8,7 @@ namespace SdcaFramework.Clients
     {
         public int id { get; set; }
 
-        protected bool Equals(Appointment other) 
+        protected bool Equals(Appointment other)
             => id == other.id && debtId == other.debtId
             && Enumerable.SequenceEqual(collectorIds, other.collectorIds)
             && appointmentDate.Equals(other.appointmentDate);

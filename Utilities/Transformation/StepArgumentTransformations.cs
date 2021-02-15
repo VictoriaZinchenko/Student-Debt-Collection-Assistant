@@ -96,31 +96,31 @@ namespace SdcaFramework.Utilities
         [StepArgumentTransformation]
         internal StudentCreator GetStudentCreator(Table table)
         {
-                StudentCreator student = table.Rows.Select(row => new StudentCreator
-                {
-                    age = long.Parse(row["age"]),
-                    name = row["name"],
-                    risk = int.Parse(row["risk"]),
-                    sex = Boolean.Parse(row["sex"])
-                }).FirstOrDefault();
-                return student;
+            StudentCreator student = table.Rows.Select(row => new StudentCreator
+            {
+                age = long.Parse(row["age"]),
+                name = row["name"],
+                risk = int.Parse(row["risk"]),
+                sex = Boolean.Parse(row["sex"])
+            }).FirstOrDefault();
+            return student;
         }
 
         [StepArgumentTransformation]
         internal Student GetStudent(Table table)
         {
-                return table.Rows.Select(row => new Student
-                {
-                    id = int.Parse(row["id"]),
-                    age = long.Parse(row["age"]),
-                    name = row["name"],
-                    risk = int.Parse(row["risk"]),
-                    sex = Boolean.Parse(row["sex"])
-                }).FirstOrDefault();
-            
+            return table.Rows.Select(row => new Student
+            {
+                id = int.Parse(row["id"]),
+                age = long.Parse(row["age"]),
+                name = row["name"],
+                risk = int.Parse(row["risk"]),
+                sex = Boolean.Parse(row["sex"])
+            }).FirstOrDefault();
+
         }
 
-        private List<int> GetListOfIds(string row) 
+        private List<int> GetListOfIds(string row)
             => row.Replace(", ", ",").Split(',').ToList().Select(id => int.Parse(id)).ToList();
 
         private int GetNeededId(string row, int lastId) => row == "last" ? lastId : int.Parse(row);

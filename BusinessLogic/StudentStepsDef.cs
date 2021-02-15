@@ -21,26 +21,26 @@ namespace SdcaFramework.BusinessLogic
 
         [Given(@"I have added a student with the following parameters")]
         [When(@"I add a student with the following parameters")]
-        public void AddObjectWithParameters(StudentCreator student)
+        public void AddStudentWithParameters(StudentCreator student)
         {
             new StudentSteps().CreateStudent(student);
             Student expectedStudent = Transformations.GetStudentBasedOnStudentCreator(student);
-               ScenarioContext.Set<Student>(expectedStudent, "expectedStudent");
+            ScenarioContext.Set<Student>(expectedStudent, "expectedStudent");
             Logger.Info($"\nStudent created with the following properties. " +
     $"{PropertiesDescriber.GetObjectProperties(expectedStudent)}");
         }
 
         [Given(@"I have modified the student with the following parameters(?: again)?")]
         [When(@"I modify the student with the following parameters(?: again)?")]
-        public void GivenIHaveModifiedTheObjectWithTheFollowingParameters(Student student)
+        public void ModifyStudentWithFollowingParameters(Student student)
         {
             Logger.Info($"\nTry to modify the student with {student.id} id");
             new StudentSteps().ModifyStudent(student);
-                ScenarioContext.Set<Student>(student, "expectedModifiedStudent");
+            ScenarioContext.Set<Student>(student, "expectedModifiedStudent");
         }
 
         [Then(@"I can see the created student in the list")]
-        public void ThenICanSeeThisObject()
+        public void CheckStudentPresenceInList()
         {
             var actualObjectsList = new List<object>();
             Student expectedObject = ScenarioContext.Get<Student>("expectedStudent");
@@ -50,16 +50,16 @@ namespace SdcaFramework.BusinessLogic
         }
 
         [Then(@"(?:I check again that )?the student data is saved correctly")]
-        public void ThenTheDataIsSavedCorrectly()
+        public void ThenStudentIsSavedCorrectly()
         {
             Student expectedObject = ScenarioContext.Get<Student>("expectedStudent");
             Student actualObject = GetStudentDataById("last");
-            Assert.AreEqual(expectedObject, actualObject, 
+            Assert.AreEqual(expectedObject, actualObject,
                 PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
         }
 
         [Then(@"the student data with (.*) id is modified correctly")]
-        public void ThenTheDataIsModifiedCorrectly(string id)
+        public void ThenStudentIsModifiedCorrectly(string id)
         {
             Student expectedObject = ScenarioContext.Get<Student>("expectedModifiedStudent");
             Student actualObject = GetStudentDataById(id);
@@ -68,7 +68,7 @@ namespace SdcaFramework.BusinessLogic
 
         [Given(@"I have deleted a student by (.*) id")]
         [When(@"I delete a student by (.*) id")]
-        public void GivenIHaveDeletedAnObjectById(string id)
+        public void DeleteStudentById(string id)
         {
             int neededId = GetNeededId(id, SdcaParts.student);
             new StudentSteps().DeleteStudentById(neededId);
@@ -80,7 +80,7 @@ namespace SdcaFramework.BusinessLogic
 
         [Given(@"I have tried to delete the removed student by (.*) id")]
         [When(@"I try to delete the removed student by (.*) id")]
-        public void GivenIHaveDeletedAnObjectByIdmmmmmmmmmmmmmmmmmmmmmmm(string id)
+        public void TryToDeleteReomovedStudentById(string id)
         {
             int neededId = GetNeededId(id, SdcaParts.student);
             Logger.Info($"\nTry to delete the removed student by {neededId} id");
@@ -90,21 +90,21 @@ namespace SdcaFramework.BusinessLogic
         }
 
         [Then(@"the system can't find the student data")]
-        public void ThenTheSystemDidNotFindTheData()
+        public void ThenSystemDidNotFindStudent()
         {
             Assert.AreEqual(HttpStatusCode.NotFound,
                 ScenarioContext.Get<HttpStatusCode>("ActualStatusCode"), "Expected status code should be 'Not Found'.");
         }
 
         [Then(@"the system can't create the student data")]
-        public void ThenTheSystemDidNotCreateTheData()
+        public void ThenSystemDidNotCreateStudent()
         {
             Assert.AreEqual(HttpStatusCode.BadRequest,
                 ScenarioContext.Get<HttpStatusCode>("ActualStatusCode"), "Expected status code should be 'Bad Request'.");
         }
 
         [When(@"I try to add a student with invalid parameter")]
-        public void WhenITryToAddAStudentWithInvalidParameter(Dictionary<string, object> parameters)
+        public void TryToAddStudentWithInvalidParameter(Dictionary<string, object> parameters)
         {
             Logger.Info($"\nTry to add a student with invalid parameter");
             ScenarioContext.Set<HttpStatusCode>(new StudentSteps().GetStatusCodeForInvalidPostAction(parameters),
@@ -112,12 +112,12 @@ namespace SdcaFramework.BusinessLogic
         }
 
         [Then(@"I find only one student with the following parameters")]
-        public void TryToGetAnObjectByParameters(StudentCreator expectedStudent)
+        public void FindStudentByParameters(StudentCreator expectedStudent)
         {
             int countOfObjects = new StudentSteps().GetListOfStudents()
                 .Count(student => student.name.Equals(expectedStudent.name)
-                && student.age.Equals(expectedStudent.age) 
-                && student.sex.Equals(expectedStudent.sex) 
+                && student.age.Equals(expectedStudent.age)
+                && student.sex.Equals(expectedStudent.sex)
                 && student.risk.Equals(expectedStudent.risk));
             Assert.AreEqual(1, countOfObjects,
                 $"There should be only one student with the following properties. Actual count of such students is {countOfObjects}." +

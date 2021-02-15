@@ -10,23 +10,23 @@ Scenario: Add appointment and check it presence in the list
 
 #BUG?
 Scenario Outline: Try to add appointment with invalid parameter
-When I try to add an appointment with invalid parameter
-	| Parameter       | Value        |
-	| collectorIds    | <collectorIds>   |
-	| debtId          | <debtId> |
-	| appointmentDate | <appointmentDate>             |
-Then the system can't create the collector data
+	When I try to add an appointment with invalid parameter
+		| Parameter       | Value             |
+		| collectorIds    | <collectorIds>    |
+		| debtId          | <debtId>          |
+		| appointmentDate | <appointmentDate> |
+	Then the system can't create the collector data
 
-Examples: 
-| collectorIds | debtId | appointmentDate                  |
-| 1            | 1      | appointmentDate                  |
-| 1            | debtId | 2020-12-09T14:30:00.000000+02:00 |
-| collectorIds | 1      | 2020-12-09T14:30:00.000000+02:00 |
-| -1 | 1      | 2020-12-09T14:30:00.000000+02:00 |
-| 1 | -1      | 2020-12-09T14:30:00.000000+02:00 |
-|  | 1      | 2020-12-09T14:30:00.000000+02:00 |
-| 1 |       | 2020-12-09T14:30:00.000000+02:00 |
-| 1 | 1      |  |
+	Examples:
+		| collectorIds | debtId | appointmentDate                  |
+		| 1            | 1      | appointmentDate                  |
+		| 1            | debtId | 2020-12-09T14:30:00.000000+02:00 |
+		| collectorIds | 1      | 2020-12-09T14:30:00.000000+02:00 |
+		| -1           | 1      | 2020-12-09T14:30:00.000000+02:00 |
+		| 1            | -1     | 2020-12-09T14:30:00.000000+02:00 |
+		|              | 1      | 2020-12-09T14:30:00.000000+02:00 |
+		| 1            |        | 2020-12-09T14:30:00.000000+02:00 |
+		| 1            | 1      |                                  |
 
 @Bug.Fail.10
 Scenario: Get appointment by id

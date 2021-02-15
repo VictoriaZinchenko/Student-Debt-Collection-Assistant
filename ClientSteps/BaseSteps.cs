@@ -15,17 +15,17 @@ namespace SdcaFramework.ClientSteps
         private static string BaseUrl = new Startup().Configuration["BaseUrl"];
         private readonly RestClient RestClient = new RestClient(BaseUrl);
 
-        protected virtual string Resource { get;}
+        protected virtual string Resource { get; }
 
         protected int LastObjectId => GetListOfObjects(HttpStatusCode.OK).Count - 1;
 
-        protected List<T> GetListOfObjects(HttpStatusCode expectedStatusCode) 
+        protected List<T> GetListOfObjects(HttpStatusCode expectedStatusCode)
             => GetDeserializedResponseForList(ExecuteRequest(Method.GET, expectedStatusCode));
 
         protected void CreateNewObject(K objectData, HttpStatusCode expectedStatusCode)
                 => ExecuteRequest(Method.POST, expectedStatusCode, objectData);
 
-        protected void ModifyExistingObject(T objectData, HttpStatusCode expectedStatusCode) 
+        protected void ModifyExistingObject(T objectData, HttpStatusCode expectedStatusCode)
             => ExecuteRequest(Method.PUT, expectedStatusCode, objectData);
 
         protected void DeleteObjectById(int id, HttpStatusCode expectedStatusCode)
@@ -58,7 +58,7 @@ namespace SdcaFramework.ClientSteps
                 restRequest.AddJsonBody(body);
                 Logger.Debug($"\nBody: {PropertiesDescriber.GetObjectProperties(body)}");
             }
-            IRestResponse response =  RestClient.Execute(restRequest);
+            IRestResponse response = RestClient.Execute(restRequest);
             if (expectedStatusCode != 0)
             {
                 CheckHttpStatusCode(response, expectedStatusCode);

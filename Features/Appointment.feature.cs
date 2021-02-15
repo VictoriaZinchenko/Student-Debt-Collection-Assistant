@@ -180,10 +180,10 @@ this.ScenarioInitialize(scenarioInfo);
                             "appointmentDate",
                             string.Format("{0}", appointmentDate)});
 #line 13
-testRunner.When("I try to add an appointment with invalid parameter", ((string)(null)), table2, "When ");
+ testRunner.When("I try to add an appointment with invalid parameter", ((string)(null)), table2, "When ");
 #line hidden
 #line 18
-testRunner.Then("the system can\'t create the collector data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the system can\'t create the collector data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

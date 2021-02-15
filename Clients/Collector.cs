@@ -3,8 +3,8 @@ using System;
 
 namespace SdcaFramework.Clients
 {
-     public sealed class Collector : CollectorCreator
-     {
+    public sealed class Collector : CollectorCreator
+    {
         public int id { get; set; }
 
         protected bool Equals(Collector other)
@@ -21,5 +21,5 @@ namespace SdcaFramework.Clients
         }
 
         public override int GetHashCode() => HashCode.Combine(id, nickname, fearFactor);
-     }
+    }
 }

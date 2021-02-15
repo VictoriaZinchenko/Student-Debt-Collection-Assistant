@@ -133,7 +133,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I add a debt with the following parameters", ((string)(null)), table24, "When ");
 #line hidden
 #line 9
-  testRunner.Then("I can see the created debt in the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I can see the created debt in the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -180,10 +180,10 @@ this.ScenarioInitialize(scenarioInfo);
                             "monthlyPercent",
                             string.Format("{0}", monthlyPercent)});
 #line 13
-testRunner.When("I try to add a debt with invalid parameter", ((string)(null)), table25, "When ");
+ testRunner.When("I try to add a debt with invalid parameter", ((string)(null)), table25, "When ");
 #line hidden
 #line 18
-testRunner.Then("the system can\'t create the collector data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the system can\'t create the collector data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -324,7 +324,7 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get debt by id", null, tagsOfScenario, argumentsOfScenario);
 #line 32
-  this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -355,10 +355,10 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
  testRunner.When("I add a debt with the following parameters", ((string)(null)), table26, "When ");
 #line hidden
 #line 36
-  testRunner.Then("the debt data is saved correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the debt data is saved correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 37
-  testRunner.And("I check again that the debt data is saved correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I check again that the debt data is saved correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -373,7 +373,7 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete debt and check its absence", null, tagsOfScenario, argumentsOfScenario);
 #line 39
-  this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -422,7 +422,7 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to delete the removed debt", null, tagsOfScenario, argumentsOfScenario);
 #line 46
- this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -474,7 +474,7 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check recalculated debt amount", null, tagsOfScenario, argumentsOfScenario);
 #line 55
- this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -514,7 +514,7 @@ this.TryToAddDebtWithInvalidParameter("0", "100", "", ((string[])(null)));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create collector, student, debt, appointment and check appointment connection wit" +
                     "h debt", null, tagsOfScenario, argumentsOfScenario);
 #line 59
- this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);

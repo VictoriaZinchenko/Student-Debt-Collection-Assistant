@@ -5,7 +5,6 @@ using SdcaFramework.Utilities.Enums;
 using System;
 using TechTalk.SpecFlow;
 
-
 namespace SdcaFramework.BusinessLogic
 {
     [Binding]

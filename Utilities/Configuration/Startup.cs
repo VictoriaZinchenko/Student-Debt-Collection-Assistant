@@ -9,10 +9,10 @@ namespace SdcaFramework.Utilities.Configuration
 
         public Startup()
         {
-          Configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-            .Build();
+            Configuration = new ConfigurationBuilder()
+              .SetBasePath(Directory.GetCurrentDirectory())
+              .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+              .Build();
         }
     }
 }
