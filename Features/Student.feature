@@ -27,16 +27,17 @@ Scenario Outline: Try to add student with invalid parameter
 	Then the system can't create the collector data
 
 	Examples:
-		| name  | age | sex  | risk |
-		| 123   | 17  | true | 5    |
-		| Cutie | age | true | 5    |
-		| Cutie | 17  | sex  | 5    |
-		| Cutie | 17  | true | risk |
-		| Cutie | -17 | true | 5    |
-		|       | 17  | true | 5    |
-		| Cutie |     | true | 5    |
-		| Cutie | 17  |      | 5    |
-		| Cutie | 17  | true |      |
+		| name   | age | sex  | risk |
+		| 123    | 17  | true | 5    |
+		| Cutie  | age | true | 5    |
+		| Cutie  | 17  | sex  | 5    |
+		| Cutie  | 17  | true | risk |
+		| Cutie  | -17 | true | 5    |
+		|        | 17  | true | 5    |
+		| Cutie  |     | true | 5    |
+		| Cutie  | 17  |      | 5    |
+		| Cutie  | 17  | true |      |
+		| Cutie$ | 17  | true | 5    |
 
 @Bug.Fail.5
 Scenario: Modify student and check the changes

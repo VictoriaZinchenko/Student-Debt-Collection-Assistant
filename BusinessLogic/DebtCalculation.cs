@@ -17,7 +17,7 @@ namespace SdcaFramework.BusinessLogic
             double discount = CalculateDiscount(debt.studentId);
             foreach (DateTime date in notUpdatedPeriodOfTime)
             {
-                dailyRate = (monthlyPercent / DaysCountOfNeededMonth(date)) * discount;
+                dailyRate = (monthlyPercent / DateTime.DaysInMonth(date.Year, date.Month)) * discount;
                 result += dailyRate;
             }
             return result;
@@ -44,12 +44,5 @@ namespace SdcaFramework.BusinessLogic
             periodOfTime.Remove(periodOfTime.Last()); //exclude today
             return periodOfTime;
         }
-
-        private int DaysCountOfNeededMonth(DateTime date) => date.Month switch
-        {
-            2 => 28,
-            int month when (month == 4) || (month == 6) || (month == 9) || (month == 11) => 30,
-            _ => 31
-        };
     }
 }

@@ -23,13 +23,14 @@ Scenario Outline: Try to add collector with invalid parameter
 	Then the system can't create the collector data
 
 	Examples:
-		| nickname  | fearFactor   |
-		| Angry guy | angry factor |
-		| 1234      | 5            |
-		| Angry guy | -1           |
-		|           | 1            |
-		| Angry guy |              |
-		|           | 5            |
+		| nickname   | fearFactor   |
+		| Angry guy  | angry factor |
+		| 1234       | 5            |
+		| Angry guy  | -1           |
+		|            | 1            |
+		| Angry guy  |              |
+		|            | 5            |
+		| Angry guy# | 1            |
 
 @Bug.Fail.4
 Scenario: Modify collector and check the changes

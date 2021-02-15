@@ -14,10 +14,14 @@ namespace SdcaFramework.BusinessLogic
     [Binding]
     public sealed class CollectorStepsDef : BaseStepDef
     {
+        private readonly string ExpectedCollector = "expectedCollector";
+
         public CollectorStepsDef(ScenarioContext scenarioContext) : base(scenarioContext)
         {
 
         }
+
+        private Collector ContextExpectedCollector => ScenarioContext.Get<Collector>(ExpectedCollector);
 
         [Given(@"I have added a collector with the following parameters")]
         [When(@"I add a collector with the following parameters")]
@@ -25,9 +29,9 @@ namespace SdcaFramework.BusinessLogic
         {
             new CollectorSteps().CreateCollector(collector);
             Collector expectedCollector = Transformations.GetCollectorBasedOnCollectorCreator(collector);
-            ScenarioContext.Set<Collector>(expectedCollector, "expectedCollector");
+            ScenarioContext.Set(expectedCollector, ExpectedCollector);
             Logger.Info($"\nCollector created with the following properties. " +
-    $"{PropertiesDescriber.GetObjectProperties(expectedCollector)}");
+                $"{PropertiesDescriber.GetObjectProperties(expectedCollector)}");
         }
 
         [Given(@"I have modified the collector with the following parameters(?: again)?")]
@@ -36,14 +40,14 @@ namespace SdcaFramework.BusinessLogic
         {
             Logger.Info($"\nTry to modify the collector with {collector.id} id");
             new CollectorSteps().ModifyCollector(collector);
-            ScenarioContext.Set<Collector>(collector, "expectedModifiedCollector");
+            ScenarioContext.Set(collector, "expectedModifiedCollector");
         }
 
         [Then(@"I can see the created collector in the list")]
         public void CheckCollectorPresenceInList()
         {
             var actualObjectsList = new List<object>();
-            Collector expectedObject = ScenarioContext.Get<Collector>("expectedCollector");
+            Collector expectedObject = ContextExpectedCollector;
             new CollectorSteps().GetListOfCollectors().ForEach(element => actualObjectsList.Add(element));
             Assert.Contains(expectedObject, actualObjectsList,
                 PropertiesDescriber.GetActualObjectsListAndExpectedObjectProperties(expectedObject, actualObjectsList));
@@ -52,7 +56,7 @@ namespace SdcaFramework.BusinessLogic
         [Then(@"(?:I check again that )?the collector data is saved correctly")]
         public void ThenCollectorIsSavedCorrectly()
         {
-            Collector expectedObject = ScenarioContext.Get<Collector>("expectedCollector");
+            Collector expectedObject = ContextExpectedCollector;
             Collector actualObject = GetCollectorDataById("last");
             Assert.AreEqual(expectedObject, actualObject, PropertiesDescriber.GetActualAndExpectedObjectsProperties(expectedObject, actualObject));
         }
@@ -72,9 +76,8 @@ namespace SdcaFramework.BusinessLogic
         {
             int neededId = GetNeededId(id, SdcaParts.collector);
             new CollectorSteps().DeleteCllectorById(neededId);
-            ScenarioContext.Set<int>(neededId, "NeededId");
-            ScenarioContext.Set<HttpStatusCode>(new CollectorSteps().GetStatusCodeGetCollectorByIdAction(neededId),
-                "ActualStatusCode");
+            SetNeededIdToContext(neededId);
+            SetActualStatusCodeToContext(new CollectorSteps().GetStatusCodeGetCollectorByIdAction(neededId));
             Logger.Info($"\nCollector with {neededId} id deleted");
         }
 
@@ -84,9 +87,8 @@ namespace SdcaFramework.BusinessLogic
         {
             int neededId = GetNeededId(id, SdcaParts.collector);
             Logger.Info($"\nTry to delete the removed collector by {neededId} id");
-            ScenarioContext.Set<int>(neededId, "NeededId");
-            ScenarioContext.Set<HttpStatusCode>(new CollectorSteps().GetStatusCodeDeleteCollectorAction(neededId),
-                "ActualStatusCode");
+            SetNeededIdToContext(neededId);
+            SetActualStatusCodeToContext(new CollectorSteps().GetStatusCodeDeleteCollectorAction(neededId));
         }
 
         [Then(@"I find only one collector with the following parameters")]
@@ -104,22 +106,21 @@ namespace SdcaFramework.BusinessLogic
         public void ThenSystemDidNotFindCollector()
         {
             Assert.AreEqual(HttpStatusCode.NotFound,
-                ScenarioContext.Get<HttpStatusCode>("ActualStatusCode"), "Expected status code should be 'Not Found'.");
+                ContextActualStatusCode, AssertNotFoundMessage);
         }
 
         [Then(@"the system can't create the collector data")]
         public void ThenSystemDidNotCreateCollector()
         {
             Assert.AreEqual(HttpStatusCode.BadRequest,
-                ScenarioContext.Get<HttpStatusCode>("ActualStatusCode"), "Expected status code should be 'Bad Request'.");
+                ContextActualStatusCode, AssertBadRequestMessage);
         }
 
         [When(@"I try to add a collector with invalid parameter")]
         public void TryToAddCollectorWithInvalidParameter(Dictionary<string, object> parameters)
         {
             Logger.Info($"\nTry to add a collector with invalid parameter");
-            ScenarioContext.Set<HttpStatusCode>(new CollectorSteps().GetStatusCodeForInvalidPostAction(parameters),
-                "ActualStatusCode");
+            SetActualStatusCodeToContext(new CollectorSteps().GetStatusCodeForInvalidPostAction(parameters));
         }
 
         public Collector GetCollectorDataById(string id)

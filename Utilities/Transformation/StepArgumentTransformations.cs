@@ -75,8 +75,8 @@ namespace SdcaFramework.Utilities
         {
             return table.Rows.Select(row => new DebtCreator
             {
-                amount = Double.Parse(row["amount"]),
-                monthlyPercent = Double.Parse(row["monthlyPercent"]),
+                amount = double.Parse(row["amount"]),
+                monthlyPercent = double.Parse(row["monthlyPercent"]),
                 studentId = GetNeededId(row["studentId"], new StudentSteps().LastStudentId),
             }).FirstOrDefault();
         }
@@ -87,8 +87,8 @@ namespace SdcaFramework.Utilities
             return table.Rows.Select(row => new Debt
             {
                 id = int.Parse(row["id"]),
-                amount = Double.Parse(row["amount"]),
-                monthlyPercent = Double.Parse(row["monthlyPercent"]),
+                amount = double.Parse(row["amount"]),
+                monthlyPercent = double.Parse(row["monthlyPercent"]),
                 studentId = int.Parse(row["studentId"])
             }).FirstOrDefault();
         }
@@ -101,7 +101,7 @@ namespace SdcaFramework.Utilities
                 age = long.Parse(row["age"]),
                 name = row["name"],
                 risk = int.Parse(row["risk"]),
-                sex = Boolean.Parse(row["sex"])
+                sex = bool.Parse(row["sex"])
             }).FirstOrDefault();
             return student;
         }
@@ -115,7 +115,7 @@ namespace SdcaFramework.Utilities
                 age = long.Parse(row["age"]),
                 name = row["name"],
                 risk = int.Parse(row["risk"]),
-                sex = Boolean.Parse(row["sex"])
+                sex = bool.Parse(row["sex"])
             }).FirstOrDefault();
 
         }
@@ -132,10 +132,10 @@ namespace SdcaFramework.Utilities
             DateTime dateTimeValue;
             return value switch
             {
-                string stringValue when string.IsNullOrEmpty(value) => string.Empty,
-                string stringValue when int.TryParse(value, out intValue).Equals(true) => intValue,
-                string stringValue when double.TryParse(value, out doubleValue).Equals(true) => doubleValue,
-                string stringValue when DateTime.TryParse(value, out dateTimeValue).Equals(true) => dateTimeValue,
+                string _ when string.IsNullOrEmpty(value) => string.Empty,
+                string _ when int.TryParse(value, out intValue) => intValue,
+                string _ when double.TryParse(value, out doubleValue) => doubleValue,
+                string _ when DateTime.TryParse(value, out dateTimeValue) => dateTimeValue,
                 _ => value
             };
         }
