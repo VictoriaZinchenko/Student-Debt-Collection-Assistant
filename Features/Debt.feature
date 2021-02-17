@@ -8,7 +8,7 @@ Scenario: Add debt and check it presence in the list
 		| 1         | 170    | 10             |
 	Then I can see the created debt in the list
 
-#BUG?
+@Bug.Fail.16
 Scenario Outline: Try to add debt with invalid parameter
 	When I try to add a debt with invalid parameter
 		| Parameter      | Value            |
@@ -51,7 +51,7 @@ Scenario: Try to delete the removed debt
 	And I try to delete the removed debt by this id
 	Then the system can't find the debt data
 
-#Bug?
+@Bug.Fail.15
 Scenario: Check recalculated debt amount
 	When I get a debt data by 0 id
 	Then the current amount is recalculated correctly for debt with 0 id

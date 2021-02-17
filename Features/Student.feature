@@ -16,7 +16,7 @@ Scenario: Get student by id
 	Then the student data is saved correctly
 	And I check again that the student data is saved correctly
 
-#BUG?
+@Bug.Fail.17 @Bug.Fail.1
 Scenario Outline: Try to add student with invalid parameter
 	When I try to add a student with invalid parameter
 		| Parameter | Value  |
@@ -39,13 +39,14 @@ Scenario Outline: Try to add student with invalid parameter
 		| Cutie  | 17  | true |      |
 		| Cutie$ | 17  | true | 5    |
 
-@Bug.Fail.5
+@Bug.Fail.8
 Scenario: Modify student and check the changes
 	When I modify the student with the following parameters
 		| id | name     | age | sex  | risk |
 		| 1  | Poor guy | 17  | true | 5    |
 	Then the student data with 1 id is modified correctly
 
+@Bug.Fail.9
 Scenario: Modify student multiple times and check the result
 	Given I have modified the student with the following parameters
 		| id | name         | age | sex  | risk |

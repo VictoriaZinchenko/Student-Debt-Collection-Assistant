@@ -8,7 +8,7 @@ Scenario: Add appointment and check it presence in the list
 		| 1, 2         | 1      | 2020-12-09T14:30:00.000000+02:00 |
 	Then I can see the created appointment in the list
 
-#BUG?
+@Bug.Fail.13 @Bug.Fail.3
 Scenario Outline: Try to add appointment with invalid parameter
 	When I try to add an appointment with invalid parameter
 		| Parameter       | Value             |
@@ -36,6 +36,7 @@ Scenario: Get appointment by id
 	Then the appointment data is saved correctly
 	And I check again that the appointment data is saved correctly
 
+@Bug.Fail.11
 Scenario:  Delete appointment and check its absence
 	Given I have added an appointment with the following parameters
 		| collectorIds | debtId | appointmentDate                  |

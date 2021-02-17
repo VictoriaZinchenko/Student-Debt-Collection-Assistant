@@ -14,7 +14,7 @@ Scenario: Get collector by id
 	Then the collector data is saved correctly
 	And I check again that the collector data is saved correctly
 
-#BUG?
+@Bug.Fail.2 @Bug.Fail.14
 Scenario Outline: Try to add collector with invalid parameter
 	When I try to add a collector with invalid parameter
 		| Parameter  | Value        |
@@ -29,7 +29,6 @@ Scenario Outline: Try to add collector with invalid parameter
 		| Angry guy  | -1           |
 		|            | 1            |
 		| Angry guy  |              |
-		|            | 5            |
 		| Angry guy# | 1            |
 
 @Bug.Fail.4
