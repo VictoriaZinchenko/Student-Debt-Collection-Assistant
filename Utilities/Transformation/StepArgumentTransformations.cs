@@ -52,7 +52,7 @@ namespace SdcaFramework.Utilities
             return table.Rows.Select(row => new AppointmentCreator
             {
                 appointmentDate = row["appointmentDate"],
-                collectorIds = row["collectorIds"] == "last" ? new List<int> { new CollectorSteps().LastCollectorId } :
+                collectorIds = row["collectorIds"].Equals("last") ? new List<int> { new CollectorSteps().LastCollectorId } :
                 GetListOfIds(row["collectorIds"]),
                 debtId = GetNeededId(row["debtId"], new DebtSteps().LastDebtId),
             }).FirstOrDefault();
@@ -123,7 +123,7 @@ namespace SdcaFramework.Utilities
         private List<int> GetListOfIds(string row)
             => row.Replace(", ", ",").Split(',').ToList().Select(id => int.Parse(id)).ToList();
 
-        private int GetNeededId(string row, int lastId) => row == "last" ? lastId : int.Parse(row);
+        private int GetNeededId(string row, int lastId) => row.Equals("last") ? lastId : int.Parse(row);
 
         private object TryParseStringContent(string value)
         {
