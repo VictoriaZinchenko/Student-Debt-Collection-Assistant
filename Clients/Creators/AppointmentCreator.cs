@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SdcaFramework.Clients.Creators
 {
@@ -8,6 +9,6 @@ namespace SdcaFramework.Clients.Creators
 
         public List<int> collectorIds { get; set; }
 
-        public string appointmentDate { get; set; }
+        public DateTime appointmentDate { get; set; }
     }
 }

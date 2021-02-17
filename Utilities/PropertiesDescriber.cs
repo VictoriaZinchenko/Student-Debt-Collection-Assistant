@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace SdcaFramework.Utilities
@@ -24,8 +25,19 @@ namespace SdcaFramework.Utilities
             string result = "\nProperties: ";
             foreach (PropertyInfo property in targetObject.GetType().GetProperties())
             {
+                result += $"\n{property.Name}: ";
                 var neededProperty = property.GetValue(targetObject);
-                result += $"\n{property.Name} - {neededProperty}. ";
+                if (property.PropertyType.IsGenericType)
+                {
+                    foreach (var listItem in neededProperty as IEnumerable)
+                    {
+                        result += $"\n{listItem}";
+                    }
+                }
+                else
+                {
+                    result += $" {neededProperty}. ";
+                }
             }
             return result;
         }
