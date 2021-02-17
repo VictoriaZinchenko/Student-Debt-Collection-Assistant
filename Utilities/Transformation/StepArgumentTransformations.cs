@@ -130,12 +130,14 @@ namespace SdcaFramework.Utilities
             int intValue;
             double doubleValue;
             DateTime dateTimeValue;
+            bool boolValue;
             return value switch
             {
                 string _ when string.IsNullOrEmpty(value) => string.Empty,
                 string _ when int.TryParse(value, out intValue) => intValue,
                 string _ when double.TryParse(value, out doubleValue) => doubleValue,
                 string _ when DateTime.TryParse(value, out dateTimeValue) => dateTimeValue,
+                string _ when bool.TryParse(value, out boolValue) => boolValue,
                 _ => value
             };
         }
