@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace SdcaFramework.Utilities
@@ -29,10 +30,8 @@ namespace SdcaFramework.Utilities
                 var neededProperty = property.GetValue(targetObject);
                 if (property.PropertyType.IsGenericType)
                 {
-                    foreach (var listItem in neededProperty as IEnumerable)
-                    {
-                        result += $"\n{listItem}";
-                    }
+                    (neededProperty as IEnumerable).Cast<object>().ToList()
+                        .ForEach(listItem => result += $"\n{listItem}");
                 }
                 else
                 {
