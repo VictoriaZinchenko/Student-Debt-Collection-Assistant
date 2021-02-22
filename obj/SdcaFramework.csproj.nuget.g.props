@@ -33,8 +33,8 @@
     </None>
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)specflow.tools.msbuild.generation\3.4.14\build\SpecFlow.Tools.MsBuild.Generation.props" Condition="Exists('$(NuGetPackageRoot)specflow.tools.msbuild.generation\3.4.14\build\SpecFlow.Tools.MsBuild.Generation.props')" />
-    <Import Project="$(NuGetPackageRoot)specflow.mstest\3.4.14\build\SpecFlow.MsTest.props" Condition="Exists('$(NuGetPackageRoot)specflow.mstest\3.4.14\build\SpecFlow.MsTest.props')" />
+    <Import Project="$(NuGetPackageRoot)specflow.tools.msbuild.generation\3.7.13\build\SpecFlow.Tools.MsBuild.Generation.props" Condition="Exists('$(NuGetPackageRoot)specflow.tools.msbuild.generation\3.7.13\build\SpecFlow.Tools.MsBuild.Generation.props')" />
+    <Import Project="$(NuGetPackageRoot)specflow.mstest\3.7.13\build\SpecFlow.MsTest.props" Condition="Exists('$(NuGetPackageRoot)specflow.mstest\3.7.13\build\SpecFlow.MsTest.props')" />
     <Import Project="$(NuGetPackageRoot)nunit\3.12.0\build\NUnit.props" Condition="Exists('$(NuGetPackageRoot)nunit\3.12.0\build\NUnit.props')" />
     <Import Project="$(NuGetPackageRoot)mstest.testadapter\2.1.0\build\netcoreapp1.0\MSTest.TestAdapter.props" Condition="Exists('$(NuGetPackageRoot)mstest.testadapter\2.1.0\build\netcoreapp1.0\MSTest.TestAdapter.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\Microsoft.TestPlatform.TestHost.props" Condition="Exists('$(NuGetPackageRoot)microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\Microsoft.TestPlatform.TestHost.props')" />
@@ -42,8 +42,9 @@
     <Import Project="$(NuGetPackageRoot)microsoft.net.test.sdk\16.5.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.test.sdk\16.5.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgBoDi Condition=" '$(PkgBoDi)' == '' ">C:\Users\Vika Zinchenko\.nuget\packages\bodi\1.4.1</PkgBoDi>
-    <PkgNLog_Config Condition=" '$(PkgNLog_Config)' == '' ">C:\Users\Vika Zinchenko\.nuget\packages\nlog.config\4.7.6</PkgNLog_Config>
     <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Program Files\dotnet\sdk\NuGetFallbackFolder\newtonsoft.json\9.0.1</PkgNewtonsoft_Json>
+    <PkgBoDi Condition=" '$(PkgBoDi)' == '' ">C:\Users\Vika Zinchenko\.nuget\packages\bodi\1.5.0</PkgBoDi>
+    <PkgNUnit_ConsoleRunner Condition=" '$(PkgNUnit_ConsoleRunner)' == '' ">C:\Users\Vika Zinchenko\.nuget\packages\nunit.consolerunner\3.12.0</PkgNUnit_ConsoleRunner>
+    <PkgNLog_Config Condition=" '$(PkgNLog_Config)' == '' ">C:\Users\Vika Zinchenko\.nuget\packages\nlog.config\4.7.6</PkgNLog_Config>
   </PropertyGroup>
 </Project>

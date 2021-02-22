@@ -44,7 +44,7 @@ namespace SdcaFramework.ClientSteps
            => ExecuteRequest(Method.POST, 0, objectData).StatusCode;
 
         protected HttpStatusCode GetHttpStatusCodeForInvalidPostAction(Dictionary<string, object> parameters)
-            => ExecuteRequest(Method.POST, 0, DynamicMethods.DictionaryToObject(parameters)).StatusCode;
+            => ExecuteRequest(Method.POST, 0, UtilityMethods.DictionaryToObject(parameters)).StatusCode;
 
         private IRestResponse ExecuteRequest(Method method, HttpStatusCode expectedStatusCode, object body = null, string objectId = "")
         {
